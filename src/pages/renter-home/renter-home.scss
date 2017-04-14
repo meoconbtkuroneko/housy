@@ -1,0 +1,63 @@
+page-renter-home {
+  ion-scroll {
+    .container-card {
+      width: $housy-card-width;
+      margin: $housy-container-card-margin;
+    }
+    .container-card:first-of-type {
+      margin-left: $housy-container-card-margin-left;
+    }
+    .container-card:last-of-type {
+      margin-right: $housy-container-card-margin-left;
+    }
+  }
+  .container-title {
+    font-size: $housy-font-size-title;
+    font-weight: $housy-font-weight;
+    letter-spacing: $housy-letter-spacing;
+    .icon {
+      color: $housy-color-red-orange;
+    }
+    .see-all {
+      font-size: $housy-font-size-small;
+    }
+    button {
+      padding-bottom: 6px;
+      letter-spacing: $housy-letter-spacing;
+    }
+  }
+  .recent-search-container {
+    ion-card {
+      height: $housy-recent-search-height;
+      color: $housy-color-card-icon;
+      letter-spacing: $housy-letter-spacing;
+      text-align: center;
+      font-size: $housy-font-size-title;
+      div {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .content-info {
+        white-space: normal;
+        line-height: $housy-line-height-wide;
+        max-width: 92%;
+        margin-left: -2%;
+      }
+    }
+  }
+  .recent-search-container:nth-child(1n) ion-card {
+    background: $housy-color-light-aqua;
+  }
+  .recent-search-container:nth-child(2n) ion-card {
+    background: $housy-color-dark-aqua;
+  }
+  .recent-search-container:nth-child(3n) ion-card {
+    background: $housy-color-dark-cyan;
+  }
+  .recent-search-container:nth-child(4n) ion-card {
+    background: $housy-color-cyan;
+  }
+  .recent-search-container:nth-child(5n) ion-card {
+    background: $housy-color-very-dark-aqua;
+  }
+}

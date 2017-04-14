@@ -1,0 +1,12 @@
+{
+  "name": "Housy Renter V2",
+  "app_id": "64f3276f",
+  "v2": true,
+  "typescript": true,
+  "proxies": [
+    {
+      "path": "/api",
+      "proxyUrl": "http://dev.housy.vn/api/v1"
+    }
+  ]
+}

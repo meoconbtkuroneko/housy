@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>
+            Quản lý
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="login-page more-page host-profile">
+    <div *ngIf="USER?.logined">
+        <div class="overlay"></div>
+        <div class="top-users">
+            <div class="container-info" padding>
+                <div text-center padding (click)="openProfile()">
+                    <image-lazy [type]="'user'" class="avatar" [imgSrc]="USER?.userInfo?.picture"></image-lazy>
+                </div>
+                <div class="name" padding-horizontal>
+                    <div>Xin chào, </div>
+                    <div text-capitalize>{{USER?.userInfo?.name}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="container-button" padding>
+            <button ion-button text-capitalize full clear margin-bottom (click)="openAccount()">Tài khoản</button>
+            <button ion-button text-capitalize full clear margin-bottom (click)="openSetting()">Cài đặt</button>
+            <button ion-button text-capitalize full clear margin-bottom>Chuyển sang chủ nhà</button>
+        </div>
+    </div>
+    <not-login *ngIf="!USER?.logined" [showNow]="showNow"></not-login>
+</ion-content>

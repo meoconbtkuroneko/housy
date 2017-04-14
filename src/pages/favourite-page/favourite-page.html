@@ -1,0 +1,23 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Yêu thích</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="part-header">
+        <div class="title">
+            <span>Danh sách nhà yêu thích</span>
+        </div>
+        <div class="line"></div>
+    </div>
+    <div *ngIf="USER.logined" class="vertical-list">
+        <div class="count-total" padding-left padding-vertical>Bạn đã thích {{totalItem || 0 }} căn nhà</div>
+        <div class="container-card" *ngFor="let item of listHouses" padding-horizontal padding-bottom>
+            <image-card *ngIf="item" [cardData]="item.data"></image-card>
+        </div>
+        <ion-infinite-scroll *ngIf="currentPage < totalPage" (ionInfinite)="doLoadMore($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+    <not-login *ngIf="!USER?.logined" [showNow]="showNow"></not-login>
+</ion-content>

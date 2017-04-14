@@ -1,0 +1,29 @@
+image-lazy {
+  ion-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  div.loading img {
+    min-height: 245px;
+  }
+}
+
+image-lazy.avatar {
+  ion-spinner {
+    display: none;
+  }
+  div {
+    position: relative;
+    border-radius: 50%;
+    background-size: contain;
+  }
+  div.loading img {
+    min-height: unset;
+  }
+}

@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-navbar>
+        <button-close-modal (click)="closeModal()"></button-close-modal>
+    </ion-navbar>
+</ion-header>
+<ion-content class="item-modal housy-modal">
+    <div class="title" padding>Cài đặt</div>
+    <div class="line-short" margin-bottom margin-left></div>
+    <div class="container">
+        <button ion-item clear full detail-none>
+            <ion-label>Bật chức năng nhận thông báo</ion-label>
+            <ion-toggle [(ngModel)]="currentSetting.push_notification" checked="{{currentSetting.push_notification}}"></ion-toggle>
+        </button>
+        <button ion-item clear full detail-none>
+            <ion-label>Nhận email từ Housy</ion-label>
+            <ion-toggle [(ngModel)]="currentSetting.notification_email" checked="{{currentSetting.notification_email}}"></ion-toggle>
+        </button>
+        <button ion-item clear full detail-none>
+            <ion-label>Cập nhật thông tin khuyến mãi</ion-label>
+            <ion-toggle [(ngModel)]="currentSetting.promotion_email" checked="{{currentSetting.promotion_email}}"></ion-toggle>
+        </button>
+        <button ion-item clear full detail-none (click)="clearHistories()">
+            <ion-label>Xóa lịch sử tìm kiếm</ion-label>
+            <ion-icon name="trash" item-right></ion-icon>
+        </button>
+    </div>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar>
+    </ion-navbar>
+</ion-header>
+<ion-content class="home-detail">
+    <div *ngIf="showData">
+        <image-slider *ngIf="showData.neighborhood_images" [sliderData]="showData.neighborhood_images" [type]="'neighborhood'" [moreInfo]="showData"></image-slider>
+        <part-count [showData]="showData"></part-count>
+        <div padding>
+            <ion-row class="general-info">
+                <ion-col>
+                    <img class="housy-icon center" src="../../assets/sd/area.png">
+                    <div class="info">{{showData.acreage}} m<sup>2</sup></div>
+                </ion-col>
+            </ion-row>
+        </div>
+        <part-description [showData]="showData"></part-description>
+        <part-location [showData]="showData"></part-location>
+        <part-utilities [showData]="showData" [type]="'neighborhood'"></part-utilities>
+        <part-horizontal-card [title]="'Các nhà thuộc khu dân cư'" [listHouses]="listHouses"></part-horizontal-card>
+    </div>
+</ion-content>

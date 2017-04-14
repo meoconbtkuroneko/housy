@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar>
+    </ion-navbar>
+</ion-header>
+<ion-content class="home-detail">
+    <div *ngIf="showData">
+        <div class="top-users">
+            <div class="overlay" padding [ngStyle]="{'background': '#158 url('+ fullUrlPicture +') no-repeat center center' }"></div>
+            <div class="container-info" padding>
+                <div text-center padding>
+                    <image-lazy [type]="'user'" class="avatar" [imgSrc]="showData.picture"></image-lazy>
+                </div>
+                <div padding-top></div>
+                <div class="name" padding>
+                    <div>Xin chào, Tôi là</div>
+                    <div text-capitalize>{{showData.name}}</div>
+                </div>
+                <div class="role" text-uppercase>{{typeRole[showData.role].description}}</div>
+            </div>
+        </div>
+        <div padding-horizontal padding-top>
+            <ion-row>
+                <ion-col no-padding>
+                    <ion-note>Thành viên từ</ion-note>
+                </ion-col>
+                <ion-col no-padding>
+                    <div class="info">12 tháng 12 năm 2012</div>
+                </ion-col>
+            </ion-row>
+        </div>
+        <part-description [showData]="showData"></part-description>
+        <part-horizontal-card [title]="'Các nhà thuộc tài khoản'" [listHouses]="listHouses"></part-horizontal-card>
+    </div>
+</ion-content>

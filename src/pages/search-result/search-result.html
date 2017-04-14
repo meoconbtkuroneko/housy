@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons end>
+            <button ion-button class="icon-navbar" clear (click)="openMap()">
+                <ion-icon name="map"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="part-header">
+        <div class="title">
+            <span>Kết quả tìm kiếm</span>
+        </div>
+        <div class="line"></div>
+    </div>
+    <div class="count-total" padding-left padding-vertical>Khám phá {{totalItem || 0 }} căn nhà</div>
+    <div *ngIf="listHouses?.length > 0">
+        <div class="container-card" *ngFor="let item of listHouses" padding-horizontal padding-bottom>
+            <image-card *ngIf="item" [cardData]="item.data"></image-card>
+        </div>
+    </div>
+    <ion-infinite-scroll *ngIf="currentPage < totalPage" (ionInfinite)="doLoadMore($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

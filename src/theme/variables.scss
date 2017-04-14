@@ -1,0 +1,268 @@
+// Ionic Variables and Theming. For more info, please see:
+// http://ionicframework.com/docs/v2/theming/
+$font-path: "../assets/fonts";
+@import "ionic.globals";
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+// Named Color Variables
+// --------------------------------------------------
+// Named colors makes it easy to reuse colors on various components.
+// It's highly recommended to change the default colors
+// to match your app's branding. Ionic uses a Sass map of
+// colors so you can add, rename and remove colors as needed.
+// The "primary" color is the only required color in the map.
+// $colors: (
+//   primary:    #387ef5,
+//   secondary:  #32db64,
+//   danger:     #f53d3d,
+//   light:      #f4f4f4,
+//   dark:       #222
+// );
+$colors: ( primary: #f43ba2, secondary: #32db64, danger: #f53d3d, light: #f4f4f4, dark: #222);
+// App iOS Variables
+// --------------------------------------------------
+// iOS only Sass variables can go here
+// App Material Design Variables
+// --------------------------------------------------
+// Material Design only Sass variables can go here
+// App Windows Variables
+// --------------------------------------------------
+// Windows only Sass variables can go here
+// App Theme
+// --------------------------------------------------
+// Ionic apps can have different themes applied, which can
+// then be future customized. This import comes last
+// so that the above variables are used and Ionic's
+// default are overridden.
+@import "ionic.theme.default";
+// Ionicons
+// --------------------------------------------------
+// The premium icon font for Ionic. For more info, please see:
+// http://ionicframework.com/docs/v2/ionicons/
+@import "ionic.ionicons";
+// Fonts
+// --------------------------------------------------
+@import "roboto";
+@import "noto-sans";
+$font-size-base: 15px;
+// card padding
+$housy-card-padding-top: 5px;
+$housy-card-padding-left: 10px;
+$card-md-padding-top: $housy-card-padding-top;
+$card-md-padding-bottom: $housy-card-padding-top;
+$card-md-padding-right: $housy-card-padding-left;
+$card-md-padding-left: $housy-card-padding-left;
+$card-ios-padding-top: $housy-card-padding-top;
+$card-ios-padding-bottom: $housy-card-padding-top;
+$card-ios-padding-right: $housy-card-padding-left;
+$card-ios-padding-left: $housy-card-padding-left;
+// ion-note
+$housy-color-note: #999;
+$note-ios-color: $housy-color-note;
+$note-md-color:$housy-color-note;
+// card margin
+$housy-card-margin-top: 0;
+$housy-card-margin-bottom: 0;
+$housy-card-margin-left: 0;
+$housy-card-z-index: 5555;
+$card-md-margin-top: $housy-card-margin-top;
+$card-md-margin-bottom: $housy-card-margin-bottom;
+$card-md-margin-right: $housy-card-margin-left;
+$card-md-margin-left: $housy-card-margin-left;
+$card-ios-margin-top: $housy-card-margin-top;
+$card-ios-margin-bottom: $housy-card-margin-bottom;
+$card-ios-margin-right: $housy-card-margin-left;
+$card-ios-margin-left: $housy-card-margin-left;
+// color
+$housy-color-title: #565a5c;
+$housy-color-housy: #f43ba2;
+$housy-color-diasble: #aaa;
+$housy-color-gold: #FF9800;
+$housy-color-bookmark: #FF4081;
+$housy-color-cyan: #0a9dc7;
+$housy-color-dark-cyan: #006e8e;
+$housy-color-info: #697684;
+$housy-color-gray: #acacac;
+$housy-color-light-gray: rgba(105, 118, 132, 0.6);
+$housy-color-light-aqua: #00a699;
+$housy-color-dark-aqua: #007a87;
+$housy-color-very-dark-aqua: #02545d;
+$housy-color-red-orange: #ff5a5f;
+$housy-color-yellow-orange: #ffb400;
+$housy-color-yellow: #ffe700;
+$housy-color-blue: #76a7fa;
+$housy-color-part-header: #484848;
+$housy-color-background: rgba(0, 0, 0, 0.6);
+$housy-color-background-light: rgba(0, 0, 0, 0.2);
+$housy-color-white: #fff;
+$housy-color-card-icon: $housy-color-white;
+$housy-color-dark: #111;
+$housy-color-line: #ddd;
+$housy-color-facebook: #3b5998;
+$housy-color-google: #ea4335;
+$housy-color-mask: rgba(0, 0, 0, 0.3);
+$housy-color-border: #efefef;
+$housy-color-mask-lighter: rgba(195, 193, 193, 0.3);
+// housy
+$housy-letter-spacing: 1px;
+$housy-font-weight: 400;
+$housy-font-weight-bold: 700;
+$housy-full-width: 100%;
+$housy-line: 1px solid $housy-color-line;
+$housy-line-height-wide: 1.5em;
+$housy-line-height-short: 1.2em;
+$housy-padding: 5%;
+$housy-padding-small: 3%;
+$housy-transition-time: 0.25s;
+$housy-content-height-without-top: calc(100% - 56px);
+// font-size
+$housy-font-size-title: 1.2em;
+$housy-font-size-small: 0.7em;
+// icon
+$housy-icon-font-size:2.5em;
+$housy-icon-navbar-font-size:1.8em;
+$housy-icon-font-size-small:1.2em;
+$housy-icon-color-primary: $housy-color-housy;
+$housy-icon-color-secondary:$housy-color-gold;
+// link
+$housy-link-color: $housy-color-cyan;
+// part-header
+$housy-part-header-margin: 20px;
+$housy-part-header-title-padding: 5%;
+$housy-part-header-title-font-size: 23px;
+// count-result
+$housy-count-result-font-size: 20px;
+// ultilities
+$housy-ultilities-margin: $housy-part-header-title-padding;
+$housy-ultilities-width: 30%;
+// avatar-frame
+$housy-avatar-frame-width: 50px;
+// favourite-tag
+$housy-favourite-tag-font-size: 35px;
+$housy-favourite-tag-color: $housy-color-card-icon;
+$housy-favourite-tag-background: transparent;
+// verfify-tag
+$housy-verfify-tag-font-size: 13px;
+$housy-verfify-tag-color: $housy-color-card-icon;
+$housy-verfify-tag-background: $housy-color-housy;
+$housy-verfify-tag-width: 200px;
+// price-tag
+$housy-price-tag-font-size: 20px;
+$housy-price-tag-color: $housy-color-card-icon;
+$housy-price-tag-background: $housy-color-background;
+$housy-price-tag-min-width: 50px;
+$housy-price-tag-padding: 6px;
+// page-tag
+$housy-page-tag-font-size: 1em;
+$housy-page-tag-color: $housy-color-card-icon;
+$housy-page-tag-background: $housy-color-background;
+$housy-page-tag-padding: 6px;
+$housy-discount-color: $housy-color-gold;
+// image-card
+$housy-recent-search-height: 220px;
+$housy-card-width: 90%;
+$housy-card-height: 240px;
+$housy-container-card-margin: 1%;
+$housy-container-card-margin-top: 2%;
+$housy-container-card-margin-left: $housy-padding;
+$container-title-padding: 1%;
+$vertical-list-card-padding-top: 3%;
+// gallery
+$housy-gallery-color: $housy-color-card-icon;
+$housy-gallery-background: $housy-color-dark;
+$housy-gallery-icon-font-size: 2.5em;
+$housy-gallery-icon-padding: 7%;
+$housy-gallery-page-tag-padding: 3%;
+// image-only-card: cac phan trong detail nhu ban do va khu dan cu, chung cu
+$housy-image-only-card-color: $housy-color-card-icon;
+$housy-image-only-card-background: $housy-color-background;
+$housy-image-only-card-font-size: 2.5em;
+$housy-image-only-card-padding: 2%;
+$housy-image-only-card-page-tag-padding: 3%;
+// image-card-small
+$housy-image-card-small-color: $housy-color-card-icon;
+$housy-image-card-small-background: $housy-color-background-light;
+$housy-image-card-small-font-size: $housy-font-size-title;
+$housy-image-card-small-padding: 2%;
+$housy-image-card-small-avatar-width: 30px;
+// use-card
+$housy-user-card-color: $housy-color-card-icon;
+$housy-user-card-background: $housy-color-background-light;
+$housy-user-card-font-size: $housy-font-size-title;
+$housy-user-card-padding: 2%;
+$housy-user-card-avatar-width: 120px;
+$housy-user-card-line: 3px solid $housy-color-housy;
+$housy-user-card-font-size: $housy-font-size-title;
+$housy-user-card-font-size-small: 1em;
+// host-profile
+$housy-host-profile-color: $housy-color-card-icon;
+$housy-host-profile-background: $housy-color-background-light;
+$housy-host-profile-border-width: 5px;
+$housy-host-profile-thin-border-width: 2px;
+$housy-host-profile-thin-border-color: rgba(255, 255, 255, 0.5);
+// title
+$housy-main-title-font-size: 2em;
+// $img-placeholder-background: "red";
+$img-placeholder-background: url(../assets/general/black-mamba.png);
+// login-page
+$housy-login-page-button-height: 4.5rem;
+$housy-login-page-button-height-small: 3.7rem;
+$housy-login-page-color: $housy-color-white;
+$housy-login-page-border-color: #ddd;
+// input 
+$text-input-highlight-color-valid: $housy-color-white;
+$text-input-highlight-color-invalid: $housy-color-yellow;
+$text-input-placeholder-color: #ddd;
+// Toast
+$housy-toast-width: 90%;
+$housy-toast-border-radius: .65rem;
+// loading
+$housy-loading-background: #111;
+$housy-loading-padding: 15px;
+$housy-loading-font-size: 1em;
+$housy-loading-color: $housy-color-white;
+$housy-loading-padding: 15px;
+$housy-loading-spinner-width: 3em;
+$housy-loading-spinner-margin: 1em;
+$housy-loading-spinner-color: $housy-color-housy;
+// register-page
+$housy-register-page-color: $housy-color-white;
+$housy-register-page-title-color: $housy-color-yellow;
+$housy-register-page-title-font-size: 1.8em;
+$housy-register-page-sub-title-font-size: 1.3em;
+// button-close-modal 
+$housy-button-close-modal-font-size: $housy-main-title-font-size;
+$housy-button-close-modal-color: #111;
+// rating-star
+$housy-rating-star-color-icon: $housy-color-gold;
+// more-page 
+$housy-more-page-avatar-width-small: 90px;
+$housy-more-page-color: $housy-color-white;
+$housy-more-page-button-font-size: $housy-font-size-title;
+$housy-more-page-button-height: 4.5rem;
+// line-short
+$housy-line-short-color: #dedede;
+$housy-line-short-width: 20%;
+$housy-line-short-height: 1px;
+// modal
+$housy-modal-icon-font-size: 2em;
+// show-direction
+$housy-show-direction-transition-time: $housy-transition-time;
+$housy-show-direction-border-color: #ddd;
+$housy-show-direction-border-width: 1px;
+$housy-show-direction-box-shadow: $housy-show-direction-border-width $housy-show-direction-border-width $housy-show-direction-border-width $housy-show-direction-border-color;
+// nearby-search
+$housy-nearby-search-transition-time: $housy-transition-time;
+$housy-nearby-search-border-color: $housy-show-direction-border-color;
+$housy-nearby-search-border-width: $housy-show-direction-border-width;
+$housy-nearby-search-box-shadow: $housy-show-direction-box-shadow;
+// location-detail-page
+$housy-location-detail-page-card-padding: 5px;
+$housy-location-detail-page-card-font-size-small: 0.95em;
+$housy-location-detail-page-card-bottom: 12%;
+// review-card
+$housy-review-card-margin: 15px;

@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar>
+        <button-close-modal (click)="closeModal()"></button-close-modal>
+    </ion-navbar>
+</ion-header>
+<ion-content class="item-modal housy-modal">
+    <div class="title" padding>Tài khoản</div>
+    <div class="line-short" margin-bottom margin-left></div>
+    <div class="container">
+        <button ion-item clear full detail-none (click)="openProfile()">
+            <ion-label>Thông tin cá nhân</ion-label>
+            <ion-icon name="person" item-right></ion-icon>
+        </button>
+        <button ion-item clear full detail-none (click)="openTransactions()">
+            <ion-label>Giao dịch</ion-label>
+            <ion-icon name="md-swap" item-right></ion-icon>
+        </button>
+        <button ion-item clear full detail-none (click)="openComments()">
+            <ion-label>Nhận xét từ người thuê</ion-label>
+            <ion-icon name="chatbubbles" item-right></ion-icon>
+        </button>
+        <button ion-item clear full detail-none (click)="getDiscount()">
+            <ion-label>Nhận chiết khấu</ion-label>
+            <ion-icon name="md-cash" item-right></ion-icon>
+        </button>
+        <button ion-item clear full detail-none (click)="logout()">
+            <ion-label>Đăng xuất</ion-label>
+            <ion-icon name="log-out" item-right></ion-icon>
+        </button>
+    </div>
+</ion-content>

@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar>
+    </ion-navbar>
+</ion-header>
+<ion-content class="home-detail">
+    <div *ngIf="showData">
+        <image-slider *ngIf="showData.apartment_images" [sliderData]="showData.apartment_images" [type]="'apartment'" [moreInfo]="showData"></image-slider>
+        <part-count [showData]="showData"></part-count>
+        <div padding>
+            <ion-row class="general-info">
+                <ion-col>
+                    <img class="housy-icon center" src="../../assets/sd/house.png">
+                    <div class="info">{{showData.number_of_rentings}} căn hộ</div>
+                </ion-col>
+                <ion-col>
+                    <img class="housy-icon center" src="../../assets/sd/apartment.png">
+                    <div class="info">{{showData.number_of_blocks}} tòa nhà</div>
+                </ion-col>
+                <ion-col>
+                    <img class="housy-icon center" src="../../assets/sd/area.png">
+                    <div class="info">{{showData.area}} m<sup>2</sup></div>
+                </ion-col>
+            </ion-row>
+        </div>
+        <part-description [showData]="showData"></part-description>
+        <part-location [showData]="showData"></part-location>
+        <part-neighborhood [showData]="showData"></part-neighborhood>
+        <part-utilities [showData]="showData"></part-utilities>
+    </div>
+    <ion-row padding-horizontal padding-top margin-bottom class="container-count-total">
+        <ion-col class="count-total" align-self-center no-padding padding-bottom>
+            Nhận xét: {{totalItem || 0}} nhận xét
+        </ion-col>
+    </ion-row>
+    <review-card *ngFor="let review of reviewContents" [reviewData]="review" [options]="{SHORT_PASSAGE : true}" [apartmentInfo]="apartment">
+    </review-card>
+    <ion-infinite-scroll *ngIf="currentPage < totalPage" (ionInfinite)="doLoadMore($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+</ion-content>

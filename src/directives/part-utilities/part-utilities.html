@@ -1,0 +1,9 @@
+<div padding *ngIf="utilities && showData.utilities">
+    <div class="title">Tiện ích</div>
+    <ion-row wrap>
+        <ion-col text-center width-33 *ngFor="let item of utilities" [ngClass]="exists(item.id) ? 'utilities-able':'utilities-disable'">
+            <img class="housy-icon" src="{{item.src}}">
+            <div> {{item.name_utilities}}</div>
+        </ion-col>
+    </ion-row>
+</div>

@@ -1,0 +1,8 @@
+<div padding class="similar-houses" *ngIf="listHouses">
+    <div class="title">{{title}}</div>
+    <ion-scroll class="horizontal-scroll small-card" scrollX="true">
+        <div class="container-card" *ngFor="let item of listHouses">
+            <image-card-small *ngIf="item.data" [cardData]="item.data"></image-card-small>
+        </div>
+    </ion-scroll>
+</div>

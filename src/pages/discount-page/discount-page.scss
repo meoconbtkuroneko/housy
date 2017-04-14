@@ -1,0 +1,17 @@
+discount-page {
+  .container-item {
+    .content,
+    .address,
+    .discount-status {
+      line-height: $housy-line-height-wide;
+      white-space: normal;
+    }
+    .address,
+    .discount-status {
+      font-size: 0.9em;
+    }
+    .discount {
+      padding: 0;
+    }
+  }
+}

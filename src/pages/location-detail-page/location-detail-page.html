@@ -1,0 +1,37 @@
+<ion-header [hidden]="hideNavBar">
+    <ion-navbar>
+        <ion-buttons end>
+            <button ion-button clear (click)="doShowDirection($event)">
+                <ion-icon name="navigate"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content class="home-detail">
+    <div class="container-map" id="{{mapContainerId}}">
+        <basic-map [center]="center" [zoom]="12" (currentMap)="getMap($event)" [ngClass]="{'scale-short': showNearby}">
+        </basic-map>
+        <housy-marker [map]="currentMap" [position]="center" [moreInfo]="params"></housy-marker>
+        <housy-marker [map]="currentMap" [position]="currentLocation" [label]="'Vị trí hiện tại'"></housy-marker>
+    </div>
+    <nearby-search #nearbySearch [hidden]="showDirection" [map]="currentMap"></nearby-search>
+    <show-direction [hidden]="!showDirection" [ngClass]="{'half-full': fullLevel===1}" [map]="currentMap" [toLocation]="center" [showDirection]="showDirection"></show-direction>
+    <ion-row class="container-more-card" [hidden]="showDirection || type=='neighborhood'">
+        <ion-col width-33 *ngIf="showData?.apartment?.id">
+            <ion-card (click)="openDetail('apartment')">
+                <div class="overlay"></div>
+                <image-lazy [type]="'apartment'" [imgSrc]="showData?.apartment?.image_default"></image-lazy>
+                <div class="card-subtitle">Chung cư</div>
+                <div class="card-title">{{showData?.apartment?.name}}</div>
+            </ion-card>
+        </ion-col>
+        <ion-col width-33 *ngIf="showData?.neighborhood?.id">
+            <ion-card (click)="openDetail('neighborhood')">
+                <div class="overlay"></div>
+                <image-lazy [type]="'neighborhood'" [imgSrc]="showData?.neighborhood?.image_default"></image-lazy>
+                <div class="card-subtitle">Khu dân cư</div>
+                <div class="card-title">{{showData?.neighborhood?.name}}</div>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+</ion-content>

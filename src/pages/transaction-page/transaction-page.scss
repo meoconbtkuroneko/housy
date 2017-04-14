@@ -1,0 +1,27 @@
+.content-modal {
+  .container-item {
+    letter-spacing: unset;
+    ion-avatar {
+      span,
+      .icon {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .icon {
+        font-size: $housy-modal-icon-font-size;
+        color: $housy-color-housy;
+      }
+    }
+    .content {
+      line-height: $housy-line-height-wide;
+      font-weight: $housy-font-weight-bold;
+    }
+    .datetime {
+      line-height: $housy-line-height-wide;
+      font-size: 0.9em;
+    }
+    .money {
+      line-height: $housy-line-height-wide;
+    }
+  }
+}

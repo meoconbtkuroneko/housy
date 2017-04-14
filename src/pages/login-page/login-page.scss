@@ -1,0 +1,113 @@
+.login-page {
+  background-image: url(../assets/general/bg.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    top: 0;
+    border-top: 0.1px solid transparent;
+    background-color: rgba(0, 0, 0, 1);
+  }
+  .container {
+    color: $housy-login-page-color;
+    position: relative;
+    top: 0;
+    margin-top: 10px;
+    button {
+      height: $housy-login-page-button-height;
+      font-weight: $housy-font-weight-bold;
+    }
+    #button-facebook {
+      background: $housy-color-facebook;
+    }
+    #button-google {
+      background: $housy-color-google;
+    }
+    ion-item,
+    ion-input,
+    ion-label {
+      color: $housy-login-page-color !important;
+      background: transparent !important;
+    }
+    ion-input {
+      // font-weight: $housy-font-weight-bold;
+      input {
+        letter-spacing: 1px;
+      }
+    }
+    .container-password {
+      position: relative;
+      ion-input {
+        margin-right: 50px;
+      }
+      .show-password {
+        color: #fff;
+        font-size: 1.2em;
+        position: absolute;
+        top: 40%;
+        -webkit-transform: translateY(-50%);
+        -moz-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        -o-transform: translateY(-50%);
+        transform: translateY(-50%);
+        right: 0;
+      }
+    }
+    .container-divider {
+      position: relative;
+      text-align: center;
+      margin-top: 13%;
+      margin-bottom: 5%;
+      letter-spacing: $housy-letter-spacing;
+    }
+    .container-divider:before,
+    .container-divider:after {
+      content: '';
+      width: 20%;
+      position: absolute;
+      border-bottom: 1px solid $housy-login-page-border-color;
+      top: 50%;
+    }
+    .container-divider:before {
+      left: 0;
+    }
+    .container-divider:after {
+      right: 0;
+    }
+    .message {
+      color: $housy-color-yellow;
+      font-weight: $housy-font-weight-bold;
+      font-style: italic;
+    }
+    .item-input.input-has-focus .item-inner {
+      border-color: $housy-login-page-color;
+      box-shadow: inset 0 -1px 0 0 $housy-login-page-color;
+    }
+  }
+  .scroll-content {
+    margin-bottom: 0 !important;
+  }
+  .container-button-more .button {
+    border: 1px solid $housy-login-page-border-color;
+    color: $housy-login-page-color;
+    font-size: 1em;
+    font-weight: $housy-font-weight;
+    letter-spacing: $housy-letter-spacing;
+    text-transform: capitalize;
+  }
+  @media all and (max-width: 320px) {
+    .container {
+      padding-top: 0 !important;
+      button {
+        height: $housy-login-page-button-height-small;
+      }
+      .container-button-more .button {
+        font-size: 0.9em;
+      }
+    }
+  }
+}

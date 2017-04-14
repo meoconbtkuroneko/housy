@@ -1,0 +1,51 @@
+<ion-header>
+    <ion-navbar>
+        <button-close-modal (click)="closeModal()"></button-close-modal>
+    </ion-navbar>
+</ion-header>
+<ion-content class="item-modal housy-modal">
+    <div class="title" padding>{{title}}</div>
+    <div class="sub-title" padding>{{subTitle}}</div>
+    <div class="line-short" margin-bottom margin-left></div>
+    <div class="container" padding-horizontal padding-top>
+        <form [formGroup]="loginForm">
+            <div>{{formErrors.feedback || formErrors.feedback_string || 'Vui long'}}</div>
+            <ion-list radio-group formControlName="feedback">
+                <ion-item detail-none *ngFor="let item of feedbacks">
+                    <ion-label>{{item?.name}}</ion-label>
+                    <ion-radio value="{{item.id}}"></ion-radio>
+                </ion-item>
+            </ion-list>
+            <ion-textarea disabled="{{isDisabled}}" formControlName='feedback_string' rows="3">{{feedback?.valStrings}}</ion-textarea>
+            <button (click)="login()" ion-button full margin-top disabled="{{!canSend}}">
+                Gửi
+            </button>
+        </form>
+    </div>
+</ion-content>
+<!-- <ion-header>
+    <ion-navbar>
+        <button-close-modal (click)="closeModal()"></button-close-modal>
+    </ion-navbar>
+</ion-header>
+<ion-content class="item-modal housy-modal">
+    <div class="title" padding>{{title}}</div>
+    <div class="sub-title" padding>{{subTitle}}</div>
+    <div class="line-short" margin-bottom margin-left></div>
+    <div class="container" padding>
+        <form [formGroup]="loginForm">
+            <div padding-bottom class="highlight-text" [ngClass]="{'blur-background': !highlightFeedback.reason}">{{highlightFeedback.reason}}</div>
+            <ion-list radio-group formControlName="feedback">
+                <ion-item detail-none *ngFor="let item of feedbacks">
+                    <ion-label>{{item.name}}</ion-label>
+                    <ion-radio value="{{item.id}}"></ion-radio>
+                </ion-item>
+            </ion-list>
+            <ion-textarea formControlName='feedbackString' [ngClass]="{'highlight-required': highlightFeedback.highlight}" ng-disabled="feedback.val != 0" rows="3" autofocus ng-model="feedback.valStrings">{{feedback.valStrings}}</ion-textarea>
+            <div>
+                <button ion-button full type="button" (click)="sendReport()">Gửi</button>
+            </div>
+        </form>
+    </div>
+</ion-content>
+ -->

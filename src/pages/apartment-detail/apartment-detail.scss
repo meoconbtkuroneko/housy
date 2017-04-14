@@ -1,0 +1,22 @@
+  apartment-detail {
+    .container-count-total {
+      position: relative;
+      .count-total {
+        border-bottom: 1px solid #ddd;
+      }
+      &::after {
+        content: '';
+        top: -$housy-review-card-margin;
+        left: 0;
+        position: absolute;
+        height: $housy-review-card-margin;
+        width: 100%;
+        background: $housy-color-mask-lighter;
+      }
+    }
+    ion-row + review-card .review-card {
+      &::after {
+        display: none;
+      }
+    }
+  }

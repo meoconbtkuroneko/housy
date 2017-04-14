@@ -1,0 +1,386 @@
+.home-detail {
+  $general-info-border: 0.5px solid #ccc;
+  .general-info {
+    text-align: center;
+    border-top: $general-info-border;
+    border-bottom: $general-info-border;
+    color: $housy-color-info;
+  }
+  .container-user {
+    font-size: 1em;
+    line-height: $housy-line-height-wide;
+    .item-inner {
+      border: 0 !important;
+    }
+  }
+  .container-description {
+    line-height: $housy-line-height-wide;
+  }
+  .title {
+    line-height: $housy-line-height-wide;
+    font-size: $housy-font-size-title;
+    text-align: left;
+    color: $housy-color-title;
+    width: 100%;
+    text-transform: capitalize;
+    margin-bottom: $housy-padding;
+  }
+  .main-title {
+    font-size: $housy-main-title-font-size;
+  }
+  .detail-info {
+    ion-col:first-of-type {
+      color: $housy-color-info;
+    }
+    ion-col:nth-child(2n) {
+      text-align: right;
+    }
+  }
+  .container-advances {
+    text-align: center;
+    button {
+      font-size: $housy-icon-font-size;
+      .icon {
+        padding: 10px;
+      }
+    }
+  }
+  .container-rule {
+    button {
+      height: unset;
+    }
+  }
+  /*******************Detail Screen*********************/
+  // .item {
+  // }
+  // .container-detail-slider {
+  //   position: relative;
+  //   height: 250px;
+  // }
+  // ion-list ion-item {
+  //   border: 0;
+  // }
+  // .title {
+  //   line-height: 1.5em;
+  //   font-size: 20px;
+  //   text-align: left;
+  //   color: #565a5c;
+  //   padding: 5px;
+  //   padding-left: 0;
+  //   width: 100%;
+  //   vertical-align: middle;
+  //   display: table;
+  //   text-transform: capitalize;
+  //   margin-top: 25px;
+  //   margin-bottom: 10px;
+  // }
+  // .title span {
+  //   display: table-cell;
+  //   vertical-align: middle;
+  //   line-height: 1.2em;
+  // }
+  // .detail-review {
+  //   font-size: 16px;
+  //   display: inline;
+  //   margin: 30px;
+  //   margin-left: 0;
+  // }
+  // .detail-review .icon {
+  //   font-size: 20px;
+  //   color: #FF9800;
+  // }
+  // .container-avatar {
+  //   margin: 8% 0;
+  //   position: relative;
+  //   width: 100%;
+  //   height: 70px;
+  //   padding: 10% 2%;
+  //   background: #f8f8f8;
+  // }
+  // .container-avatar .avatar-frame {
+  //   position: absolute;
+  //   right: 0;
+  //   top: 50%;
+  //   -webkit-transform: translateY(-50%);
+  //   -moz-transform: translateY(-50%);
+  //   -ms-transform: translateY(-50%);
+  //   -o-transform: translateY(-50%);
+  //   transform: translateY(-50%);
+  // }
+  // .container-avatar .avatar-frame,
+  // .container-avatar .avatar-frame img {
+  //   width: 60px;
+  //   height: 60px;
+  // }
+  // .container-avatar .host-name {
+  //   width: calc(100% - 70px);
+  //   overflow: hidden;
+  //   text-overflow: ellipsis;
+  //   white-space: nowrap;
+  //   top: 50%;
+  //   -webkit-transform: translateY(-50%);
+  //   -moz-transform: translateY(-50%);
+  //   -ms-transform: translateY(-50%);
+  //   -o-transform: translateY(-50%);
+  //   transform: translateY(-50%);
+  //   position: relative;
+  //   font-size: 0.9em;
+  // }
+  // .container-avatar .host-name .name {
+  //   color: #0a9dc7;
+  // }
+  // .container-avatar .host-name .name.activated {
+  //   color: #006f8e;
+  // }
+  // .verify-text {
+  //   padding-top: 5px;
+  // }
+  // .container-description {
+  //   white-space: pre-line;
+  //   margin-top: 3%;
+  //   padding: 0;
+  //   font-size: 1em;
+  //   line-height: 1.7em;
+  // }
+  // .header {
+  //   border: 0 !important;
+  //   padding-top: 0;
+  //   padding-bottom: 0;
+  //   margin-bottom: 25px;
+  // }
+  // .header .title {
+  //   margin-top: 0;
+  //   padding: 0;
+  //   width: calc(100%);
+  //   font-size: 25px;
+  //   font-weight: 700;
+  // }
+  // .statistic,
+  // .report-house {
+  //   display: inline-block;
+  // }
+  // .statistic {
+  //   width: 50%;
+  //   padding: 10px;
+  //   padding-left: 0;
+  //   padding-bottom: 0;
+  // }
+  // .report-house {
+  //   width: 50%;
+  //   text-align: right;
+  // }
+  // .report-house .icon {
+  //   font-size: 30px;
+  // }
+  // .general-info {
+  //   width: 100%;
+  //   display: table;
+  //   vertical-align: middle;
+  //   padding: 2%;
+  //   border-bottom: 1px solid #eee;
+  //   border-top: 1px solid #eee;
+  //   text-align: center;
+  // }
+  // .general-info > div {
+  //   max-width: 100px;
+  //   min-width: 50px;
+  //   display: table-cell;
+  //   vertical-align: middle;
+  //   text-align: center;
+  //   height: 100%;
+  // }
+  // .general-info .info {
+  //   font-size: 13px;
+  //   color: #697684;
+  // }
+  // .container-image {
+  //   position: relative;
+  //   width: 100%;
+  //   height: 200px;
+  // }
+  // .container-image div:first-child {
+  //   width: 100%;
+  //   height: 100%;
+  //   background-size: cover !important;
+  //   background-position: center !important;
+  // }
+  // .container-image .show-direction .md-fab {
+  //   position: absolute;
+  //   top: 0;
+  //   right: 0;
+  // }
+  // .container-image .material-icons {
+  //   vertical-align: middle;
+  //   font-size: 20px;
+  //   padding: 0;
+  // }
+  // .container-info-inside {
+  //   position: absolute;
+  //   text-align: center;
+  //   vertical-align: middle;
+  //   background: rgba(0, 0, 0, 0.5);
+  //   color: white;
+  //   bottom: 5px;
+  //   min-width: 40%;
+  //   max-width: 90%;
+  //   width: 90%;
+  //   right: 50%;
+  //   -webkit-transform: translateX(50%);
+  //   -moz-transform: translateX(50%);
+  //   -ms-transform: translateX(50%);
+  //   -o-transform: translateX(50%);
+  //   transform: translateX(50%);
+  //   padding: 5px;
+  //   font-size: 13px;
+  //   font-weight: bold;
+  //   line-height: 150%;
+  // }
+  // .detail-info .item {
+  //   border: 0;
+  //   padding: 7px;
+  //   padding-left: 0px;
+  //   padding-right: 0px;
+  //   font-size: 1em;
+  //   position: relative;
+  //   display: table;
+  //   width: 100%;
+  // }
+  // .detail-info .item span {
+  //   display: table-cell;
+  // }
+  // .detail-info .item span:last-child {
+  //   display: table-cell;
+  //   text-align: right;
+  // }
+  // .location img {
+  //   position: relative;
+  //   width: 100%;
+  //   height: 200px;
+  // }
+  // .container-icon {
+  //   display: table;
+  //   width: 100%;
+  // }
+  // .container-icon span {
+  //   width: 100%;
+  //   display: table-cell;
+  //   vertical-align: middle;
+  // }
+  // .container-icon span:first-child {
+  //   width: 50px;
+  //   padding-right: 30px;
+  // }
+  // .container-icon span:last-child {
+  //   height: 35px;
+  // }
+  // .container-icon span:last-child i {
+  //   padding-right: 30px;
+  // }
+  // .container-tabs {
+  //   min-height: 150px !important;
+  // }
+  // .ng-image-slider,
+  // ng-image-slider > div,
+  // ng-image-slider > div > div:last-child,
+  // ng-image-slider .slider,
+  // ng-image-slider ion-slide,
+  // ng-image-slider ion-slide img {
+  //   height: 100% !important;
+  //   max-height: none !important;
+  //   min-height: none !important;
+  // }
+  // .ng-image-slider .page-tag {
+  //   height: initial !important;
+  //   background: rgba(0, 0, 0, 0.3);
+  //   padding: 0 5px;
+  // }
+  // ion-footer-bar div {
+  //   text-align: center;
+  //   width: 100%;
+  //   height: 100%;
+  //   display: table;
+  // }
+  // ion-footer-bar div p {
+  //   display: table-cell;
+  //   vertical-align: middle;
+  // }
+  // .container-item {
+  //   margin: 2%;
+  // }
+  // .container-advances,
+  // .container-advances-more {
+  //   display: inline-block;
+  //   vertical-align: middle;
+  //   text-align: center;
+  //   margin-top: 2%;
+  // }
+  // .container-advances {
+  //   overflow: hidden;
+  //   width: 90%;
+  //   text-align: center;
+  // }
+  // .container-advances-more {
+  //   width: 25px;
+  //   height: 25px;
+  //   font-size: 25px;
+  //   padding: 0;
+  // }
+  // .container-advances-more .icon {
+  //   position: absolute;
+  //   left: 0;
+  //   width: 100%;
+  //   top: 50%;
+  //   transform: translateY(-50%);
+  //   color: #0a9dc7;
+  // }
+  // .container-housy-icon {
+  //   display: inline-block;
+  //   vertical-align: middle;
+  //   width: 20%;
+  //   padding-right: 20px;
+  // }
+  // .container-housy-icon .housy-icon {
+  //   width: 25px;
+  //   height: 25px;
+  //   vertical-align: middle;
+  // }
+  // .container-rule .item-rule {
+  //   font-size: 1em;
+  //   padding: 5%;
+  // }
+  // .container-more-rule {
+  //   font-size: 1em !important;
+  //   color: #0a9dc7;
+  //   width: 100px;
+  // }
+  // .similar-houses {
+  //   position: relative;
+  //   margin: 0;
+  //   padding: 0;
+  //   margin-bottom: 3%;
+  // }
+  // .similar-houses .title {
+  //   padding-top: 0;
+  //   margin: 0;
+  //   margin-bottom: 3%;
+  //   padding-left: calc(16px);
+  //   padding-right: calc(16px);
+  // }
+  // .similar-houses .container-card {
+  //   display: inline-block;
+  //   vertical-align: top;
+  //   width: 48%;
+  //   margin: 1%;
+  // }
+  // @media all and (max-width: 320px) {
+  //   .container-detail-slider {
+  //     height: 170px;
+  //   }
+  //   .header .title {
+  //     font-size: 21px;
+  //   }
+  //   .container-image {
+  //     height: 170px;
+  //   }
+  // }
+}

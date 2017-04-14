@@ -1,0 +1,8 @@
+report-page {
+  ion-textarea {
+    border: 3px solid red;
+    textarea[disabled] {
+      background: green;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+<div padding *ngIf="showData.neighborhood" class="neighborhood" (click)="openDetail()">
+    <div class="title">Khu dân cư</div>
+    <ion-card class="image-only-card">
+        <image-lazy [type]="'neighborhood'" [imgSrc]="showData.neighborhood.image_default"></image-lazy>
+        <ion-col width-90 class="card-label">
+            {{showData.neighborhood.name}}
+        </ion-col>
+    </ion-card>
+</div>

@@ -1,0 +1,16 @@
+  search-page {
+    .item-adjust button {
+      color: $housy-color-info;
+    }
+    .title {
+      font-size: $housy-font-size-title;
+      font-weight: $housy-font-weight-bold;
+    }
+    .expand-text span {
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .expand-button {
+      text-transform: none;
+    }
+  }

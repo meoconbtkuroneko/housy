@@ -1,0 +1,73 @@
+<div class="review-card">
+    <div class="block-reviewner item-md" (click)="goHostProfile()">
+        <ion-avatar item-left>
+            <image-lazy class="user-image" [type]="'user'" [imgSrc]="review.user.picture"></image-lazy>
+        </ion-avatar>
+        <div class="reviewner-info">
+            <h5 class="color-title">{{review.user.name}}</h5>
+            <p class="gray-color">{{review.created_time | amTimeAgo}}</p>
+        </div>
+        <!-- Edit review "-->
+        <ion-icon *ngIf="canEditReview > -1" class="right" ios="ios-create" md="md-create" (click)="goEditReview($event, review) "></ion-icon>
+    </div>
+    <div *ngIf="review">
+        <div class="show-rating detail-review" text-center>
+            <div class="info-detail-utilities">
+                <ion-row wrap center>
+                    <ion-col width-33 class="utilities ">
+                        <div class="display-inline-block center ">
+                            <div>Văn minh</div>
+                            <rating-star class="fs-10 " [maxStar]="5" [defaultRating]="review.civilized_rating " (returnValue)="setRating() " [nameRating]=" 'view_rating' " [readOnly]="true "></rating-star>
+                        </div>
+                    </ion-col>
+                    <ion-col width-33 class="utilities ">
+                        <div class="display-inline-block center ">
+                            <div>Thuận tiện</div>
+                            <rating-star class="fs-10 " [maxStar]="5" [defaultRating]="review.convenient_rating " (returnValue)="setRating() " [nameRating]=" 'view_rating' " [readOnly]="true "></rating-star>
+                        </div>
+                    </ion-col>
+                    <ion-col width-33 class="utilities ">
+                        <div class="display-inline-block center ">
+                            <div>Yên tĩnh</div>
+                            <rating-star class="fs-10 " [maxStar]="5" [defaultRating]="review.quiet_rating " (returnValue)="setRating() " [nameRating]=" 'view_rating' " [readOnly]="true "></rating-star>
+                        </div>
+                    </ion-col>
+                    <ion-col width-33 class="utilities ">
+                        <div class="display-inline-block center ">
+                            <div>An toàn</div>
+                            <rating-star class="fs-10 " [maxStar]="5" [defaultRating]="review.security_rating " (returnValue)="setRating() " [nameRating]=" 'view_rating' " [readOnly]="true "></rating-star>
+                        </div>
+                    </ion-col>
+                    <ion-col width-33 class="utilities ">
+                        <div class="display-inline-block center ">
+                            <div>Tiện ích</div>
+                            <rating-star class="fs-10 " [maxStar]="5" [defaultRating]="review.utilities_rating " (returnValue)="setRating() " [nameRating]=" 'view_rating' " [readOnly]="true "></rating-star>
+                        </div>
+                    </ion-col>
+                    <ion-col width-33 class="utilities ">
+                        <div class="display-inline-block center ">
+                            <div>Cảnh quan</div>
+                            <rating-star class="fs-10 " [maxStar]="5" [defaultRating]="review.view_rating " (returnValue)="setRating() " [nameRating]=" 'view_rating' " [readOnly]="true "></rating-star>
+                        </div>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </div>
+        <div padding-top text-justify>
+            <read-more [rmText]="review.content" [rmLimit]="200" [rmMoreText]="'Xem thêm'" [rmLessText]="'-Thu gọn'" rmLinkClass="'link-more'">
+            </read-more>
+        </div>
+        <images-review [reviewImages]="review.review_images "></images-review>
+    </div>
+    <div class="like-review">
+        <ion-row>
+            <ion-col>
+                <ion-note class="like" [ngClass]="{'liked': !liked}" small icon-left>
+                    <!-- <ion-icon name='thumbs-up'></ion-icon> -->
+                    12 Thích
+                </ion-note>
+            </ion-col>
+        </ion-row>
+        <!-- <span><i class="icon fs-20 ion-eye "> </i>Lượt xem</span> -->
+    </div>
+</div>

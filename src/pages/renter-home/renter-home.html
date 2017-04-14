@@ -1,0 +1,96 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Trang chủ</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-background" has-bouncing="false">
+    <div class="part-header">
+        <div class="title">
+            <span *ngIf="!USER?.logined" style="font-size: 25px">Xin chào</span>
+            <span *ngIf="USER?.logined">Xin chào, 
+            <span>{{USER?.userInfo.name}}</span></span>
+        </div>
+        <div class="line"></div>
+    </div>
+    <div *ngIf="USER?.logined && recentPlaces?.length > 0">
+        <ion-row padding-top padding-horizontal class="container-title">
+            <ion-col>
+                <ion-icon name="pin"></ion-icon> Địa điểm đã tìm
+            </ion-col>
+        </ion-row>
+        <ion-scroll class="horizontal-scroll" scrollX="true">
+            <div class="container-card recent-search-container" *ngFor="let item of recentPlaces">
+                <ion-card (click)="goToSearch(item)">
+                    <div style="height: 100%"></div>
+                    <div class="content-info">{{item}}</div>
+                </ion-card>
+            </div>
+        </ion-scroll>
+    </div>
+    <div *ngIf="USER?.logined && recentViews?.length > 0">
+        <ion-row padding-top padding-horizontal class="container-title">
+            <ion-col>
+                <ion-icon name="eye"></ion-icon> Nhà đã xem
+            </ion-col>
+        </ion-row>
+        <ion-scroll class="horizontal-scroll" scrollX="true">
+            <div class="container-card" *ngFor="let item of recentViews">
+                <image-card *ngIf="item?.data" [cardData]="item?.data"></image-card>
+            </div>
+        </ion-scroll>
+    </div>
+    <ion-row padding-top padding-horizontal class="container-title" *ngIf="listApartments?.length > 0">
+        <ion-col width-75>
+            <ion-icon name="podium"></ion-icon> Chung cư nổi bật
+        </ion-col>
+        <ion-col width-30 text-right>
+            <button ion-button clear class="see-all housy-link link-text" (click)="seeAllApartments()">Xem tất cả</button>
+        </ion-col>
+    </ion-row>
+    <ion-scroll class="horizontal-scroll" scrollX="true" *ngIf="listApartments?.length > 0">
+        <div class="container-card" *ngFor="let item of listApartments">
+            <image-card-apartment *ngIf="item?.data" [cardData]="item?.data"></image-card-apartment>
+        </div>
+    </ion-scroll>
+    <ion-row padding-top padding-horizontal class="container-title" *ngIf="listHouses?.length > 0">
+        <ion-col width-75>
+            <ion-icon name="home"></ion-icon> Nhà nổi bật
+        </ion-col>
+        <ion-col width-30 text-right>
+            <button ion-button clear class="see-all housy-link link-text" (click)="seeAllHouses()">Xem tất cả</button>
+        </ion-col>
+    </ion-row>
+    <ion-scroll class="horizontal-scroll" scrollX="true" *ngIf="listHouses?.length > 0">
+        <div class="container-card" *ngFor="let item of listHouses">
+            <image-card *ngIf="item?.data" [cardData]="item?.data"></image-card>
+        </div>
+    </ion-scroll>
+    <ion-row padding-top padding-horizontal class="container-title" *ngIf="listNewHouses?.length > 0">
+        <ion-col width-75>
+            <ion-icon name="time"></ion-icon> Nhà mới đăng tin
+        </ion-col>
+        <ion-col width-30 text-right>
+            <button ion-button clear class="see-all housy-link link-text" (click)="seeAllNewHouses()">Xem tất cả</button>
+        </ion-col>
+    </ion-row>
+    <div class="vertical-list" padding-horizontal *ngIf="listNewHouses?.length > 0">
+        <div class="container-card" margin-bottom *ngFor="let item of listNewHouses">
+            <image-card *ngIf="item?.data" [cardData]="item?.data"></image-card>
+        </div>
+    </div>
+    <ion-row padding-horizontal class="container-title" *ngIf="listNewHouses?.length > 0">
+        <ion-col width-30 text-right>
+            <button ion-button clear class="see-all housy-link link-text" (click)="seeAllNewHouses()">Xem tất cả</button>
+        </ion-col>
+    </ion-row>
+    <ion-row padding-top padding-horizontal class="container-title" *ngIf="listOwners?.length > 0">
+        <ion-col>
+            <ion-icon name="person"></ion-icon> Môi giới nổi bật
+        </ion-col>
+    </ion-row>
+    <ion-scroll class="horizontal-scroll" scrollX="true" *ngIf="listOwners?.length > 0">
+        <div class="container-card" *ngFor="let item of listOwners">
+            <top-users *ngIf="item" [cardData]="item"></top-users>
+        </div>
+    </ion-scroll>
+</ion-content>

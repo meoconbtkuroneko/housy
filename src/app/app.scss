@@ -1,0 +1,382 @@
+// http://ionicframework.com/docs/v2/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+@font-face {
+  font-family: Noto San, sans-serif;
+  src: url('../assets/theme/Noto_Sans/NotoSans-Regular.ttf') format('ttf');
+  font-weight: 400;
+}
+
+* {
+  font-family: "Noto San", sans-serif;
+}
+
+.part-header {
+  width: $housy-full-width;
+  background: transparent;
+  color: $housy-color-title;
+  position: relative;
+  margin-top: $housy-part-header-margin;
+  margin-bottom: $housy-part-header-margin;
+  .title {
+    width: $housy-full-width;
+    font-weight: bold;
+    padding-left: $housy-part-header-title-padding;
+    padding-right: $housy-part-header-title-padding;
+    font-size: $housy-part-header-title-font-size;
+    line-height: $housy-line-height-wide;
+  }
+  .listing-step {
+    top: 85%;
+    padding-left: $housy-part-header-title-padding;
+    padding-right: $housy-part-header-title-padding;
+  }
+}
+
+.count-result {
+  padding: $housy-part-header-title-padding;
+  padding-top: $housy-part-header-title-padding;
+  padding-bottom: 0;
+  font-size: $housy-count-result-font-size;
+}
+
+
+/*-----------------ultilities-----------------*/
+
+.ultilities-container {
+  text-align: center;
+  background: #fff;
+  white-space: normal;
+  margin-bottom: $housy-ultilities-margin;
+}
+
+.ultilities-container .check-box-icon {
+  float: none;
+  margin: $housy-ultilities-margin;
+  margin-bottom: 0;
+}
+
+.ultilities-container .utilities {
+  width: $housy-ultilities-width;
+  display: inline-block;
+}
+
+.utilities-disable {
+  opacity: 0.4;
+}
+
+.utilities-disable div {
+  text-decoration: line-through;
+}
+
+.utilities-able {
+  opacity: 1;
+}
+
+
+/*----------------avatar----------------*/
+
+.avatar-frame {
+  width: $housy-avatar-frame-width;
+  height: $housy-avatar-frame-width;
+  border: 2px solid white;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.avatar-frame img {
+  width: $housy-avatar-frame-width;
+  height: $housy-avatar-frame-width;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  position: relative;
+  left: 0px;
+  top: 0px;
+}
+
+
+/*-------------favourite-tag-------------------*/
+
+.favourite-tag {
+  background: $housy-favourite-tag-background;
+  .icon {
+    font-size: $housy-favourite-tag-font-size;
+    opacity: 1;
+    color: $housy-favourite-tag-color;
+  }
+}
+
+.icon.favourite-added {
+  color: $housy-color-housy !important;
+  opacity: 1 !important;
+}
+
+
+/*--------------verify-card---------------------*/
+
+.verify-tag {
+  width: $housy-verfify-tag-width;
+  height: $housy-verfify-tag-width;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  .verify {
+    width: 50%;
+    height: 50%;
+    top: 50%;
+    left: -50%;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    vertical-align: middle;
+    text-align: center;
+  }
+  .verify span {
+    width: 100px;
+    padding: 5px 30px;
+    color: $housy-verfify-tag-color;
+    font-size: $housy-verfify-tag-font-size;
+    font-weight: $housy-font-weight-bold;
+    background: $housy-verfify-tag-background;
+  }
+}
+
+.price-tag {
+  background-color: $housy-price-tag-background;
+  padding: $housy-price-tag-padding;
+  padding-left: 15px;
+  padding-right: 10px;
+  color: $housy-price-tag-color;
+  min-width: $housy-price-tag-min-width;
+  font-weight: $housy-font-weight-bold;
+  font-size: $housy-price-tag-font-size;
+  z-index: $housy-card-z-index;
+  sup {
+    font-weight: $housy-font-weight;
+  }
+  .discount {
+    padding: 10px;
+    padding-left: 0;
+    font-weight: $housy-font-weight;
+    letter-spacing: 2px;
+    font-size: 0.9em;
+    background: transparent;
+    color: $housy-discount-color;
+  }
+  .icon {
+    color: $housy-discount-color;
+  }
+}
+
+.page-tag {
+  color: $housy-page-tag-color;
+  background: $housy-page-tag-background;
+  padding: $housy-page-tag-padding;
+  font-size: $housy-page-tag-font-size;
+  z-index: $housy-card-z-index;
+}
+
+.thumbnail-outer {
+  height: 100%;
+  border: 0 !important;
+  position: relative;
+}
+
+// ------------scroll---------------
+.scroll-bar,
+::-webkit-scrollbar,
+*::-webkit-scrollbar {
+  display: none;
+}
+
+// icon 
+.housy-icon {
+  width: 3rem;
+  max-height: 3rem;
+}
+
+// image-only-card
+.image-only-card {
+  position: relative;
+  .card-label {
+    position: absolute;
+    z-index: $housy-card-z-index;
+    bottom: 5%;
+    text-align: center;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background: $housy-image-only-card-background;
+    color: $housy-image-only-card-color;
+    letter-spacing: $housy-letter-spacing;
+    font-size: 0.9em;
+    line-height: $housy-line-height-wide;
+    font-weight: $housy-font-weight-bold;
+  }
+}
+
+// button
+.housy-link {
+  text-transform: none;
+  color: $housy-link-color;
+  margin: 0;
+  padding: 0;
+  font-size: 1em;
+  line-height: $housy-line-height-wide;
+}
+
+.housy-link.link-text {
+  height: unset;
+}
+
+// vertical-list
+.vertical-list {
+  max-width: 100%;
+  .vertical-list .container-card {
+    margin: $vertical-list-card-padding-top $housy-container-card-margin-left;
+  }
+}
+
+// horizontal-scroll 
+ion-scroll.horizontal-scroll {
+  white-space: nowrap;
+  .scroll-content {
+    position: inherit;
+    contain: inherit;
+  }
+  .container-card {
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+    /* Fix for IE7 */
+    *display: inline;
+    /* Fix for IE7 */
+  }
+  .container-card.small-card {
+    width: 48%;
+    margin: 1%;
+  }
+  .container-card.small-card:first-of-type {
+    margin-left: 2px;
+  }
+  .container-card.small-card:last-of-type {
+    margin-right: 2px;
+  }
+}
+
+ion-scroll.horizontal-scroll.small-card {
+  text-align: center;
+  .scroll-content {
+    padding: 0;
+  }
+  .container-card {
+    width: 48%;
+    margin: 1%;
+  }
+  .container-card:first-of-type {
+    margin-left: 2px;
+  }
+  .container-card:last-of-type {
+    margin-right: 2px;
+  }
+}
+
+// statictic
+.statistic {
+  font-size: $housy-icon-font-size-small;
+  color: $housy-icon-color-secondary;
+}
+
+read-more {
+  text-align: justify;
+}
+
+// Toast
+.toast-class .toast-wrapper {
+  margin: auto;
+  width: $housy-toast-width;
+  border-radius: $housy-toast-border-radius;
+  background-color: $housy-color-background;
+}
+
+// loading
+.loading-class {
+  ion-backdrop {
+    background-color: $housy-color-background-light;
+  }
+  .loading-wrapper {
+    display: block;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.85);
+    color: $housy-loading-color;
+    font-size: $housy-loading-font-size;
+    font-weight: $housy-font-weight-bold;
+    padding: $housy-loading-padding;
+    ion-spinner {
+      width: $housy-loading-spinner-width;
+      height: $housy-loading-spinner-width;
+      margin-bottom: $housy-loading-spinner-margin;
+      stroke: $housy-loading-spinner-color;
+      fill: $housy-loading-spinner-color;
+    }
+  }
+}
+
+.line-short {
+  width: $housy-line-short-width;
+  border-top: $housy-line-short-height solid $housy-line-short-color;
+}
+
+// modal
+.housy-modal .title {
+  font-size: $housy-main-title-font-size;
+}
+
+.count-total {
+  font-size: $housy-font-size-title;
+  color: $housy-color-title;
+}
+
+// navbar
+.container-custom-bar-button {
+  button {
+    font-size: 1.2em;
+    color: $toolbar-md-text-color;
+  }
+  button[icon-only] {
+    width: 45px;
+  }
+}
+
+.icon-navbar {
+  font-size: $housy-icon-navbar-font-size;
+}
+
+// google map
+.gm-style-cc {
+  display: none;
+}

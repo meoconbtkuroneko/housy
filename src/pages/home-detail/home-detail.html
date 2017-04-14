@@ -1,0 +1,109 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons end class="container-custom-bar-button" icon-only>
+            <report-button *ngIf="showData?.data" [data]="showData?.data" [type]="'space'"></report-button>
+            <share-button *ngIf="showData?.data" [id]="showData?.renting?.id" [type]="typeShare"></share-button>
+            <favourite-button *ngIf="showData?.data" [cardData]="showData?.data" (onFavouriteChanged)="onFavouriteChanged($event)"></favourite-button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content class="home-detail">
+    <div *ngIf="showData?.data">
+        <image-slider *ngIf="showData?.data" [sliderData]="showData?.data?.space_images" [type]="'space'" [moreInfo]="showData?.data" [options]="{PRICE_SHOWN: true}"></image-slider>
+        <part-count [showData]="showData?.data"></part-count>
+        <div padding>
+            <ion-row class="general-info">
+                <ion-col>
+                    <img class="housy-icon center" src="../../assets/sd/house.png">
+                    <div class="info">{{showData?.data?.home_type?.name}}</div>
+                </ion-col>
+                <ion-col>
+                    <img class="housy-icon center" src="../../assets/sd/bedroom.png">
+                    <div class="info">{{showData?.data?.number_of_bedroom}} phòng</div>
+                </ion-col>
+                <ion-col>
+                    <img class="housy-icon center" src="../../assets/sd/area.png">
+                    <div class="info">{{showData?.data?.area}} m<sup>2</sup></div>
+                </ion-col>
+            </ion-row>
+        </div>
+        <ion-item detail-none class="container-user">
+            <ion-avatar item-right (click)="openAvatar()">
+                <image-lazy class="avatar" [type]="'user'" [imgSrc]="showData?.data?.renting?.user?.picture"></image-lazy>
+            </ion-avatar>
+            <ion-row>
+                Đăng bởi &nbsp;
+                <button ion-button clear class="name housy-link link-text" (click)="openAvatar()"> {{showData?.data?.renting?.user?.name}}</button>
+            </ion-row>
+            <div *ngIf="showData?.data?.renting?.is_verified" class="verify-text">Đã được xác thực bởi <span class="color-housy">Housy.vn</span>
+            </div>
+        </ion-item>
+        <part-description [showData]="showData?.data"></part-description>
+        <part-location [showData]="showData?.data"></part-location>
+        <div padding class="detail-info">
+            <div class="title"> Thông tin chung</div>
+            <ion-row>
+                <ion-col class="item-name">Vị trí</ion-col>
+                <ion-col>{{showData?.data?.space_position?.name}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="item-name">Số tầng</ion-col>
+                <ion-col *ngIf="showData?.data?.floor == null">Chưa cập nhật</ion-col>
+                <ion-col *ngIf="showData?.data?.floor != null">{{showData?.data?.floor}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="item-name">Số phòng tắm</ion-col>
+                <ion-col *ngIf="showData?.data?.number_of_bathroom == 0 || !showData?.data?.number_of_bathroom == null">Phòng tắm chung</ion-col>
+                <ion-col *ngIf="showData?.data?.number_of_bathroom != 0">{{showData?.data?.number_of_bathroom}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="item-name">Số người thuê tối đa</ion-col>
+                <ion-col>{{showData?.data?.max_renters}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="item-name">Đặt cọc</ion-col>
+                <ion-col>{{showData?.data?.policy_deposit_time?.description}}</ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col class="item-name">Hợp đồng</ion-col>
+                <ion-col>{{showData?.data?.policy_renting_time?.description}}</ion-col>
+            </ion-row>
+        </div>
+        <div padding *ngIf="showData?.data?.apartment && showData?.data?.apartment_id" class="apartment" (click)="openDetail('apartment')">
+            <div class="title">Chung cư</div>
+            <ion-card class="image-only-card">
+                <image-lazy [type]="'apartment'" [imgSrc]="showData?.data?.apartment.image_default"></image-lazy>
+                <ion-col width-90 class="card-label">
+                    {{showData?.data?.apartment.name}}
+                </ion-col>
+            </ion-card>
+        </div>
+        <part-neighborhood [showData]="showData?.data"></part-neighborhood>
+        <div padding *ngIf="showData?.data?.someAdvances.length > 0 || showData?.data?.shortCurrentRules.length > 0">
+            <div class="title">Ưu điểm và quy định</div>
+            <div *ngIf="showData?.data?.someAdvances.length > 0">
+                <ion-row class="container-advances">
+                    <ion-col class="container-housy-icon" *ngFor="let item of showData?.data?.someAdvances">
+                        <img *ngIf="item.url" class="housy-icon center" src="{{item.url}}">
+                    </ion-col>
+                    <ion-col class="container-advances-more">
+                        <button ion-button clear round class="housy-link housy-icon" (click)="showAllAdvances()">
+                            <ion-icon name="ios-add"></ion-icon>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </div>
+            <div class="container-rule" *ngIf="showData?.data?.someAdvances.length == 0 && showData?.data?.shortCurrentRules.length > 0">
+                <ion-row class="item-rule" *ngFor="let item of showData?.data?.shortCurrentRules">
+                    <ion-col>{{item.name}}</ion-col>
+                </ion-row>
+                <ion-row *ngIf="showData?.data?.currentRules.length > 2" class="item-rule container-more-rule" (click)="showAllAdvances()">
+                    <ion-col>
+                        <button ion-button clear class="housy-link link-text">Xem thêm</button>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </div>
+        <part-horizontal-card *ngIf="listData" [title]="'Các nhà trong khu vực'" [listHouses]="listData"></part-horizontal-card>
+    </div>
+</ion-content>

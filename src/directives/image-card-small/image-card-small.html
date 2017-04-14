@@ -1,0 +1,21 @@
+<ion-card (click)="goToDetail(cardData.renting.id)" *ngIf="cardData">
+    <div class="container-img">
+        <image-lazy [type]="'space'" [imgSrc]="cardData.image_default"></image-lazy>
+        <div class="overlay"></div>
+        <div class="container-info">
+            <ion-item no-padding mo-margin detail-none>
+                <div class="price-tag">
+                    <sup>đ </sup>{{cardData.renting.renting_fee}}
+                </div>
+                <ion-avatar item-right>
+                    <image-lazy class="avatar" [imgSrc]="cardData.renting.user.picture" [type]="'user'"></image-lazy>
+                </ion-avatar>
+            </ion-item>
+            <ion-row>
+                <span>{{cardData.home_type.name}}</span>
+                <span>&bull;</span>
+                <span>{{km}}km</span>
+            </ion-row>
+        </div>
+    </div>
+</ion-card>

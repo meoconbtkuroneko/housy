@@ -1,0 +1,13 @@
+<ion-row no-padding>
+    <ion-col align-self-center no-padding col-8 class="title">
+        {{comments?.length}} nhận xét
+    </ion-col>
+    <ion-col col-4 text-right no-padding *ngIf="belongToUser?.id != currentUser?.id">
+        <button ion-button clear class="see-all housy-link link-text" (click)="showComments()">
+            {{comments?.length === 0 ? 'Viết nhận xét' : 'Xem tất cả'}}</button>
+    </ion-col>
+    <ion-col col-4 text-right no-padding *ngIf="belongToUser?.id === currentUser?.id">
+        <button ion-button clear class="see-all housy-link link-text" (click)="showComments()">Xem tất cả</button>
+    </ion-col>
+</ion-row>
+<comment-item *ngFor="let item of comments | slice:0:3" class="comment" [cardData]="item" [options]="{SHOW_DELETE_BUTTON: false}"></comment-item>

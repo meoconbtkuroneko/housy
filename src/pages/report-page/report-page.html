@@ -1,0 +1,32 @@
+<ion-header>
+    <ion-navbar>
+        <button-close-modal (click)="closeModal()"></button-close-modal>
+    </ion-navbar>
+</ion-header>
+<ion-content class="item-modal housy-modal">
+    <div class="title" padding>{{title}}</div>
+    <div class="sub-title" padding>{{subTitle}}</div>
+    <div class="line-short" margin-bottom margin-left></div>
+    <ion-item *ngIf="params?.type == 'user'" detail-none class="container-user">
+        <ion-avatar item-left>
+            <image-lazy class="avatar" [type]="'user'" [imgSrc]="hostInfo?.picture"></image-lazy>
+        </ion-avatar>
+        <div class="name">{{hostInfo?.name|| 'meoconbt'}}</div>
+        <div class="phone-number">{{hostInfo?.phone_number || '08834734578'}}</div>
+    </ion-item>
+    <div class="container" padding-horizontal padding-top margin-top>
+        <form [formGroup]="feedbackForm">
+            <div padding-bottom class="reason">Vui lòng điền lí do</div>
+            <ion-list radio-group formControlName="feedback">
+                <ion-item detail-none *ngFor="let item of feedbacks">
+                    <ion-label>{{item?.name}}</ion-label>
+                    <ion-radio value="{{item.id}}"></ion-radio>
+                </ion-item>
+            </ion-list>
+            <ion-textarea disabled="{{isDisabled}}" formControlName='feedback_string' rows="3" [ngClass]="{'highlight-field': isHighLight}">{{feedback?.valStrings}}</ion-textarea>
+            <button (click)="sendReport()" ion-button full margin-top [attr.disabled]="canSend ? null : ''">
+                Gửi
+            </button>
+        </form>
+    </div>
+</ion-content>

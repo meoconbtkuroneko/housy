@@ -1,0 +1,1 @@
+{"version":3,"file":"part-description.js","sourceRoot":"","sources":["part-description.ts"],"names":[],"mappings":";;;;;;;;;AAAA,OAAO,EAAE,SAAS,EAAE,KAAK,EAAE,MAAM,eAAe,CAAC;AAKjD,IAAa,eAAe;IAG1B;IAAe,CAAC;IAClB,sBAAC;AAAD,CAAC,AAJD,IAIC;AAFC;IADC,KAAK,EAAE;;iDACC;AAFE,eAAe;IAJ3B,SAAS,CAAC;QACT,QAAQ,EAAE,kBAAkB;QAC5B,WAAW,EAAE,yBAAyB;KACvC,CAAC;;GACW,eAAe,CAI3B;SAJY,eAAe"}

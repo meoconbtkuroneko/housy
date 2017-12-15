@@ -1,0 +1,55 @@
+<ion-card (click)="goToDetail()">
+    <div class="container-img">
+        <image-lazy [type]="'apartment'" [imgSrc]="cardData?.image_default"></image-lazy>
+        <ion-card-content class="container-info">
+            <ion-item detail-none>
+                <div>
+                    {{cardData?.name}}
+                </div>
+                <p class="address">
+            <span *ngIf="cardData?.short_address">{{cardData?.short_address}}</span><span *ngIf="cardData?.short_address && (cardData?.district?.name || cardData?.city?.name || cardData?.address)">, </span>
+            <span>{{cardData?.district?.name || cardData?.city?.name || cardData?.address}}</span>
+             </p>
+                <!-- <p>{{cardData?.address}}</p> -->
+            </ion-item>
+            <div>
+                <span padding-right><ion-note>
+                        <ion-icon name="eye"></ion-icon>
+                        {{cardData?.countReviews}}
+                    </ion-note></span>
+                <span padding-right><ion-note>
+                        <ion-icon name="images"></ion-icon>
+                        {{cardData?.imageCount}}
+                    </ion-note></span>
+                <span><ion-note>
+                        <ion-icon name="time"></ion-icon>
+                        {{cardData?.updated_time || cardData?.created_time | amTimeAgo}}
+                    </ion-note></span>
+            </div>
+            <!-- <ion-row>
+                <ion-col col-3>
+                    <ion-note>
+                        <ion-icon name="eye"></ion-icon>
+                        {{cardData?.countReviews}}
+                    </ion-note>
+                </ion-col>
+                <ion-col col-3>
+                    <ion-note>
+                        <ion-icon name="images"></ion-icon>
+                        {{cardData?.imageCount}}
+                    </ion-note>
+                </ion-col>
+                <ion-col>
+                    <ion-note>
+                        <ion-icon name="time"></ion-icon>
+                        {{cardData?.updated_time || cardData?.created_time | amTimeAgo}}
+                    </ion-note>
+                </ion-col>
+            </ion-row> -->
+        </ion-card-content>
+        <ion-note class="km-tag" padding *ngIf="km || km === 0">
+            <ion-icon name="md-trending-up"></ion-icon>
+            {{km}}km
+        </ion-note>
+    </div>
+</ion-card>

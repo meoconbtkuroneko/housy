@@ -1,0 +1,50 @@
+<form [formGroup]="newListingForm">
+    <div *ngIf="homeTypesArr?.length > 0">
+        <ion-item-divider class="container-label" margin-top>
+            Loại nhà
+            <span class="highlight-text">*</span>
+        </ion-item-divider>
+        <ion-list radio-group formControlName="home_type_id">
+            <ion-item detail-none *ngFor="let item of homeTypesArr">
+                <ion-label>{{item?.name}}</ion-label>
+                <ion-radio value="{{item?.id}}"></ion-radio>
+            </ion-item>
+        </ion-list>
+    </div>
+    <div *ngIf="positionsArr?.length > 0">
+        <ion-item-divider class="container-label" margin-top>
+            Vị trí
+            <span class="highlight-text">*</span>
+        </ion-item-divider>
+        <ion-list radio-group formControlName="space_position_id">
+            <ion-item detail-none *ngFor="let item of positionsArr">
+                <ion-label>{{item?.name}}</ion-label>
+                <ion-radio value="{{item?.id}}"></ion-radio>
+            </ion-item>
+        </ion-list>
+    </div>
+    <ion-item-divider class="container-label" margin-top>Địa điểm</ion-item-divider>
+    <ion-item detail-none *ngIf="apartmentsArr?.length > 0">
+        <ion-label>Chung cư</ion-label>
+        <ion-select formControlName="apartment_id" cancelText="{{stringCancel}}" okText="{{stringOk}}">
+            <ion-option value="0">
+                --Chưa cập nhật--
+            </ion-option>
+            <ion-option *ngFor="let item of apartmentsArr" value="{{item.id}}">
+                {{item.name}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item detail-none *ngIf="neighborhoodsArr?.length > 0">
+        <ion-label>Khu dân cư</ion-label>
+        <ion-select formControlName="neighborhood_id" cancelText="{{stringCancel}}" okText="{{stringOk}}" (ionChange)="hasChanges">
+            <ion-option value="0">
+                --Chưa cập nhật--
+            </ion-option>
+            <ion-option *ngFor="let item of neighborhoodsArr" value="{{item.id}}">
+                {{item.name}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+    <open-map-address-button [addressObj]="addressObj"></open-map-address-button>
+</form>

@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Quản lý
+    </ion-title>
+    <ion-buttons end>
+      <button color="light" ion-button icon-only clear (click)="openInfo()">
+        <ion-icon name="information-circle"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content [ngClass]="{'login-page': USER?.logined}" class="more-page host-profile">
+  <not-login *ngIf="!USER?.logined" [showNow]="showLogin"></not-login>
+  <div *ngIf="USER?.logined">
+    <div class="overlay"></div>
+    <div class="top-users">
+      <div class="container-info" padding>
+        <div text-center padding (click)="openProfile()">
+          <image-lazy [type]="'user'" class="avatar" [imgSrc]="USER?.userInfo?.picture"></image-lazy>
+        </div>
+        <div class="name" padding-horizontal>
+          <div>Xin chào, </div>
+          <div text-capitalize>{{USER?.userInfo?.name}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="container-button" padding>
+      <button ion-button text-capitalize full clear margin-bottom (click)="openAccount()">Tài khoản</button>
+      <button ion-button text-capitalize full clear margin-bottom (click)="openSetting()">Cài đặt</button>
+      <!-- <button ion-button text-capitalize full clear margin-bottom (click)="switchRole()">Chuyển sang {{ newRoleDes}}</button> -->
+    </div>
+  </div>
+</ion-content>

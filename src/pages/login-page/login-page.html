@@ -1,0 +1,114 @@
+<ion-header>
+    <ion-navbar>
+        <button-close-modal (click)="closeModal()"></button-close-modal>
+    </ion-navbar>
+</ion-header>
+<ion-content class="login-page" padding-horizontal>
+    <button ion-button full margin-vertical id="button-facebook" (click)="loginFacebook()">
+        <ion-col col-2>
+            <ion-icon name="logo-facebook"></ion-icon>
+        </ion-col>
+        <ion-col>
+            Facebook
+        </ion-col>
+        <ion-col col-2>
+        </ion-col>
+    </button>
+    <button ion-button full margin-bottom id="button-google" (click)="loginGoogle()">
+        <ion-col col-2>
+            <ion-icon name="logo-google"></ion-icon>
+        </ion-col>
+        <ion-col>
+            Google
+        </ion-col>
+        <ion-col col-2>
+        </ion-col>
+    </button>
+    <div class="container-divider">
+        <span>hoặc đăng nhập với</span>
+    </div>
+    <form [formGroup]="loginForm" (keydown)="checkEnterKeyPress($event)">
+        <input padding-vertical type="text" placeholder="{{stringValidations?.EMAIL?.PLACEHOLDER}}" formControlName="email" [ngClass]="{'input-invalid': formErrors?.email}">
+        <div class="border-input"></div>
+        <div class="container-password">
+            <input padding-vertical type="{{typePass}}" clearOnEdit="false" placeholder="Mật khẩu" formControlName="password" [ngClass]="{'input-invalid': formErrors?.password}">
+            <div class="border-input"></div>
+            <button ion-button clear class="show-password" round no-padding (click)="togglePass()">
+                <ion-icon [hidden]="showPass" name="eye" padding-horizontal></ion-icon>
+                <ion-icon [hidden]="!showPass" name="eye-off" padding-horizontal></ion-icon>
+            </button>
+        </div>
+        <div padding-top class="message" [hidden]="!formErrors.email && !formErrors.password">
+            <div *ngIf="formErrors.email || formErrors.password">{{formErrors.email || formErrors.password}}</div>
+        </div>
+        <button (click)="login()" ion-button full margin-top [disabled]="!loginForm.valid">
+            Đăng nhập
+        </button>
+    </form>
+    <ion-row class="container-button-more" padding-top no-padding text-center>
+        <ion-col no-padding>
+            <button ion-button clear (click)="forgetPassword()">Quên mật khẩu</button>
+        </ion-col>
+        <ion-col no-padding>
+            <button ion-button clear (click)="register()">Tạo tài khoản</button>
+        </ion-col>
+    </ion-row>
+</ion-content>
+<!-- <ion-header>
+    <ion-navbar>
+        <button-close-modal (click)="closeModal()"></button-close-modal>
+    </ion-navbar>
+</ion-header>
+<ion-content class="login-page">
+    <div class="container" padding-horizontal padding-top>
+        <button ion-button full margin-vertical id="button-facebook" (click)="loginFacebook()">
+            <ion-col col-2>
+                <ion-icon name="logo-facebook"></ion-icon>
+            </ion-col>
+            <ion-col>
+                Facebook
+            </ion-col>
+            <ion-col col-2>
+            </ion-col>
+        </button>
+        <button ion-button full margin-bottom id="button-google" (click)="loginGoogle()">
+            <ion-col col-2>
+                <ion-icon name="logo-google"></ion-icon>
+            </ion-col>
+            <ion-col>
+                Google
+            </ion-col>
+            <ion-col col-2>
+            </ion-col>
+        </button>
+        <div class="container-divider">
+            <span>hoặc đăng nhập với</span>
+        </div>
+        <form [formGroup]="loginForm" (keydown)="checkEnterKeyPress($event)">
+            <ion-item no-padding detail-none>
+                <ion-input type="text" placeholder="{{stringValidations?.EMAIL?.PLACEHOLDER}}" formControlName="email"></ion-input>
+            </ion-item>
+            <div class="container-password">
+                <ion-item no-padding detail-none>
+                    <ion-input type="{{typePass}}" clearOnEdit="false" placeholder="Mật khẩu" formControlName="password">
+                    </ion-input>
+                </ion-item>
+                <button ion-button clear class="show-password" round no-padding (click)="togglePass()">
+                    <ion-icon [hidden]="showPass" name="eye" padding-horizontal></ion-icon>
+                    <ion-icon [hidden]="!showPass" name="eye-off" padding-horizontal></ion-icon>
+                </button>
+            </div>
+            <div padding-top class="message" [hidden]="!formErrors.email && !formErrors.password">
+                <div *ngIf="formErrors.email || formErrors.password">{{formErrors.email || formErrors.password}}</div>
+            </div>
+            <button (click)="login()" ion-button full margin-top [disabled]="!loginForm.valid">
+                Đăng nhập
+            </button>
+        </form>
+        <div class="container-button-more" padding-top no-padding text-center>
+            <button ion-button clear (click)="forgetPassword()">Quên mật khẩu</button>
+            <button ion-button clear (click)="register()">Tạo tài khoản</button>
+        </div>
+    </div>
+</ion-content>
+ -->

@@ -1,0 +1,45 @@
+.top-users {
+  text-align: center;
+  .avatar {
+    div {
+      margin: 0 auto;
+      width: $housy-user-card-avatar-width;
+      height: $housy-user-card-avatar-width;
+      &>img {
+        width: $housy-user-card-avatar-width;
+        height: $housy-user-card-avatar-width;
+        min-width: unset;
+        min-height: unset;
+        border-radius: 50%;
+      }
+      @media all and (max-width: 320px) {
+        & {
+          width: $housy-user-card-avatar-width-small;
+          height: $housy-user-card-avatar-width-small;
+        }
+        &>img {
+          width: $housy-user-card-avatar-width-small;
+          height: $housy-user-card-avatar-width-small;
+        }
+      }
+    }
+  }
+  .name,
+  .role {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .name {
+    font-size: $housy-user-card-font-size;
+    font-weight: $housy-font-weight-bold;
+  }
+  .line {
+    width: 27%;
+    border-top: $housy-user-card-line;
+    margin: auto;
+  }
+  .role {
+    font-size: $housy-user-card-font-size-small;
+    letter-spacing: 1px;
+  }
+}

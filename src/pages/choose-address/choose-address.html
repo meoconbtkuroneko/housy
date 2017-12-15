@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-navbar>
+        <button-close-modal (click)="closeModal()"></button-close-modal>
+        <ion-buttons end>
+            <button color="light" ion-button clear (click)="saveAddress()" [disabled]="showNoInternet || loading || !currentMap">Chọn</button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content class="home-detail">
+    <div class="container" *ngIf="content?.contentHeight" [ngStyle]="{'height': content?.contentHeight + 'px'}">
+        <basic-map [center]="center" [zoom]="14" (currentMap)="getMap($event)" [options]="{streetViewControl: false}"></basic-map>
+        <img class="map-static-marker" src="{{markerSrc}}">
+        <div class="container-searchbar">
+            <searchbar-address [inputAddress]="addressObj?.name" (addressChanged)="getAddress($event)"></searchbar-address>
+        </div>
+    </div>
+    <ion-fab bottom right>
+        <button ion-fab color="light" (click)="currentPosition()">
+            <ion-icon name="locate"></ion-icon>
+        </button>
+    </ion-fab>
+</ion-content>

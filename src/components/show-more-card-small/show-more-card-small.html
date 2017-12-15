@@ -1,0 +1,10 @@
+<ion-card class="show-more image-card-small" (click)="showMoreClicked()">
+    <div class="container-img">
+        <ion-row class="container-info" align-items-center justify-content-center>
+            <div [hidden]="showSpinner" class="price-tag" padding margin>
+                Xem thêm
+            </div>
+            <loading *ngIf="showSpinner"></loading>
+        </ion-row>
+    </div>
+</ion-card>

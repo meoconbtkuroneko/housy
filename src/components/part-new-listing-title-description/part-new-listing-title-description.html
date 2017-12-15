@@ -1,0 +1,16 @@
+<form [formGroup]="newListingForm">
+    <ion-item-divider class="container-label" margin-top>
+        Tiêu đề nhà
+        <span class="highlight-text">*</span>
+    </ion-item-divider>
+    <div padding-horizontal padding-top>
+        <textarea formControlName='title' housyAutoheight [maxLetter]="formValidation.TITLE.MAX" placeholder="{{formValidation.TITLE.PLACEHOLDER}}">{{title}}</textarea>
+    </div>
+    <ion-item-divider class="container-label" margin-top>
+        Mô tả nhà
+        <span class="highlight-text">*</span>
+    </ion-item-divider>
+    <div padding-horizontal padding-top>
+        <textarea formControlName='description' housyAutoheight placeholder="{{formValidation.DESCRIPTION.PLACEHOLDER}}">{{description}}</textarea>
+    </div>
+</form>

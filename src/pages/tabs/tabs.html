@@ -1,0 +1,9 @@
+<ion-tabs #mainTabs *ngIf="isOwner !== undefined" class="container-all-tabs" [ngClass]="{'hide-all-tab': isHideTabs}">
+    <ion-tab [show]="isOwner" [root]="tab6Root" tabTitle="Quản lý nhà" tabIcon="ios-home-outline"></ion-tab>
+    <ion-tab [show]="isOwner === false" [root]="tab1Root" tabTitle="Trang chủ" tabIcon="ios-home-outline"></ion-tab>
+    <ion-tab [show]="isOwner === false" [root]="tab2Root" tabTitle="Tìm kiếm" tabIcon="search"></ion-tab>
+    <ion-tab [show]="isOwner === false" [root]="tab3Root" tabTitle="Yêu thích" tabIcon="heart-outline"></ion-tab>
+    <ion-tab [root]="tab4Root" tabTitle="Thông báo" tabIcon="ios-notifications-outline" [tabBadge]="(countNotifications > 0) ? countNotifications: null"></ion-tab>
+    <ion-tab [root]="tab5Root" tabTitle="Quản lý" tabIcon="ios-settings-outline"></ion-tab>
+</ion-tabs>
+<!-- <no-internet-main *ngIf="hasInternet === false"></no-internet-main> -->

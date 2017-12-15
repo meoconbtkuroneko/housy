@@ -1,0 +1,5 @@
+<ion-searchbar (ionInput)="onSearch($event)" (onCancel)="onCancel($event)" [placeholder]="currentSearchPlace?.name || 'Nhập địa điểm, địa danh'" [(ngModel)]="address"></ion-searchbar>
+<div class="container-suggest" *ngIf="suggestionsArr?.length > 0 || suggestionsErr">
+    <ion-item *ngFor="let item of suggestionsArr" (click)="selectSuggestion(item)">{{item?.description}}</ion-item>
+    <ion-item *ngIf="suggestionsErr">{{suggestionsErr}}</ion-item>
+</div>

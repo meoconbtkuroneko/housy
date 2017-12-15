@@ -1,0 +1,67 @@
+<ion-header>
+    <ion-navbar>
+        <button-close-modal (click)="closeModal()"></button-close-modal>
+    </ion-navbar>
+</ion-header>
+<ion-content class="login-page register-page">
+    <div class="overlay"></div>
+    <div class="container" padding-horizontal padding-top>
+        <div class="title" margin-bottom text-center>Tạo tài khoản cùng Housy</div>
+        <div class="sub-title" text-center margin-bottom>Tìm nhà thật dễ!</div>
+        <div class="container-divider" margin-bottom no-margin>
+            <span><ion-icon name="home"></ion-icon></span>
+        </div>
+        <form [formGroup]="registerForm" (keydown)="checkEnterKeyPress($event)">
+            <input padding-vertical type="text" placeholder="{{stringValidations?.NAME?.PLACEHOLDER}}" formControlName="name" [ngClass]="{'input-invalid': formErrors?.name}">
+            <div class="border-input"></div>
+            <input padding-vertical type="text" placeholder="{{stringValidations?.EMAIL?.PLACEHOLDER}}" formControlName="email" [ngClass]="{'input-invalid': formErrors?.email}">
+            <div class="border-input"></div>
+            <div class="container-password">
+                <input padding-vertical type="{{typePass}}" clearOnEdit="false" placeholder="{{stringValidations.PASSWORD.PLACEHOLDER}}" formControlName="password" [ngClass]="{'input-invalid': formErrors?.password}">
+                <div class="border-input"></div>
+                <button ion-button clear class="show-password" round no-padding (click)="togglePass()">
+                    <ion-icon [hidden]="showPass" name="eye" padding-horizontal></ion-icon>
+                    <ion-icon [hidden]="!showPass" name="eye-off" padding-horizontal></ion-icon>
+                </button>
+            </div>
+            <div padding-top class="message" [hidden]="!formErrors.name && !formErrors.email && !formErrors.password">
+                <div *ngIf="formErrors.name || formErrors.email || formErrors.password">{{formErrors.name || formErrors.email || formErrors.password}}</div>
+            </div>
+            <button (click)="register()" ion-button full margin-top [disabled]="!registerForm.valid">
+                Tạo tài khoản
+            </button>
+        </form>
+        <!-- <form [formGroup]="registerForm" (keydown)="checkEnterKeyPress($event)">
+            <ion-item no-padding detail-none>
+                <ion-input type="text" placeholder="{{stringValidations?.NAME?.PLACEHOLDER}}" formControlName="name"></ion-input>
+            </ion-item>
+            <ion-item no-padding>
+                <ion-input type="text" placeholder="{{stringValidations?.EMAIL?.PLACEHOLDER}}" formControlName="email"></ion-input>
+            </ion-item>
+            <div class="container-password">
+                <ion-item no-padding>
+                    <ion-input type="{{typePass}}" clearOnEdit="false" placeholder="{{stringValidations.PASSWORD.PLACEHOLDER}}" formControlName="password">
+                    </ion-input>
+                </ion-item>
+                <button ion-button clear class="show-password" round no-padding (click)="togglePass()">
+                    <ion-icon [hidden]="showPass" name="eye" padding-horizontal></ion-icon>
+                    <ion-icon [hidden]="!showPass" name="eye-off" padding-horizontal></ion-icon>
+                </button>
+            </div>
+            <div padding-top class="message" [hidden]="!formErrors.name && !formErrors.email && !formErrors.password">
+                <div *ngIf="formErrors.name || formErrors.email || formErrors.password">{{formErrors.name || formErrors.email || formErrors.password}}</div>
+            </div>
+            <button (click)="register()" ion-button full margin-top [disabled]="!registerForm.valid">
+                Tạo tài khoản
+            </button>
+        </form> -->
+        <div class="container-button-more" text-right padding-top no-padding>
+            <button ion-button clear full (click)="login()">Đăng nhập</button>
+        </div>
+        <div class="condition" margin-top padding-top>
+            Khi bạn nhấn <b>Tạo tài khoản</b>, bạn đã đọc và đồng ý thực hiện theo
+            <a (click)="openConditionUse()" class="housy-link link-text">Điều kiện sử dụng</a> và
+            <a (click)="openSecurityPolicy()" class="housy-link link-text">Chính sách bảo mật</a> của Housy.
+        </div>
+    </div>
+</ion-content>

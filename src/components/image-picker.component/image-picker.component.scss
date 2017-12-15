@@ -1,0 +1,12 @@
+.add-images {
+  button {
+    ion-icon {
+      font-size: 2em;
+      margin-right: 5px;
+      &:nth-child(2) {
+        font-size: 1.5em;
+        margin-right: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Thông báo</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-background">
+    <!-- <loading *ngIf="isProgress"></loading> -->
+    <not-login *ngIf="!USER?.logined && !showErrLoad" [showNow]="showLogin"></not-login>
+    <ion-refresher *ngIf="USER?.logined" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div *ngIf="USER?.logined">
+        <div class="part-header">
+            <div class="title">
+                <span>Danh sách các thông báo</span>
+            </div>
+            <div class="line"></div>
+        </div>
+        <error-load *ngIf="showNoInternet || showErrLoad" [errInfo]="currentErrType?.info"></error-load>
+        <loading *ngIf="loading && !showNoInternet && !showErrLoad"></loading>
+        <div *ngIf="!loading && !showNoInternet && !showErrLoad">
+            <ion-list *ngIf="allDataList">
+                <div class="count-total" padding-left padding-vertical>Có {{allDataList?.length || 0 }} thông báo</div>
+                <ion-item *ngFor="let item of allDataList; let i = index" [ngClass]="item?.status == notificationStatus?.NOTIFICATION_STATUS_NOT_READ ? 'not-readed' : 'readed ' " (click)="notificationClicked(i, item)">
+                    <ion-icon *ngIf="item?.type === notificationTypes?.NOTIFICATION_TYPE_RENTING" name="home" item-left></ion-icon>
+                    <ion-icon *ngIf="item?.type === notificationTypes?.NOTIFICATION_TYPE_DISCOUNT" name="cash" item-left></ion-icon>
+                    <ion-icon *ngIf="item?.type === notificationTypes?.NOTIFICATION_TYPE_REJECT_RENTING" name="close" item-left></ion-icon>
+                    <div>
+                        <h4 class="color-title">{{item?.content}}</h4>
+                        <address>{{item?.created_time | amTimeAgo}} </address>
+                    </div>
+                    <button ion-button class="button-action-sheet" (click)="options($event, i, item?.id)">
+                        <ion-icon ios="ios-more" md="md-more"></ion-icon>
+                    </button>
+                </ion-item>
+            </ion-list>
+        </div>
+        <no-internet *ngIf="!showNoInternet && !showErrLoad"></no-internet>
+    </div>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>
+        <button-close-modal (click)="closeModal()"></button-close-modal>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <!-- <div class="housy-space"></div> -->
+    <loading *ngIf="!showData && !loadingFailed"></loading>
+    <div *ngIf="showData" class="container-top">
+        <div text-center class="container-cover">
+            <image-lazy [type]="'cover'" [imgSrc]="showData?.cover"></image-lazy>
+            <button ion-button outline color="light" (click)="showSelectImages('cover')">
+                <ion-icon name="camera"></ion-icon>
+            </button>
+        </div>
+        <div class="top-users container-avatar" text-center>
+            <image-lazy [type]="'user'" class="avatar" [imgSrc]="showData?.picture"></image-lazy>
+            <button ion-button outline color="light" (click)="showSelectImages('picture')">
+                <ion-icon name="camera"></ion-icon>
+            </button>
+        </div>
+    </div>
+    <div class="space-of-half-avatar"></div>
+    <div padding *ngIf="showData">
+        <div padding-vertical>
+            <ion-note>(<span class="highlight-text">*</span>) Cần bạn cung cấp thông tin</ion-note>
+        </div>
+        <part-profile-core [showData]="showData" (getProfileForm)="getProfileFormCore($event)"></part-profile-core>
+    </div>
+</ion-content>
+<ion-fab right bottom>
+    <button ion-fab [disabled]="isProfileUpdating || !showData" (click)="saveButtonClicked()">Lưu</button>
+</ion-fab>

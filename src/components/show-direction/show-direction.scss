@@ -1,0 +1,61 @@
+show-direction {
+  .container-show-direction {
+    background: $housy-color-white;
+    -webkit-transition: all $housy-show-direction-transition-time;
+    -moz-transition: all $housy-show-direction-transition-time;
+    -ms-transition: all $housy-show-direction-transition-time;
+    -o-transition: all $housy-show-direction-transition-time;
+    transition: all $housy-show-direction-transition-time;
+    height: 100%;
+    box-shadow: $housy-show-direction-box-shadow;
+    border-top: $housy-show-direction-border-width solid $housy-show-direction-border-color;
+  }
+  .panel-detail {
+    overflow-y: scroll;
+    height: $housy-content-height-without-top;
+    position: absolute;
+    .adp-summary {
+      padding: $housy-padding;
+      padding-left: 0;
+    }
+  }
+  .adp-directions .adp-substep,
+  .adp-directions .adp-substep b {
+    font-weight: $housy-font-weight-bold;
+    line-height: $housy-line-height-short;
+    padding-top: $housy-padding-small;
+    padding-bottom: $housy-padding-small;
+  }
+  .adp-step,
+  .adp-substep {
+    vertical-align: middle !important;
+  }
+  .adp-directions .adp-substep div {
+    font-weight: $housy-font-weight;
+    line-height: $housy-line-height-short;
+  }
+  .adp-placemark {
+    border: none !important;
+  }
+  .adp-placemark tbody {
+    background-color: $housy-color-white;
+    font-weight: $housy-font-weight-bold;
+    border: none;
+  }
+  .adp-placemark td {
+    vertical-align: middle;
+    padding-left: $housy-padding;
+    line-height: $housy-line-height-short;
+  }
+  .adp-placemark td:first-child {
+    padding-left: 0;
+  }
+}
+
+show-direction.half-full {
+  .container-show-direction {
+    min-height: unset;
+    max-height: 50%;
+    position: relative;
+  }
+}

@@ -1,0 +1,21 @@
+.animation-card {
+  -webkit-animation: slide-in-left .3s cubic-bezier(.68, -0.01, 0.46, 1.17) forwards;
+  -moz-animation: slide-in-left .3s cubic-bezier(.68, -0.01, 0.46, 1.17) forwards;
+  -ms-animation: slide-in-left .3s cubic-bezier(.68, -0.01, 0.46, 1.17) forwards;
+  -o-animation: slide-in-left .3s cubic-bezier(.68, -0.01, 0.46, 1.17) forwards;
+  animation: slide-in-left .3s cubic-bezier(.68, -0.01, 0.46, 1.17) forwards;
+  &:nth-child(n) {
+    // border: 3px solid red;
+    animation-delay: 0;
+  } // @for $i from 2 through 5 {
+  //   &:nth-child(#{$i}n) {
+  //     // border: 3px solid red;
+  //     animation-delay: $i * 0.25s;
+  //   }
+  // };
+  // @for $i from 0 through 200 {
+  //   &:nth-child(#{$i}) {
+  //     animation-delay: $i * 0.25s;
+  //   }
+  // }
+}

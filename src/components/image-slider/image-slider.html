@@ -1,0 +1,22 @@
+<div class="container-image-slider">
+    <ion-slides (ionSlideWillChange)="ionSlideDidChange()">
+        <ion-slide *ngFor="let image of fetchedImages" (click)="showGallery(image)">
+            <image-lazy [type]="type" [imgSrc]="image.url"></image-lazy>
+        </ion-slide>
+    </ion-slides>
+    <div *ngIf="defaultOpts.PRICE_SHOWN && moreInfo?.renting?.renting_fee" class="price-tag">
+        {{moreInfo?.renting?.renting_fee | currency:'VND':true}}
+        <span *ngIf="moreInfo?.renting?.discount && moreInfo?.renting?.discount != 0" class="discount">
+        <ion-icon name="ios-flash"></ion-icon>
+         -{{moreInfo?.renting?.discount}}
+         </span>
+    </div>
+    <div *ngIf="defaultOpts.PAGENUM_SHOWN" class="page-tag">
+        {{currentImageShown}}/{{numImages}}
+    </div>
+    <div class="remove-image">
+        <button ion-button clear round *ngIf="defaultOpts.REMOVE_IMAGE_SHOW" class="tab-item assertive image-option delete-img" (click)="removeImageButtonClicked()">
+            <ion-icon name="trash"></ion-icon>
+        </button>
+    </div>
+</div>

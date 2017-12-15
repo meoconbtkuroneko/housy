@@ -1,0 +1,8 @@
+<div class="location">
+    <image-only-card [title]="'Vị trí'" [info]="showData.address" [imgSrc]="showData.mapUrl" (cardClicked)="goToLocation()"></image-only-card>
+    <ion-fab top right (click)="showDirectionClicked($event)">
+        <button ion-fab mini>
+            <ion-icon name="md-navigate"></ion-icon>
+        </button>
+    </ion-fab>
+</div>

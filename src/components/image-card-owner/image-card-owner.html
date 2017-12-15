@@ -1,0 +1,31 @@
+<ion-item (click)="goToDetail(cardData?.renting.id)">
+    <ion-thumbnail class="container-img" item-left>
+        <image-lazy [type]="'space'" [imgSrc]="cardData?.image_default"></image-lazy>
+    </ion-thumbnail>
+    <div class="title">{{cardData?.title || 'Chưa có tiêu đề'}}</div>
+    <ion-note class="address">{{cardData?.address || 'Chưa có địa chỉ'}}</ion-note>
+    <div class="status" margin-top>
+        <span *ngIf="!cardData?.isUpdating">{{rentingStatusIds[cardData?.renting?.renting_status_type_id] || 'không biết'}}</span>
+        <span *ngIf="cardData?.isUpdating">{{rentingStatusIds[0]}}</span>
+    </div>
+    <ion-row wrap no-padding no-margin>
+        <ion-col col-3>
+            <ion-note>{{cardData?.renting?.viewCount || 0}}
+                <ion-icon name="eye"></ion-icon>
+            </ion-note>
+        </ion-col>
+        <ion-col col-3>
+            <ion-note>{{cardData?.renting?.likeCount || 0}}
+                <ion-icon name="heart"></ion-icon>
+            </ion-note>
+        </ion-col>
+        <ion-col col-3>
+            <ion-note>{{cardData?.renting?.shareCount || 0}}
+                <ion-icon name="share-alt"></ion-icon>
+            </ion-note>
+        </ion-col>
+    </ion-row>
+    <button class="delete-button" ion-button clear item-right round padding (click)="deleteButttonClick($event)">
+        <ion-icon name="trash"></ion-icon>
+    </button>
+</ion-item>

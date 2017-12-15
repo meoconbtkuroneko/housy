@@ -1,0 +1,44 @@
+page-more {
+  .host-profile .top-users {
+    background: transparent;
+    position: relative;
+    color: $housy-more-page-color;
+    .container-info {
+      background: transparent;
+      .avatar .image:before {
+        display: none;
+      }
+      .avatar .image {
+        img {
+          border: 0;
+        }
+      }
+      .name {
+        line-height: $housy-line-height-wide;
+      }
+    }
+  }
+  .container-button {
+    button {
+      border: 1px solid $housy-more-page-color;
+      color: $housy-more-page-color;
+      font-size: $housy-more-page-button-font-size;
+      min-height: $housy-more-page-button-height;
+      letter-spacing: $housy-letter-spacing;
+    }
+  }
+  @media all and (max-width: 320px) {
+    .container-button {
+      button {
+        height: inherit;
+      }
+    }
+    .host-profile .top-users .container-info .avatar {
+      .image,
+      img {
+        width: $housy-more-page-avatar-width-small;
+        height: $housy-more-page-avatar-width-small;
+      }
+    }
+  }
+}

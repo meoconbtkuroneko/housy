@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+  </ion-navbar>
+</ion-header>
+<ion-content class="home-detail host-profile">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+  <error-load *ngIf="showNoInternet || showErrLoad" [errInfo]="currentErrType?.info"></error-load>
+  <loading *ngIf="loading && !showNoInternet && !showErrLoad"></loading>
+  <div *ngIf="!loading && !showNoInternet && !showErrLoad">
+    <div *ngIf="showData">
+      <div class="top-users">
+        <div class="overlay" padding [ngStyle]="{'background': '#158 url('+ fullUrlPicture +') no-repeat center center' }"></div>
+        <div class="container-info" padding>
+          <div text-center padding>
+            <image-lazy [type]="'user'" class="avatar" [imgSrc]="showData?.picture"></image-lazy>
+          </div>
+          <div padding-top></div>
+          <div class="name" padding>
+            <div>Xin chào, Tôi là</div>
+            <div text-capitalize>{{showData?.name}}</div>
+          </div>
+          <div class="role" text-uppercase>{{typeRole[showData?.role].description}}</div>
+        </div>
+      </div>
+      <div padding-horizontal padding-top>
+        <ion-row *ngIf="createDateString">
+          <ion-col no-padding>
+            <ion-note>Thành viên từ</ion-note>
+          </ion-col>
+          <ion-col no-padding>
+            <div class="info">{{createDateString}}</div>
+          </ion-col>
+        </ion-row>
+      </div>
+      <part-description [showData]="showData"></part-description>
+      <div padding-horizontal padding-top>
+        <part-short-comments [comments]="showData?.comments" [belongToUser]="showData" [commentAbout]="showData" [type]="typeComment"></part-short-comments>
+      </div>
+      <part-horizontal-card *ngIf="allDataList?.length > 0" [title]="'Nhà thuộc tài khoản'" [listHouses]="allDataList" [options]="{SHOW_MORE: currentPage < totalPage}"></part-horizontal-card>
+    </div>
+  </div>
+  <no-internet *ngIf="!showNoInternet && !showErrLoad"></no-internet>
+</ion-content>

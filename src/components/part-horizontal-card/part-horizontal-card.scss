@@ -1,0 +1,22 @@
+part-horizontal-card {
+  .highlight-item {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: $housy-part-horizontal-card-highlight-height;
+      background: $housy-marker-color-highlight;
+      z-index: $housy-part-horizontal-card-highlight-z-index;
+    }
+  }
+  .container-card {
+    .show-more {
+      .container-img {
+        background: $housy-color-cyan;
+      }
+    }
+  }
+}

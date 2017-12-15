@@ -1,0 +1,100 @@
+host-profile {
+  .container-info {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: $housy-host-profile-background;
+    .avatar {
+      .loading {
+        img {
+          border: $housy-host-profile-border-width solid;
+        }
+        &:before {
+          content: '';
+          border: $housy-host-profile-thin-border-width solid;
+          border-color: $housy-host-profile-thin-border-color;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: -$housy-host-profile-thin-border-width;
+          left: -$housy-host-profile-thin-border-width;
+          -webkit-transform: scale(1.3);
+          -moz-transform: scale(1.3);
+          -ms-transform: scale(1.3);
+          -o-transform: scale(1.3);
+          transform: scale(1.3);
+          border-radius: 50%;
+        }
+      }
+    }
+  }
+}
+
+.host-profile {
+  .top-users {
+    color: $housy-host-profile-color;
+    position: relative;
+    background: $housy-host-profile-background;
+    overflow: hidden;
+    .avatar {
+      div {
+        @media all and (max-width: 320px) {
+          & {
+            width: $housy-user-card-avatar-width;
+            height: $housy-user-card-avatar-width;
+          }
+          &>img {
+            width: $housy-user-card-avatar-width;
+            height: $housy-user-card-avatar-width;
+          }
+        }
+      }
+    }
+    .overlay {
+      background-size: cover !important;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      -webkit-filter: blur(10px);
+      -moz-filter: blur(10px);
+      filter: blur(10px);
+    }
+    .container-info {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: $housy-host-profile-background;
+      .avatar {
+        .loading {
+          position: relative;
+          width: $housy-user-card-avatar-width;
+          height: $housy-user-card-avatar-width;
+          margin: auto;
+        }
+      }
+    }
+    .name {
+      line-height: $housy-line-height-wide;
+      letter-spacing: $housy-letter-spacing;
+      div:first-of-type {
+        font-size: 1em;
+        font-weight: $housy-font-weight;
+      }
+      div:last-of-type {
+        font-size: 1.2em;
+      }
+    }
+    .role {
+      letter-spacing: normal;
+      color: rgba(255, 255, 255, 0.9);
+    }
+  }
+}
+
+.container-comment {
+  .title {
+    margin-bottom: 0 !important;
+  }
+}

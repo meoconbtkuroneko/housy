@@ -1,0 +1,28 @@
+image-card-owner {
+  .title,
+  .address {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .title {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-weight: $housy-font-weight-bold;
+  }
+  .status {
+    font-size: $housy-image-card-owner-font-size-small;
+    span {
+      color: $housy-color-housy;
+      font-style: italic;
+    }
+  }
+  ion-note {
+    font-size: $housy-image-card-owner-font-size-small;
+  }
+  .delete-button .icon {
+    font-size: 2em;
+    color: $housy-color-dark;
+  }
+}

@@ -1,0 +1,3 @@
+<div padding *ngIf="showData?.neighborhood?.id" class="neighborhood">
+    <image-only-card [title]="'Khu dân cư'" [info]="showData?.neighborhood?.name" [imgSrc]="showData?.neighborhood?.image_default" [type]="'neighborhood'" (cardClicked)="openDetail()"></image-only-card>
+</div>

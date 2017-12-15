@@ -1,0 +1,37 @@
+select-images {
+  .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: $housy-color-background;
+  }
+  .container-select-image {
+    position: relative;
+    top: 35%;
+    background: $housy-color-white;
+  }
+  .housy-md {
+    .title {
+      font-size: $alert-md-title-font-size;
+    }
+    .subtitle {
+      font-size: $alert-md-sub-title-font-size;
+    }
+  }
+  .housy-ios {
+    .title {
+      font-size: $alert-ios-title-font-size;
+    }
+    .subtitle {
+      font-size: $alert-ios-sub-title-font-size;
+    }
+  }
+  .housy-wp {
+    .title {
+      font-size: $alert-wp-title-font-size;
+    }
+    .subtitle {
+      font-size: $alert-wp-sub-title-font-size;
+    }
+  }
+}

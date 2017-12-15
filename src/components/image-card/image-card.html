@@ -1,0 +1,45 @@
+<ion-card class="image-card" (click)="goToDetail('space')" [hidden]="!cardData">
+  <div class="container-img">
+    <image-lazy [type]="'space'" [imgSrc]="cardData?.image_default"></image-lazy>
+    <div class="favourite-tag" *ngIf="defaultOpts?.FAVOURITE_SHOWN == true && cardData?.id">
+      <favourite-button [cardData]="cardData" (onFavouriteChanged)="onFavouriteChanged($event)"></favourite-button>
+    </div>
+    <div class="verify-tag" *ngIf="defaultOpts?.VERIFY_SHOWN == true && cardData?.renting?.is_verified">
+      <div class="verify"><span>Housy</span></div>
+    </div>
+    <div *ngIf="defaultOpts?.PRICE_SHOWN == true" class="price-tag">
+      {{cardData?.renting?.renting_fee | currency:'VND':true}}
+      <ion-icon *ngIf="cardData?.renting?.discount && cardData?.renting?.discount != 0" name="ios-flash"></ion-icon>
+    </div>
+  </div>
+  <ion-card-content>
+    <ion-item detail-none>
+      <div class="title">
+        {{cardData?.title}}
+      </div>
+      <ion-avatar item-right>
+        <image-lazy class="avatar" [type]="'user'" [imgSrc]="cardData?.renting?.user?.picture"></image-lazy>
+      </ion-avatar>
+      <p class="address">
+        <span *ngIf="cardData?.short_address">{{cardData?.short_address}}</span><span *ngIf="cardData?.short_address && (cardData?.district?.name || cardData?.city?.name || cardData?.address)">, </span>
+        <span>{{cardData?.district?.name || cardData?.city?.name || cardData?.address}}</span>
+      </p>
+    </ion-item>
+    <div>
+      <span padding-right><ion-note>{{cardData?.home_type?.name}}</ion-note></span>
+      <span padding-right><ion-note>{{cardData?.number_of_bedroom}} phòng ngủ</ion-note></span>
+      <span><ion-note *ngIf="km || km === 0">{{km}}km</ion-note></span>
+    </div>
+    <!-- <ion-row>
+            <ion-col>
+                <ion-note>{{cardData?.home_type?.name}}</ion-note>
+            </ion-col>
+            <ion-col col-5>
+                <ion-note>{{cardData?.number_of_bedroom}} phòng ngủ</ion-note>
+            </ion-col>
+            <ion-col center text-center>
+                <ion-note *ngIf="km || km === 0">{{km}}km</ion-note>
+            </ion-col>
+        </ion-row> -->
+  </ion-card-content>
+</ion-card>

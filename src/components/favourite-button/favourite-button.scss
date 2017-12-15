@@ -1,0 +1,15 @@
+favourite-button {
+  .icon {
+    &.favourite-added {
+      color: $housy-color-housy;
+      opacity: 1; // &.clicked {
+      //   border: 2px solid green;
+      //   -webkit-animation: tada 0.3s alternate;
+      //   -moz-animation: tada 0.3s alternate;
+      //   -ms-animation: tada 0.3s alternate;
+      //   -o-animation: tada 0.3s alternate;
+      //   animation: tada 0.3s alternate;
+      // }
+    }
+  }
+}

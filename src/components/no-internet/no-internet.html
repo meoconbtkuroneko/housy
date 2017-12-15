@@ -1,0 +1,6 @@
+<!-- <error-load *ngIf="showNoInternet" [errInfo]="currentErrType?.info"></error-load> -->
+<div text-center padding *ngIf="showNoInternet">
+    <div class="text-err message">{{noInternetTitle + ' ' + noInternetMessage}}</div>
+    <button *ngIf="!shouldShowSpinner" ion-button clear full (click)="retryInternet()">Thử lại</button>
+    <ion-spinner *ngIf="shouldShowSpinner" name="dots"></ion-spinner>
+</div>

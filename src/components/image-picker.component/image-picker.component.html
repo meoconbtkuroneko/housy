@@ -1,0 +1,15 @@
+<image-slider *ngIf="images?.length >0 && defaultOpts.SHOW_SLIDER" [sliderData]="images" [options]="{ REMOVE_IMAGE_SHOW: true}" (removeImageIndex)="deleteImage($event)">
+</image-slider>
+<div class="add-images">
+    <div class="option" text-center>
+        <button ion-button color="light" (click)="selectImages()">
+            <ion-icon name="images"></ion-icon>
+            <ion-icon name=add></ion-icon>
+        </button>
+        <button ion-button color="light" (click)="capturePhoto()">
+            <ion-icon name="camera"></ion-icon>
+            <ion-icon name=add></ion-icon>
+        </button>
+        <div *ngIf="images?.length < defaultOpts?.MAX_IMAGES  && defaultOpts.SHOW_REQUIRED" text-center padding-top class="help-block fs-13 highlight-text">Vui lòng chọn ít nhất {{defaultOpts?.MAX_IMAGES}} bức ảnh</div>
+    </div>
+</div>

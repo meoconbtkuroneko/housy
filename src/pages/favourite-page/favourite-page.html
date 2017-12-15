@@ -1,0 +1,33 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Yêu thích</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-background">
+    <not-login *ngIf="!USER?.logined && !showErrLoad" [showNow]="showLogin"></not-login>
+    <ion-refresher *ngIf="USER?.logined" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <div *ngIf="USER?.logined">
+        <div class="part-header">
+            <div class="title">
+                <span>Danh sách nhà yêu thích</span>
+            </div>
+            <div class="line"></div>
+        </div>
+        <error-load *ngIf="showNoInternet || showErrLoad" [errInfo]="currentErrType?.info"></error-load>
+        <loading *ngIf="loading && !showNoInternet && !showErrLoad"></loading>
+        <div *ngIf="!loading && !showNoInternet && !showErrLoad">
+            <div *ngIf="allDataList" class="vertical-list">
+                <div class="count-total" padding-left padding-vertical>Bạn đã thích {{totalItem || 0 }} căn nhà</div>
+                <div class="container-card" *ngFor="let item of allDataList" padding-horizontal padding-bottom>
+                    <image-card *ngIf="item?.data" [cardData]="item?.data"></image-card>
+                </div>
+                <ion-infinite-scroll (ionInfinite)="doLoadMore($event)">
+                    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+                </ion-infinite-scroll>
+            </div>
+        </div>
+        <no-internet *ngIf="!showNoInternet && !showErrLoad"></no-internet>
+    </div>
+</ion-content>

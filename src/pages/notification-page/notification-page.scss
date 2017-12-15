@@ -1,0 +1,61 @@
+  notification-page {
+    ion-label {
+      max-width: 90%;
+    }
+    .one-line-ellipsis {
+      -webkit-box-orient: initial !important;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 1;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .readed {
+      opacity: 0.65;
+    }
+    .not-readed {
+      opacity: 1;
+      background: $housy-color-mask-lighter;
+      & >ion-icon {
+        color: $housy-color-housy;
+      }
+    }
+    .notification-label {
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      color: #fff;
+      -webkit-animation: spread 2s infinite;
+      animation: spread 2s infinite;
+      &.notification-label-red {
+        background: #FC3768;
+        margin-right: 20%;
+      }
+    }
+    .count-result {
+      margin: 1em 0;
+    }
+    /*
+ * Spread animation
+*/
+    @-webkit-keyframes spread {
+      from {
+        box-shadow: 0 0 0 0 #f43ba2;
+      }
+      20% {
+        box-shadow: 0 0 0 7px transparent;
+      }
+    }
+    @keyframes spread {
+      from {
+        box-shadow: 0 0 0 0 #f43ba2;
+      }
+      20% {
+        box-shadow: 0 0 0 7px transparent;
+      }
+    }
+    .spread {
+      -webkit-animation-name: spread;
+      animation-name: spread;
+    }
+  }

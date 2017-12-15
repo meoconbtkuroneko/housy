@@ -1,0 +1,21 @@
+<div *ngIf="amenitiesArr">
+    <ion-item-divider class="container-label" margin-top>Tiện nghi</ion-item-divider>
+    <ion-item detail-none *ngFor="let item of amenitiesArr">
+        <ion-label>{{item?.name}}</ion-label>
+        <ion-checkbox (click)="hasChange($event,KEY_AME, item)" [checked]="item.selecting" item-right [(ngModel)]="item.selecting"></ion-checkbox>
+    </ion-item>
+</div>
+<div *ngIf="advantagesArr">
+    <ion-item-divider class="container-label" margin-top>Lợi thế</ion-item-divider>
+    <ion-item detail-none *ngFor="let item of advantagesArr">
+        <ion-label>{{item?.name}}</ion-label>
+        <ion-checkbox (click)="hasChange($event,KEY_ADV, item)" [checked]="item.selecting" item-right [(ngModel)]="item.selecting"></ion-checkbox>
+    </ion-item>
+</div>
+<div *ngIf="rulesArr">
+    <ion-item-divider class="container-label" margin-top>Quy định</ion-item-divider>
+    <ion-item detail-none *ngFor="let item of rulesArr">
+        <ion-label>{{item?.name}}</ion-label>
+        <ion-checkbox (click)="hasChange($event,KEY_RULES, item)" [checked]="item.selecting" item-right [(ngModel)]="item.selecting"></ion-checkbox>
+    </ion-item>
+</div>

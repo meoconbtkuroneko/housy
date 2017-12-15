@@ -1,0 +1,70 @@
+home-detail {
+  .icon.favourite-added {
+    color: map-get($colors, light);
+  }
+  .container-custom-bar-button {
+    button {
+      // font-size: inherit;
+      // height: 100%;
+      .icon {
+        // border: 3px solid green;
+        line-height: 0.9;
+      }
+    }
+  }
+}
+
+.home-detail {
+  $general-info-border: 0.5px solid #ccc;
+  .general-info {
+    text-align: center;
+    border-top: $general-info-border;
+    border-bottom: $general-info-border;
+    color: $housy-color-info;
+  }
+  .container-user {
+    font-size: 1em;
+    line-height: $housy-line-height-wide;
+    .item-inner {
+      border: 0 !important;
+    }
+  }
+  .container-description {
+    line-height: $housy-line-height-wide;
+  }
+  .title {
+    line-height: $housy-line-height-wide;
+    font-size: $housy-font-size-title;
+    text-align: left;
+    color: $housy-color-title;
+    width: 100%;
+    text-transform: capitalize;
+    margin-bottom: $housy-padding;
+  }
+  .main-title {
+    font-size: $housy-main-title-font-size;
+    margin-bottom: 0;
+  }
+  .detail-info {
+    ion-col:first-of-type {
+      color: $housy-color-info;
+    }
+    ion-col:nth-child(2n) {
+      text-align: right;
+    }
+  }
+  .container-advances {
+    font-size: 1.5em;
+    button {
+      font-size: $housy-icon-font-size;
+      .icon {
+        padding: 10px;
+      }
+    }
+  }
+  .container-rule {
+    button {
+      height: unset;
+    }
+  }
+}

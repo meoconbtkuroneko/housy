@@ -1,0 +1,27 @@
+gallery-images {
+  .toolbar-background {
+    background: transparent !important;
+  }
+  .container-gallery {
+    background: $housy-gallery-background;
+    color: $housy-gallery-color;
+    // position: relative;
+    // width: 100%;
+    // height: 100%;
+    // button {
+    //   position: absolute;
+    //   top: 0;
+    //   padding-top: $housy-gallery-icon-padding;
+    //   padding-bottom: $housy-gallery-icon-padding;
+    //   z-index: $housy-card-z-index;
+    // }
+    // .icon {
+    //   color: $housy-gallery-color;
+    //   font-size: $housy-gallery-icon-font-size;
+    // }
+  }
+  .page-tag {
+    // border: 1px solid red;
+    // width: 50px;
+  }
+}

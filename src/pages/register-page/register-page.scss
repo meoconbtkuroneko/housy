@@ -1,0 +1,26 @@
+.register-page {
+  .title {
+    font-size: $housy-register-page-title-font-size;
+    color: $housy-register-page-title-color;
+  }
+  .sub-title {
+    font-size: $housy-register-page-sub-title-font-size;
+    font-weight: $housy-font-weight-bold;
+    letter-spacing: $housy-letter-spacing;
+  }
+  .container .container-divider {
+    margin: 0 auto;
+    width: 30%;
+  }
+  .container .container-divider:before,
+  .container .container-divider:after {
+    width: 40%;
+  }
+  .container-button-more {
+    text-align: right;
+  }
+  a {
+    text-decoration: none;
+    font-weight: $housy-font-weight-bold;
+  }
+}

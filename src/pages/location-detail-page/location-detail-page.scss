@@ -1,0 +1,65 @@
+location-detail-page {
+  .scroll-content {
+    overflow: hidden;
+  }
+  .container-map {
+    max-height: $housy-content-height-without-top;
+    height: 100%;
+    -webkit-transition: all $housy-transition-time ease;
+    -moz-transition: all $housy-transition-time ease;
+    -ms-transition: all $housy-transition-time ease;
+    -o-transition: all $housy-transition-time ease;
+    transition: all $housy-transition-time ease;
+  }
+  .container-more-card {
+    position: absolute;
+    bottom: $housy-location-detail-page-card-bottom;
+    z-index: 1;
+    ion-card {
+      position: relative;
+      text-align: center;
+      .overlay,
+      .card-subtitle,
+      .card-title {
+        position: absolute;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .overlay {
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: $housy-color-background-light;
+      }
+      .card-subtitle {
+        font-size: $housy-location-detail-page-card-font-size-small;
+        top: 30%;
+        color: $housy-color-white;
+        letter-spacing: $housy-letter-spacing;
+        padding-left: $housy-location-detail-page-card-padding;
+        padding-right: $housy-location-detail-page-card-padding;
+      }
+      .card-title {
+        top: 52%;
+        font-size: $housy-font-size-title;
+        font-weight: bold;
+        color: $housy-color-white;
+        padding-left: $housy-location-detail-page-card-padding;
+        padding-right: $housy-location-detail-page-card-padding;
+      }
+    }
+  }
+  .show-direction {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: $housy-icon-font-size-small;
+    &.show-direction-highlight {
+      box-shadow: $housy-show-direction-button-highlight-box-shadow;
+      color: $housy-color-housy;
+      background: $housy-color-white;
+    }
+  }
+}

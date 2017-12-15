@@ -1,0 +1,135 @@
+<ion-header>
+    <ion-navbar>
+        <ion-buttons end class="container-custom-bar-button" icon-only>
+            <report-button *ngIf="showData?.data" [data]="showData?.data" [type]="'space'"></report-button>
+            <share-button *ngIf="showData?.data" [id]="showData?.data?.renting?.id" [type]="typeShare"></share-button>
+            <favourite-button *ngIf="showData?.data" [cardData]="showData?.data" (onFavouriteChanged)="onFavouriteChanged($event)"></favourite-button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content class="home-detail">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <error-load *ngIf="showNoInternet || showErrLoad" [errInfo]="currentErrType?.info"></error-load>
+    <loading *ngIf="loading && !showNoInternet && !showErrLoad"></loading>
+    <div *ngIf="!loading && !showNoInternet && !showErrLoad">
+        <div *ngIf="showData?.data">
+            <image-slider *ngIf="showData?.data" [sliderData]="showData?.data?.space_images" [type]="'space'" [moreInfo]="showData?.data" [options]="{PRICE_SHOWN: true}"></image-slider>
+            <part-count [showData]="showData?.data"></part-count>
+            <div padding>
+                <ion-row class="general-info">
+                    <ion-col>
+                        <img class="housy-icon center" src="assets/sd/house.png">
+                        <div class="info">{{showData?.data?.currentHomeType?.name}}</div>
+                    </ion-col>
+                    <ion-col>
+                        <img class="housy-icon center" src="assets/sd/bedroom.png">
+                        <div class="info">{{showData?.data?.number_of_bedroom}} phòng</div>
+                    </ion-col>
+                    <ion-col>
+                        <img class="housy-icon center" src="assets/sd/area.png">
+                        <div class="info">{{showData?.data?.area}} m<sup>2</sup></div>
+                    </ion-col>
+                </ion-row>
+            </div>
+            <ion-item detail-none class="container-user">
+                <ion-avatar item-right (click)="openAvatar()">
+                    <image-lazy class="avatar" [type]="'user'" [imgSrc]="showData?.data?.renting?.user?.picture"></image-lazy>
+                </ion-avatar>
+                <ion-row>
+                    Đăng bởi &nbsp;
+                    <button ion-button clear class="name housy-link link-text" (click)="openAvatar()"> {{showData?.data?.renting?.user?.name}}</button>
+                </ion-row>
+                <div *ngIf="showData?.data?.renting?.is_verified" class="verify-text">Đã được xác thực bởi <span class="color-housy">Housy.vn</span>
+                </div>
+            </ion-item>
+            <part-description [showData]="showData?.data"></part-description>
+            <div padding>
+                <part-location [showData]="showData?.data"></part-location>
+            </div>
+            <div padding class="detail-info">
+                <div class="title"> Thông tin chung</div>
+                <ion-row>
+                    <ion-col col-4 class="item-name">Vị trí</ion-col>
+                    <ion-col col-8>{{showData?.data?.currentSpacePosition?.name}}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-5 class="item-name">Số tầng</ion-col>
+                    <ion-col col-7>{{showData?.data?.floor ? showData?.data?.floor + ' tầng' : 'Chưa cập nhật'}}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-5 class="item-name">Số phòng tắm</ion-col>
+                    <ion-col>{{showData?.data?.number_of_bathroom ? showData?.data?.number_of_bathroom : 'Phòng tắm chung'}}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-7 class="item-name">Số người thuê tối đa</ion-col>
+                    <ion-col>{{showData?.data?.max_renters}} người</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-4 class="item-name">Đặt cọc</ion-col>
+                    <ion-col>{{showData?.data?.currentDepositTime?.description}}</ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-4 class="item-name">Hợp đồng</ion-col>
+                    <ion-col>{{showData?.data?.currentContractType?.description}}</ion-col>
+                </ion-row>
+            </div>
+            <div padding *ngIf="showData?.data?.apartment && showData?.data?.apartment_id" class="apartment">
+                <image-only-card [title]="'Chung cư'" [info]="showData?.data?.apartment?.name" [imgSrc]="showData?.data?.apartment?.image_default" [type]="'apartment'" (cardClicked)="openDetail('apartment')"></image-only-card>
+            </div>
+            <part-neighborhood [showData]="showData?.data"></part-neighborhood>
+            <div padding *ngIf="showData?.data?.someAdvances?.length > 0 || showData?.data?.shortCurrentRules?.length > 0">
+                <ion-row no-padding no-margin class="container-title">
+                    <ion-col no-padding col-9 class="title">
+                        Tiện ích và quy định
+                    </ion-col>
+                    <ion-col col-3 text-right no-padding>
+                        <button ion-button clear class="see-all housy-link link-text" (click)="showAllAdvances()">Xem tất cả</button>
+                    </ion-col>
+                </ion-row>
+                <div *ngIf="showData?.data?.someAdvances?.length > 0">
+                    <ion-row class="container-advances" align-items-center>
+                        <ion-col col-2 class="container-housy-icon" *ngFor="let item of showData?.data?.someAdvances">
+                            <img *ngIf="item?.url" class="housy-icon center" src="{{item?.url}}">
+                        </ion-col>
+                        <ion-col col-2 class="container-advances-more" *ngIf="(
+                        showData?.data?.currentAdvantages?.length + 
+                        showData?.data?.currentAmenities?.length + 
+                        showData?.data?.currentRules?.length) > maxAdvance">
+                            +{{showData?.data?.currentAdvantages?.length + showData?.data?.currentAmenities?.length + showData?.data?.currentRules?.length - maxAdvance}}
+                            <!-- <ion-icon name="ios-add"></ion-icon> -->
+                        </ion-col>
+                    </ion-row>
+                </div>
+                <div class="container-rule" *ngIf="showData?.data?.someAdvances?.length == 0 && showData?.data?.shortCurrentRules?.length > 0">
+                    <ion-item class="item-rule" *ngFor="let item of showData?.data?.shortCurrentRules">
+                        {{item?.name}}
+                    </ion-item>
+                    <!-- <ion-row class="item-rule" *ngFor="let item of showData?.data?.shortCurrentRules">
+                        <ion-col align-self-center>
+                            <ion-icon name="remove"></ion-icon>
+                            {{item?.name}}
+                        </ion-col>
+                    </ion-row> -->
+                    <!-- <ion-row *ngIf="showData?.data?.currentRules?.length > 2" class="item-rule container-more-rule" (click)="showAllAdvances()">
+                        <ion-col>
+                            <button ion-button clear class="housy-link link-text">Xem thêm</button>
+                        </ion-col>
+                    </ion-row> -->
+                </div>
+            </div>
+            <div padding-horizontal padding-top>
+                <part-short-comments *ngIf="listComments" [comments]="listComments" [belongToUser]="showData?.data?.renting?.user" [commentAbout]="showData?.data" [type]="typeComment"></part-short-comments>
+            </div>
+            <part-horizontal-card *ngIf="allDataList" [title]="'Nhà trong khu vực'" [listHouses]="allDataList"></part-horizontal-card>
+        </div>
+    </div>
+    <no-internet *ngIf="!showNoInternet && !showErrLoad"></no-internet>
+    <div class="housy-space"></div>
+</ion-content>
+<ion-footer *ngIf="showData?.data">
+    <ion-toolbar class="housy-footer">
+        <contact-host-button [data]="showData?.data"></contact-host-button>
+    </ion-toolbar>
+</ion-footer>

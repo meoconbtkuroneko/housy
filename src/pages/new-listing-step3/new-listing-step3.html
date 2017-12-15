@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <ion-title>Bước 3</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="new-listing-step">
+    <div class="housy-space"></div>
+    <div class="part-header">
+        <div class="title">
+            <span>Tạo mới nhà bước 3</span>
+        </div>
+        <div class="line"></div>
+    </div>
+    <div padding>
+        <ion-note>(<span class="highlight-text">*</span>) Cần bạn cung cấp thông tin</ion-note>
+    </div>
+    <part-new-listing-title-description (getNewListingForm)="getNewListingStep3Form($event)"></part-new-listing-title-description>
+    <part-new-listing-adv (getNewListingForm)="getNewListingAdv($event)"></part-new-listing-adv>
+    <ion-fab left bottom>
+        <button ion-fab (click)="previousStep($event)">
+            Bước 2
+        </button>
+    </ion-fab>
+    <ion-fab right bottom>
+        <button ion-fab [attr.disabled]="!canSend ? '': null" (click)="nextStep($event)">
+            Đăng tin
+        </button>
+    </ion-fab>
+    <div class="housy-space"></div>
+</ion-content>

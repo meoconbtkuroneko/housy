@@ -1,0 +1,28 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>{{shortTitle}}</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-background">
+    <div class="part-header">
+        <div class="title">
+            <span>{{title}}</span>
+        </div>
+        <div class="line"></div>
+    </div>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <error-load *ngIf="showNoInternet || showErrLoad" [errInfo]="currentErrType?.info"></error-load>
+    <loading *ngIf="loading && !showNoInternet && !showErrLoad"></loading>
+    <div *ngIf="!loading && !showNoInternet && !showErrLoad">
+        <div class="vertical-list">
+            <div class="container-card animation-card" padding-horizontal padding-bottom *ngFor="let item of allDataList; let i = index">
+                <image-card *ngIf="item?.data" [cardData]="item?.data"></image-card>
+            </div>
+        </div>
+        <ion-infinite-scroll (ionInfinite)="doLoadMore($event)">
+            <ion-infinite-scroll-content></ion-infinite-scroll-content>
+        </ion-infinite-scroll>
+    </div>
+</ion-content>

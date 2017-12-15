@@ -1,0 +1,17 @@
+<div class="overlay">
+</div>
+<ion-card class="container-select-image" margin>
+    <div text-right>
+        <button-close-modal (click)="closeModal()"></button-close-modal>
+    </div>
+    <div [ngClass]="{'housy-md': platform.is('android'),
+'housy-ios': platform.is('ios'),
+'housy-wp': !platform.is('android') && !platform.is('ios')
+}">
+        <div padding text-center class="title">{{title}}</div>
+        <div padding-horizontal text-center class="subtitle">{{subTitle}}</div>
+    </div>
+    <div padding>
+        <image-picker [options]="{SHOW_SLIDER: false, CLOSE_ON_SELECT: true, SHOW_REQUIRED: false, MAX_IMAGES: 1}" (returnImages)="getImages($event)"></image-picker>
+    </div>
+</ion-card>

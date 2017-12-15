@@ -1,0 +1,31 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <ion-title>Bước 2</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="new-listing-step">
+    <div class="housy-space"></div>
+    <div class="part-header">
+        <div class="title">
+            <span>Tạo mới nhà bước 2</span>
+        </div>
+        <div class="line"></div>
+    </div>
+    <part-new-listing-image-picker (getNewListingImage)="getNewListingImagePicker($event)"></part-new-listing-image-picker>
+    <div padding>
+        <ion-note>(<span class="highlight-text">*</span>) Cần bạn cung cấp thông tin</ion-note>
+    </div>
+    <part-new-listing-step2 (getNewListingForm)="getNewListingStep2Form($event)"></part-new-listing-step2>
+    <ion-fab left bottom>
+        <button ion-fab (click)="previousStep($event)">
+            Bước 1
+        </button>
+    </ion-fab>
+    <ion-fab right bottom>
+        <button ion-fab [disabled]="!canSend" (click)="nextStep($event)">
+            Bước 3
+        </button>
+    </ion-fab>
+    <no-internet *ngIf="!showNoInternet && !showErrLoad"></no-internet>
+    <div class="housy-space"></div>
+</ion-content>

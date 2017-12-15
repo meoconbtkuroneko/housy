@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <button-close-modal (click)="closeModal()"></button-close-modal>
+    </ion-navbar>
+</ion-header>
+<ion-content class="content-modal housy-modal">
+    <div class="title" padding>Lịch sử giao dịch</div>
+    <div class="line-short" margin-left></div>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <error-load *ngIf="showNoInternet || showErrLoad" [errInfo]="currentErrType?.info"></error-load>
+    <loading *ngIf="loading && !showNoInternet && !showErrLoad"></loading>
+    <div *ngIf="!loading && !showNoInternet && !showErrLoad">
+        <div class="container" padding-right padding-bottom *ngIf="allDataList">
+            <div class="count-total" padding-left padding-vertical>Tổng: {{totalItem || 0 | currency:'VND':true}}</div>
+            <div *ngFor="let item of allDataList">
+                <ion-item class="container-item" detail-none>
+                    <ion-avatar item-left>
+                        <span style="height: 100%;"></span>
+                        <ion-icon [name]="item.iconName"></ion-icon>
+                    </ion-avatar>
+                    <div class="content">{{item.content || 'Chưa có tiêu đề'}}</div>
+                    <ion-note class="datetime">{{item.dateTime}}</ion-note>
+                    <div class="money">
+                        <div *ngIf="item.type === transactionTypes.TRANSACTION_TRANSFER_DISCOUNT || item.type === transactionTypes.TRANSACTION_NOT_CALCULATE">(không tính vào tài khoản)</div>
+                        <span *ngIf="item.type === transactionTypes.TRANSACTION_DEPOSIT">+ </span>
+                        <span *ngIf='item.type === transactionTypes.TRANSACTION_WITHDRAW'>- </span>
+                        <span>{{item.value || '0' | currency:'VND':true}}</span>
+                    </div>
+                </ion-item>
+            </div>
+        </div>
+    </div>
+    <no-internet *ngIf="!showNoInternet && !showErrLoad"></no-internet>
+</ion-content>

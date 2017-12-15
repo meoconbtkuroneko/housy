@@ -1,0 +1,19 @@
+.new-listing-step {
+  .fixed-content,
+  .scroll-content {
+    margin-top: 0 !important;
+  }
+  .container-label {
+    font-size: $housy-font-size-title;
+    background: $item-ios-divider-background;
+  }
+  .adjust-input-item {
+    border-bottom: 1px solid red;
+  }
+  .item-md.item-input .item-inner {
+    border-color: $list-md-border-color !important;
+  }
+  ion-input input {
+    opacity: 1 !important;
+  }
+}

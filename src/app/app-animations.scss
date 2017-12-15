@@ -1,0 +1,79 @@
+@mixin animation-name($name) {
+  -webkit-animation-name: $name;
+  -moz-animation-name: $name;
+  -ms-animation-name: $name;
+  -o-animation-name: $name;
+  animation-name: $name;
+}
+
+
+@keyframes tada {
+  from {
+    transform: scale3d(1, 1, 1);
+  }
+
+  10%,
+  20% {
+    transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+  }
+
+  30%,
+  50%,
+  70%,
+  90% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+  }
+
+  40%,
+  60%,
+  80% {
+    transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.tada {
+  @include animation-name(tada);
+}
+
+$window-width: 500px;
+
+@keyframes slide-in-left {
+  from {
+    transform: translateY(10em);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  } // from {
+  //   transform: translate(-$window-width, 50px) rotate(-40deg);
+  // }
+  // 25% {
+  //   transform: translate(0px, 0px) rotate(0deg);
+  // }
+  // 75% {
+  //   transform: translate(0px, 0px) rotate(0deg);
+  // }
+  // 100% {
+  //   transform: translate(0, 0) rotate(0deg);
+  // }
+}
+
+@keyframes slide-in-right {
+  0% {
+    transform: translate($window-width, -50px) rotate(-40deg);
+  }
+  25% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  75% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0px, 500px) rotate(0deg);
+  }
+}

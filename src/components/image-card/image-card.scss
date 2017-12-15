@@ -1,0 +1,53 @@
+.image-card {
+  color: $housy-color-title;
+  .item-md,
+  .item-ios {
+    padding-left: 0;
+  }
+  .item-md.item-block,
+  .item-ios.item-block {
+    .item-inner {
+      padding-right: 0;
+    }
+    ion-label {
+      margin-top: 0;
+      margin-bottom: 0;
+      div {
+        line-height: $housy-line-height-wide;
+        font-size: $housy-font-size-title;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: capitalize;
+      }
+    }
+  }
+  .item-md ion-avatar[item-right],
+  .item-ios ion-avatar[item-right] {
+    margin: 0;
+  }
+  .container-img {
+
+    .favourite-tag {
+      position: absolute;
+      z-index: 5555;
+      right: 0;
+      top: 0;
+    }
+    .price-tag {
+      left: 0;
+      bottom: 50px;
+      position: absolute;
+    }
+  }
+  ion-card-content,
+  .item {
+    color: $housy-color-title;
+  }
+  ion-note {
+    // color: $housy-color-diasble !important;
+    letter-spacing: $housy-letter-spacing;
+  } // .address {
+  //      -webkit-font-smoothing: antialiased;
+  //    -webkit-box-orient: vertical;
+  // }
+}

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button-close-modal (click)="closeModal()"></button-close-modal>
+  </ion-navbar>
+</ion-header>
+<ion-content class="item-modal housy-modal">
+  <div class="title" padding>Thông tin ứng dụng</div>
+  <div class="line-short" margin-bottom margin-left></div>
+  <ion-row no-padding no-margin justify-content-center>
+    <ion-col col-3 text-center class="container-logo">
+      <img src="{{logoUrl}}">
+    </ion-col>
+  </ion-row>
+  <div text-center class="app-name">{{appName || 'Housy'}}</div>
+  <div text-center class="slogan">Tìm nhà thật dễ</div>
+  <div text-center class="version">
+    <ion-note>Phiên bản {{version || '1.2.4'}}</ion-note>
+  </div>
+  <div class="description" padding>
+    <span>{{appName || 'Housy'}}</span> - Giúp bạn dễ dàng tìm kiếm thông tin về nhà và chung cư cho thuê tại thành phố Hồ Chí Minh.
+  </div>
+  <div class="contact" padding-horizontal padding-bottom>Liên hệ với chúng tôi: <a href="mailto:{{contact}}">{{contact}}</a></div>
+  <div class="container">
+    <rating-app-button></rating-app-button>
+  </div>
+</ion-content>

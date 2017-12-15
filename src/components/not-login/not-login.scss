@@ -1,0 +1,382 @@
+.not-login {
+  height: 100%;
+  width: 100%;
+  color: $housy-color-title;
+  font-size: 1.2em;
+  .container-image {
+    width: 100%;
+    height: 220px;
+    // border: 3px solid;
+    svg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    .image {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      opacity: 0.8;
+      width: 100%;
+      height: 200px;
+      background: transparent url('../assets/general/background-houses.png') no-repeat bottom left;
+      background-size: cover;
+    }
+  }
+  // Hot Air Balloon
+  $initWidth: 320px;
+  $initHeight: 50px;
+  $increaseVeryLarge: 10px;
+  $increaseLarge: 8px;
+  $increaseMedium: 5px;
+  $increaseSmall: 2px;
+  @keyframes balloon {
+    0% {
+      transform: translate($initWidth * 1.2, 90px);
+    }
+    // 15% {
+    //   transform: translate($initWidth * 1.2, $initHeight * 2);
+    // }
+    30% {
+      // transform: translate($initWidth + $increaseLarge, $initHeight * 3.2);
+      transform: translate($initWidth, $initHeight * 3.2);
+    }
+    40% {
+      transform: translate($initWidth, $initHeight * 4);
+    }
+    60% {
+      // transform: translate($initWidth + $increaseMedium, $initHeight * 4);
+      transform: translate($initWidth, $initHeight * 4);
+    }
+    // 73% {
+    //   // transform: translate($initWidth + 2 * $increaseMedium, $initHeight * 3.5);
+    //   transform: translate($initWidth, $initHeight * 3.5);
+    // }
+    // 75% {
+    //   transform: translate($initWidth, $initHeight * 3.6);
+    // }
+    // 80% {
+    //   transform: translate($initWidth, $initHeight * 3.5);
+    // }
+    100% {
+      transform: translate($initWidth * 1.2, 90px);
+    }
+  }
+  #Balloon {
+    position: relative;
+    animation: balloon 20s ease-in infinite;
+  }
+  // .st0 {
+  //   fill: url(#sky-gradient);
+  // }
+  // .st1 {
+  //   fill: #F89C50;
+  // }
+  // .st2 {
+  //   fill: #FDF389;
+  // }
+  // .st3 {
+  //   fill: #FEE087;
+  // }
+  // .st4 {
+  //   fill: url(#SVGID_2_);
+  // }
+  .st5 {
+    fill: #ceeff5;
+  }
+  .st6 {
+    fill: url(#SVGID_3_);
+  }
+  .st7 {
+    fill: url(#SVGID_4_);
+  }
+  .st8 {
+    fill: #565656;
+  }
+  .st9 {
+    fill: #686868;
+  }
+  .st10 {
+    fill: #EEEEEE;
+  }
+  .st11 {
+    fill: #676767;
+  }
+  .st12 {
+    fill: #939393;
+  }
+  .st13 {
+    fill: #717172;
+  }
+  .st14 {
+    fill: #878787;
+  }
+  .st15 {
+    fill: #A09F9F;
+  }
+  .st16 {
+    fill: #CCCCCC;
+  }
+  .st17 {
+    fill: url(#SVGID_5_);
+  }
+  .st18 {
+    fill: url(#SVGID_6_);
+  }
+  .st19 {
+    fill: url(#SVGID_7_);
+  }
+  .st20 {
+    fill: #121212;
+  }
+  .st21 {
+    fill: #4D7A39;
+  }
+  .st22 {
+    fill: #5A8E3F;
+  }
+  .st23 {
+    fill: #6AA343;
+  }
+  .st24 {
+    fill: #6E5321;
+  }
+  .st25 {
+    fill: #206738;
+  }
+  .st26 {
+    fill: #23753B;
+  }
+  .st27 {
+    fill: #2B7F44;
+  }
+  .st28 {
+    fill: #ECC9E0;
+  }
+  .st29 {
+    fill: #FEE05F;
+  }
+  .st30 {
+    fill: #F58E90;
+  }
+  .st31 {
+    fill: #DDCDA2;
+  }
+  .st32 {
+    fill: #3F789B;
+  }
+  .st33 {
+    fill: #4A92B7;
+  }
+  .st34 {
+    fill: #B2B2B2;
+  }
+  .st35 {
+    fill: #A89A7B;
+  }
+  .st36 {
+    fill: #FAFAFA;
+  }
+  .st37 {
+    fill: #CE5757;
+  }
+  .st38 {
+    fill: #59B4D8;
+  }
+  .st39 {
+    fill: none;
+    stroke: #A6A8AB;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+  }
+  .st40 {
+    fill: none;
+    stroke: #E6E7E8;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+  }
+  .st41 {
+    fill: #A87C4F;
+  }
+  .st42 {
+    fill: #EAEBEC;
+  }
+  .st43 {
+    fill: #6893A7;
+  }
+  .st44 {
+    fill: #F1F1F2;
+  }
+  .st45 {
+    fill: #8B6740;
+  }
+  .st46 {
+    fill: #F1ECC9;
+  }
+  // Waves
+  // @keyframes back-wave {
+  //   0% {
+  //     transform: translateX(-10px);
+  //   }
+  //   100% {
+  //     transform: translateX(10px);
+  //   }
+  // }
+  // @keyframes middle-wave {
+  //   0% {
+  //     transform: translateX(-15px);
+  //   }
+  //   100% {
+  //     transform: translateX(15px);
+  //   }
+  // }
+  // @keyframes front-wave {
+  //   0% {
+  //     transform: translateX(20px);
+  //   }
+  //   100% {
+  //     transform: translateX(-13px);
+  //   }
+  // }
+  // #Back-Wave {
+  //   position: relative;
+  //   animation: back-wave 4s ease-in infinite;
+  //   animation-direction: alternate;
+  // }
+  // #Middle-Wave {
+  //   position: relative;
+  //   animation: middle-wave 3s ease-in infinite;
+  //   animation-direction: alternate;
+  // }
+  // #Front-Wave {
+  //   position: relative;
+  //   animation: front-wave 3.5s ease-in infinite;
+  //   animation-direction: alternate;
+  // }
+  // Boat
+  // @keyframes boat {
+  //   0% {
+  //     transform: rotate(0deg);
+  //   }
+  //   20% {
+  //     transform: rotate(-.5deg);
+  //   }
+  //   70% {
+  //     transform: rotate(.5deg);
+  //   }
+  // }
+  // #Boat {
+  //   animation: boat 9s ease-in infinite;
+  //   animation-direction: alternate;
+  // }
+  // Back Clouds
+  @keyframes back-cloud-1 {
+    0% {
+      // transform: translateX(500px);
+      transform: translateX( $increaseVeryLarge * 2);
+    }
+    50% {
+      transform: translateX( 0px);
+    }
+    // 65% {
+    //   transform: translateX(0);
+    // }
+    100% {
+      transform: translateX( $increaseVeryLarge * 2);
+    }
+  }
+  // @keyframes back-cloud-2 {
+  //   0% {
+  //     transform: translateX(200px);
+  //   }
+  //   100% {
+  //     transform: translateX(-700px);
+  //   }
+  // }
+  // @keyframes back-cloud-3 {
+  //   0% {
+  //     transform: translateX(0px);
+  //   }
+  //   100% {
+  //     transform: translateX(-1100px);
+  //   }
+  // }
+  #Back-Cloud-1 {
+    position: absolute;
+    -webkit-transform: translate( $increaseVeryLarge, -10px);
+    -moz-transform: translate( $increaseVeryLarge, -10px);
+    -ms-transform: translate( $increaseVeryLarge, -10px);
+    -o-transform: translate( $increaseVeryLarge, -10px);
+    transform: translate( $increaseVeryLarge, -10px);
+    animation: back-cloud-1 15s ease-in infinite;
+    // animation-fill-mode: backwards;
+  }
+  // #Back-Cloud-2 {
+  //   position: relative;
+  //   animation: back-cloud-2 21s ease-in infinite;
+  // }
+  // #Back-Cloud-3 {
+  //   position: relative;
+  //   animation: back-cloud-3 31.5s ease-in infinite;
+  // }
+  // Front Clouds
+  @keyframes front-cloud-1 {
+    0% {
+      transform: translateX(650px);
+    }
+    100% {
+      transform: translateX(-800px);
+    }
+  }
+  // @keyframes front-cloud-2 {
+  //   100% {
+  //     transform: translateX(-700px);
+  //   }
+  // }
+  @keyframes front-cloud-3 {
+    0% {
+      transform: translateX(0px);
+    }
+    100% {
+      transform: translateX(-1100px);
+    }
+  }
+  #Front-Cloud-1 {
+    position: relative;
+    animation: front-cloud-1 36s ease-in infinite;
+    animation-fill-mode: backwards;
+  }
+  #Front-Cloud-2 {
+    position: relative;
+    -webkit-transform: translate(-$initWidth / 2, -$initHeight * 0.8);
+    -moz-transform: translate(-$initWidth / 2, -$initHeight * 0.8);
+    -ms-transform: translate(-$initWidth / 2, -$initHeight * 0.8);
+    -o-transform: translate(-$initWidth / 2, -$initHeight * 0.8);
+    transform: translate(-$initWidth / 2, -$initHeight * 0.8);
+    // animation: front-cloud-2 15s ease-in;
+  }
+  #Front-Cloud-3 {
+    position: relative;
+    animation: front-cloud-3 57s ease-in infinite;
+  }
+  // Birds
+  // @keyframes bird {
+  //   20% {
+  //     transform: translate(30px, 20px);
+  //   }
+  //   25% {
+  //     transform: translate(50px, 18px);
+  //   }
+  //   30% {
+  //     transform: translate(70px, 21px);
+  //   }
+  //   40% {
+  //     transform: translate(100px, 0px);
+  //   }
+  // }
+  // #Bird {
+  //   animation: bird 40s linear;
+  // }
+}

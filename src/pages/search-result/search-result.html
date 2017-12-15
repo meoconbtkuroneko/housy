@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons end>
+      <button [hidden]="!(allDataList?.length > 0)" color="light" ion-button icon-only clear (click)="openMap()" [disabled]="showNoInternet || loading">
+        <ion-icon name="map"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="content-background">
+  <div class="part-header">
+    <div class="title">
+      <span>{{params?.name}}</span>
+    </div>
+    <div class="line"></div>
+  </div>
+  <error-load *ngIf="showNoInternet || showErrLoad" [errInfo]="currentErrType?.info"></error-load>
+  <loading *ngIf="loading && !showNoInternet && !showErrLoad"></loading>
+  <filter-tag *ngIf="currentFilter" [currentFilter]="currentFilter"></filter-tag>
+  <div *ngIf="!loading && !showNoInternet && !showErrLoad">
+    <div *ngIf="allDataList">
+      <div *ngIf="allDataList?.length > 0" class="count-total" padding>
+        Kết quả tìm kiếm {{totalItem || 0 }} căn nhà
+      </div>
+      <ion-row *ngIf="allDataList?.length === 0" class="count-total" padding>
+        <ion-col text-center col-3 align-self-center>
+          <ion-icon class="search-icon" name="search"></ion-icon>
+        </ion-col>
+        <ion-col>
+          Không tìm thấy nhà trong phạm vi <b>{{getParams.radius / 1000}}km</b>. Thay đổi bộ lọc để có kết quả khác.
+        </ion-col>
+      </ion-row>
+      <div class="container-card" *ngFor="let item of allDataList" padding-horizontal padding-bottom>
+        <image-card *ngIf="item" [cardData]="item.data"></image-card>
+      </div>
+      <ion-infinite-scroll (ionInfinite)="doLoadMore($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+      </ion-infinite-scroll>
+    </div>
+  </div>
+  <no-internet *ngIf="!showNoInternet && !showErrLoad"></no-internet>
+  <ion-fab bottom right>
+    <button [disabled]="showNoInternet || loading" ion-fab color="primary" (click)="showFilter();">
+      <ion-icon name="options"></ion-icon>
+    </button>
+  </ion-fab>
+</ion-content>

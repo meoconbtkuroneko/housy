@@ -1,0 +1,15 @@
+<div class="header" padding-horizontal>
+    <div text-right>
+        <span class="detail-review" padding-right><ion-note>
+            <ion-icon name="eye"></ion-icon> <span>{{showData?.viewCount || 0}}</span>
+        </ion-note>
+        </span>
+        <span class="detail-review"><ion-note>
+            <ion-icon name="thumbs-up"></ion-icon> <span>{{showData?.likeCount || 0}}</span>
+        </ion-note>
+        </span>
+    </div>
+    <div class="title main-title" padding-bottom>
+        {{showData?.title || showData?.name}}
+    </div>
+</div>

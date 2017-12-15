@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar>
+        <button-close-modal (click)="closeModal()"></button-close-modal>
+    </ion-navbar>
+</ion-header>
+<ion-content class="housy-modal content-modal">
+    <div class="title" padding>{{currentLocationObj?.formatted_address || "Vị trí hiện tại"}}</div>
+    <div class="line-short" margin-left></div>
+    <error-load *ngIf="showNoInternet || showErrLoad || errGetCurrentLocation" [errInfo]="currentErrType?.info"></error-load>
+    <loading *ngIf="loading && !showNoInternet && !showErrLoad && !errGetCurrentLocation"></loading>
+    <!-- <loading *ngIf="(!allDataList || !currentLocationObj?.formatted_address) && !loadingFailed && !errGetCurrentLocation"></loading> -->
+    <!-- <error-load *ngIf="loadingFailed || errGetCurrentLocation" [errInfo]="currentErrType?.info"></error-load> -->
+    <div *ngIf="!loading && !showNoInternet && !showErrLoad && !errGetCurrentLocation" class="container" padding-right padding-bottom>
+        <!-- <div class="container" padding-right padding-bottom *ngIf="allDataList && currentLocationObj?.formatted_address "> -->
+        <div class="count-total" padding-left padding-vertical>Tổng: {{totalItem || 0}}</div>
+        <ion-item class="container-item" detail-none *ngFor="let item of allDataList">
+            <ion-thumbnail item-left>
+                <image-lazy [type]="'space'" [imgSrc]="item?.data?.image_default"></image-lazy>
+            </ion-thumbnail>
+            <div class="content">{{item?.data?.title || 'Chưa có tiêu đề'}}</div>
+            <ion-note class="address">{{item?.data?.address || 'Chưa có địa chỉ'}}</ion-note>
+            <button ion-button clear no-padding *ngIf="item?.data?.renting?.discount_status == discountStatus?.NOT_DISCOUNT" class="discount" (click)="getDiscount($event, item?.data?.renting?.id)">Nhận chiết khấu {{ item?.data?.renting?.discount|| 0}}</button>
+            <div *ngIf="item?.data?.renting?.discount_status == discountStatus?.WAIT_TO_DISCOUNT && item?.data?.renting?.request_user?.id" class="discount-status color-info">
+                Đang được yêu cầu bởi
+                <span *ngIf="item?.data?.renting?.request_user?.id == currentId" class="request-user">{{'chính bạn'}}</span>
+                <span *ngIf="item?.data?.renting?.request_user?.id != currentId" class="request-user color-cyan">{{item?.data?.renting?.request_user?.name}}</span>
+            </div>
+        </ion-item>
+    </div>
+    <ion-infinite-scroll (ionInfinite)="doLoadMore($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    <no-internet *ngIf="!showNoInternet && !showErrLoad && !errGetCurrentLocation"></no-internet>
+</ion-content>

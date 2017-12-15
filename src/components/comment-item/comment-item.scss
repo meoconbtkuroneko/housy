@@ -1,0 +1,18 @@
+comment-item {
+  .comment {
+    .content {
+      font-weight: $housy-font-weight;
+      line-height: $housy-line-height-wide;
+      margin-top: 2%;
+    }
+    ion-note {
+      font-size: 0.85em;
+    }
+  }
+  .button-delete-comment {
+    .icon {
+      font-size: 2em;
+    }
+    float: right;
+  }
+}

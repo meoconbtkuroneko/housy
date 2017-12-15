@@ -1,0 +1,11 @@
+<ion-header>
+    <ion-navbar>
+    </ion-navbar>
+</ion-header>
+<ion-content class="home-detail">
+    <div [ngClass]="mapContainerName">
+        <basic-map [center]="center" [zoom]="12" (currentMap)="getMap($event)"></basic-map>
+        <housy-marker *ngFor="let item of allDataList" [map]="currentMap" [position]="{lat: item?.data?.latitude, lng: item?.data?.longitude}" [moreInfo]="item?.data" [selected]="item?.id === highLightId"></housy-marker>
+    </div>
+    <part-horizontal-card [ngClass]="houseContainerName" *ngIf="allDataList" [title]="'Kết quả tìm kiếm'" [listHouses]="allDataList" [highlightId]="highLightId" [options]="{SHOW_MORE: currentPage < totalPage}"></part-horizontal-card>
+</ion-content>

@@ -1,0 +1,5 @@
+<div *ngIf="showData?.length > 0" class="filter-tag" margin>
+    <ion-chip *ngFor="let item of showData">
+        <ion-label>{{item}}</ion-label>
+    </ion-chip>
+</div>

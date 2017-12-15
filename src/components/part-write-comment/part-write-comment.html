@@ -1,0 +1,7 @@
+<form [formGroup]="commentForm">
+    <div class="create-comment">
+        <textarea formControlName='comment' housyAutoheight [maxLetter]="formValidation.COMMENT.MAX" placeholder="{{formValidation.COMMENT.PLACEHOLDER}}"></textarea>
+        <button type="reset" [disabled]="!canClear" ion-button clear class="button-clear" text-capitalize (click)="clearComment(0)">Xóa</button>
+        <button type="button" [disabled]="!canSend" ion-button clear class="button-send" text-capitalize (click)="sendCommentFunc(0)">Gửi</button>
+    </div>
+</form>

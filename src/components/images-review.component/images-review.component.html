@@ -1,0 +1,6 @@
+<div class="block-review-images imgs-review">
+    <div [ngClass]="pictureReviewClass" class="picture-review container-img" *ngFor="let img of fetchedImages | slice:0:9 ; let i = index">
+        <image-lazy [type]="img.type" [imgSrc]="img.url" (click)="showGallery(i)"></image-lazy>
+        <span class="show-more-pictures" *ngIf="i === 8 && fetchedImages.length >9 ">+{{fetchedImages.length - 9}}</span>
+    </div>
+</div>

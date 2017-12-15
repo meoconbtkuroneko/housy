@@ -1,0 +1,26 @@
+report-page {
+  .container-user {
+    .name {
+      font-weight: $housy-font-weight-bold;
+      font-size: 1em;
+    }
+    .phone-number {
+      font-size: 0.95em;
+    }
+  }
+  .reason {
+    font-size: 1em;
+    font-weight: $housy-font-weight-bold;
+  }
+  ion-textarea {
+    border: $housy-feedback-page-border-width solid;
+    border-color: $housy-feedback-page-border-color;
+  }
+  ion-textarea[disabled] {
+    background: $housy-feedback-page-bacground-disabled;
+  }
+  ion-textarea.highlight-field {
+    border-width: $housy-feedback-page-border-width-thick;
+    border-color: $housy-feedback-page-border-color-highlight;
+  }
+}

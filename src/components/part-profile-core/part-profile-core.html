@@ -1,0 +1,51 @@
+<form [formGroup]="profileForm">
+    <ion-label class="container-label">
+        Họ tên
+        <span class="highlight-text">*</span>
+    </ion-label>
+    <input padding type="{{formValidation?.NAME?.TYPE}}" placeholder="{{formValidation?.NAME?.PLACEHOLDER}}" formControlName="name">
+    <div *ngIf="formErrors?.name" class="highlight-text" padding-top>{{formErrors?.name}}</div>
+    <div *ngIf="gendersArr?.length > 0" padding-top>
+        <ion-label class="container-label">
+            Giới tính
+        </ion-label>
+        <ion-list radio-group formControlName="gender">
+            <ion-item detail-none *ngFor="let item of gendersArr">
+                <ion-label>{{item?.name}}</ion-label>
+                <ion-radio value="{{item?.id}}"></ion-radio>
+            </ion-item>
+        </ion-list>
+    </div>
+    <ion-label class="container-label">
+        Ngày sinh
+    </ion-label>
+    <button ion-item detail-none type="button" text-capitalize text-left (click)="showDatePicker()">{{dobString || formValidation?.BIRTHDAY?.PLACEHOLDER}}</button>
+    <div *ngIf="formErrors?.name" class="highlight-text" padding-top>{{formErrors?.name}}</div>
+    <ion-label class="container-label">
+        Email
+        <span class="highlight-text">*</span>
+    </ion-label>
+    <input padding type="{{formValidation?.EMAIL?.TYPE}}" placeholder="{{formValidation?.EMAIL?.PLACEHOLDER}}" formControlName="email">
+    <div *ngIf="formErrors?.email" class="highlight-text" padding-vertical>{{formErrors?.email}}</div>
+    <ion-label class="container-label">
+        Điện thoại
+    </ion-label>
+    <input padding type="{{formValidation?.PHONE_NUMBER?.TYPE}}" placeholder="{{formValidation?.PHONE_NUMBER?.PLACEHOLDER}}" formControlName="phone_number">
+    <div *ngIf="formErrors?.phone_number" class="highlight-text" padding-vertical>{{formErrors?.phone_number}}</div>
+    <ion-label class="container-label">
+        Chứng minh nhân dân
+    </ion-label>
+    <input padding type="{{formValidation?.IDENTIFY_CARD?.TYPE}}" placeholder="{{formValidation?.IDENTIFY_CARD?.PLACEHOLDER}}" formControlName="identify_card">
+    <div *ngIf="formErrors?.identify_card" class="highlight-text" padding-vertical>{{formErrors?.identify_card}}</div>
+    <ion-label class="container-label">
+        Địa chỉ
+        <span class="highlight-text">*</span>
+    </ion-label>
+    <textarea padding formControlName='address' housyAutoheight placeholder="{{formValidation?.ADDRESS?.PLACEHOLDER}}"></textarea>
+    <div *ngIf="formErrors?.address" class="highlight-text" padding-vertical>{{formErrors?.address}}</div>
+    <ion-label class="container-label">
+        Giới thiệu về bản thân
+    </ion-label>
+    <textarea padding formControlName='description' housyAutoheight placeholder="{{formValidation?.DESCRIPTION?.PLACEHOLDER}}"></textarea>
+    <div *ngIf="formErrors?.description" class="highlight-text" padding-vertical>{{formErrors?.description}}</div>
+</form>

@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-navbar>
+    </ion-navbar>
+</ion-header>
+<ion-content class="home-detail">
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+    <error-load *ngIf="showNoInternet || showErrLoad" [errInfo]="currentErrType?.info"></error-load>
+    <loading *ngIf="loading && !showNoInternet && !showErrLoad"></loading>
+    <div *ngIf="!loading && !showNoInternet && !showErrLoad">
+        <div *ngIf="showData">
+            <image-slider *ngIf="showData.apartment_images" [sliderData]="showData.apartment_images" [type]="'apartment'" [moreInfo]="showData"></image-slider>
+            <part-count [showData]="showData"></part-count>
+            <div padding>
+                <ion-row class="general-info">
+                    <ion-col>
+                        <img class="housy-icon center" src="assets/sd/house.png">
+                        <div class="info">{{showData.number_of_rentings}} căn hộ</div>
+                    </ion-col>
+                    <ion-col>
+                        <img class="housy-icon center" src="assets/sd/apartment.png">
+                        <div class="info">{{showData.number_of_blocks}} tòa nhà</div>
+                    </ion-col>
+                    <ion-col>
+                        <img class="housy-icon center" src="assets/sd/area.png">
+                        <div class="info">{{showData.area}} m<sup>2</sup></div>
+                    </ion-col>
+                </ion-row>
+            </div>
+            <part-description [showData]="showData"></part-description>
+            <div padding>
+                <part-location [showData]="showData"></part-location>
+            </div>
+            <part-neighborhood [showData]="showData"></part-neighborhood>
+            <part-utilities [showData]="showData"></part-utilities>
+        </div>
+        <div *ngIf="showData && allDataList">
+            <ion-row padding-horizontal padding-top margin-bottom class="container-count-total">
+                <ion-col class="count-total" align-self-center no-padding padding-bottom>
+                    {{totalItem || 0}} Nhận Xét
+                </ion-col>
+            </ion-row>
+            <review-card *ngFor="let item of allDataList" [reviewData]="item" [options]="{SHORT_PASSAGE : true}" [apartmentInfo]="apartment">
+            </review-card>
+            <ion-infinite-scroll (ionInfinite)="doLoadMore($event)">
+                <ion-infinite-scroll-content></ion-infinite-scroll-content>
+            </ion-infinite-scroll>
+        </div>
+    </div>
+    <no-internet *ngIf="!showNoInternet && !showErrLoad"></no-internet>
+</ion-content>

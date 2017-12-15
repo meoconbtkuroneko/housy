@@ -1,0 +1,7 @@
+<button ion-item detail-none type="button" [disabled]="showNoInternet" (click)="openMap()">
+    Địa chỉ
+    <span class="highlight-text">*</span>
+</button>
+<div padding>
+    <image-only-card *ngIf="addressObj" [info]="addressObj?.name" [imgSrc]="mapUrl" (cardClicked)="openMap()"></image-only-card>
+</div>

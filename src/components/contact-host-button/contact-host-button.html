@@ -1,0 +1,6 @@
+<a ion-button *ngIf="isLogined" clear full href="tel: {{data?.renting?.user?.phone_number}}" (click)="contactHostClicked($event);">
+    <ion-icon name="call" padding-right></ion-icon> Gọi điện cho chủ nhà
+</a>
+<a ion-button *ngIf="!isLogined" clear full (click)="contactHostClicked($event);">
+    <ion-icon name="call" padding-right></ion-icon> Gọi điện cho chủ nhà
+</a>

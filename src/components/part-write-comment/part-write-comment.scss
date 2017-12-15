@@ -1,0 +1,43 @@
+.create-comment {
+  position: relative;
+  textarea {
+    padding: 10px;
+    border: 1px solid #eee;
+    width: 100%;
+    background-color: #fefefe;
+    padding-bottom: 40px !important;
+    resize: none;
+  }
+  textarea::-webkit-input-placeholder {
+    color: rgba(255, 152, 0, 0.5);
+  }
+  textarea:focus {
+    border-color: $housy-color-gold;
+    background: white;
+  }
+  .button-send,
+  .button-clear {
+    bottom: 5px;
+    height: 25px;
+    width: 60px;
+    position: absolute;
+    color: white;
+    font-weight: $housy-font-weight-bold;
+    background: $housy-color-gold;
+    // background: rgba(255, 152, 0, 0.5);
+  }
+  .button-clear {
+    right: 70px;
+  }
+  .button-send {
+    right: 5px;
+  }
+  // .button-clear.send,
+  // .button-send.send {
+  //   background: $housy-color-gold;
+  // }
+  // .button-clear.send.activated,
+  // .button-send.send.activated {
+  //   background-color: red;
+  // }
+}

@@ -1,0 +1,61 @@
+page-renter-home {
+  ion-scroll {
+    .container-card {
+      width: $housy-card-width;
+      margin: $housy-container-card-margin;
+      &:first-of-type {
+        margin-left: $housy-container-card-margin-left;
+      }
+      &:last-of-type {
+        margin-right: $housy-container-card-margin-left;
+      }
+    }
+  }
+
+  .container-title {
+    font-size: $housy-font-size-title;
+    font-weight: $housy-font-weight;
+    letter-spacing: $housy-letter-spacing;
+    color: $housy-color-title;
+    .icon {
+      color: $housy-color-red-orange;
+    }
+    .see-all {
+      font-size: $housy-font-size-small;
+    }
+    button {
+      padding-bottom: 6px;
+      letter-spacing: $housy-letter-spacing;
+    }
+  }
+
+  .recent-search-container {
+    $card-color: $housy-color-light-aqua $housy-color-dark-aqua $housy-color-dark-cyan $housy-color-cyan $housy-color-very-dark-aqua;
+    @each $color in $card-color {
+      $i: index($card-color, $color);
+      &:nth-child(#{$i}) {
+        ion-card {
+          background: $color;
+        }
+      }
+    }
+
+    ion-card {
+      height: $housy-recent-search-height;
+      color: $housy-color-card-icon;
+      letter-spacing: $housy-letter-spacing;
+      text-align: center;
+      font-size: $housy-font-size-title;
+      div {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .content-info {
+        white-space: normal;
+        line-height: $housy-line-height-wide;
+        max-width: 92%;
+        margin-left: -2%;
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button-close-modal (click)="closeGallery()"></button-close-modal>
+  </ion-navbar>
+</ion-header>
+<ion-content class="container-gallery">
+  <ion-slides initialSlide="{{this.params.index}}" (ionSlideWillChange)="ionSlideDidChange()" custom-swipe (onCustomSwipe)="swipeEvent($event)">
+    <ion-slide *ngFor="let item of galleryData">
+      <image-lazy [type]="type" [fullSize]="true" [imgSrc]="item.url"></image-lazy>
+    </ion-slide>
+  </ion-slides>
+  <!-- <div class="page-tag">
+        {{currentImageShown}}/{{numImages}}
+    </div> -->
+</ion-content>
+<ion-footer>
+  <ion-toolbar class="housy-footer" text-right>
+    <div class="page-tag" padding>
+      {{currentImageShown}}/{{numImages}}
+    </div>
+  </ion-toolbar>
+</ion-footer>

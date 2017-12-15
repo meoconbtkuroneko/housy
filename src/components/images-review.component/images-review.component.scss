@@ -1,0 +1,52 @@
+.imgs-review {
+  margin-top: 10px;
+  text-align: center;
+  .half-full {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+    margin: 5px;
+    width: 45%;
+    height: $housy-image-card-small-height;
+    position: relative;
+  }
+  .container-img {
+    &.full {
+      height: $housy-card-height;
+    }
+    image-lazy {
+      div.loading {
+        img {
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+.imgs-review-content {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  width: 100px;
+  margin: 5px;
+  height: 80px;
+}
+
+.picture-review {
+  position: relative;
+}
+
+.show-more-pictures {
+  position: absolute;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  font-size: 25px;
+  background: rgba(53, 50, 50, 0.58);
+  line-height: 3;
+  font-size: 30px;
+}

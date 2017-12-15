@@ -1,0 +1,23 @@
+image-only-card {
+  .image-only-card {
+    position: relative;
+  }
+  .card-label {
+    position: absolute;
+    z-index: $housy-card-z-index;
+    bottom: 5%;
+    text-align: center;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
+    background: $housy-image-only-card-background;
+    color: $housy-image-only-card-color;
+    letter-spacing: $housy-letter-spacing;
+    font-size: 0.9em;
+    line-height: $housy-line-height-wide;
+    font-weight: $housy-font-weight-bold;
+  }
+}

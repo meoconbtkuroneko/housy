@@ -1,0 +1,26 @@
+nearby-search {
+  .container-nearby-search {
+    position: relative;
+    z-index: $housy-card-z-index;
+    height: 50%;
+  }
+  .container-search {
+    position: relative;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: calc(100% - #{$navbar-md-height});
+    background: $housy-color-white;
+  }
+}
+
+.nearby-search {
+  height: $navbar-md-height;
+  box-shadow: $housy-nearby-search-box-shadow;
+  ion-col span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .label {
+    margin: 0;
+  }
+}

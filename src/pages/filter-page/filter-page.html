@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+    <button-close-modal (click)="closeModal()"></button-close-modal>
+    <ion-buttons end>
+      <button ion-button icon-only clear color="light" (click)="resetFilter()">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content class="item-modal housy-modal filter-page">
+  <div class="title" padding>Bộ lọc</div>
+  <div class="line-short" margin-bottom margin-left></div>
+  <div class="container">
+    <div *ngIf="radiusArr">
+      <ion-item-divider class="container-label" margin-top>Tìm trong phạm vi</ion-item-divider>
+      <ion-list radio-group [(ngModel)]="filter.radius">
+        <ion-item detail-none *ngFor="let item of radiusArr">
+          <ion-label>{{item?.name}}</ion-label>
+          <ion-radio [attr.checked]="(filter?.radius === item?.id)? 'true': 'false'" value="{{item?.id}}"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngIf="homeTypeArr">
+      <ion-item-divider class="container-label" margin-top>Loại nhà</ion-item-divider>
+      <ion-item detail-none *ngFor="let item of homeTypeArr">
+        <ion-label>{{item?.name}}</ion-label>
+        <ion-checkbox (click)="hasChange($event,KEY_HT, item)" [checked]="item?.selecting" item-right [(ngModel)]="item.selecting"></ion-checkbox>
+      </ion-item>
+    </div>
+    <ion-item-divider class="container-label" margin-top>Xác thực</ion-item-divider>
+    <ion-item detail-none>
+      <ion-label>Nhà được xác thực</ion-label>
+      <ion-toggle [(ngModel)]="filter.is_verified"></ion-toggle>
+    </ion-item>
+    <div *ngIf="priceArr">
+      <ion-item-divider class="container-label" margin-top>Mức giá</ion-item-divider>
+      <ion-list radio-group [(ngModel)]="currentPriceId">
+        <ion-item detail-none *ngFor="let item of priceArr">
+          <ion-label>{{item?.name}}</ion-label>
+          <ion-radio [attr.checked]="( item?.id == currentPriceId )? 'true': 'false'" value="{{item?.id}}" (click)="hasChange($event,KEY_PRICE, item)"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div *ngIf="amenitiesArr">
+      <ion-item-divider class="container-label" margin-top>Tiện nghi</ion-item-divider>
+      <ion-item detail-none *ngFor="let item of amenitiesArr">
+        <ion-label>{{item?.name}}</ion-label>
+        <ion-checkbox (click)="hasChange($event,KEY_AME, item)" [checked]="item.selecting" item-right [(ngModel)]="item.selecting"></ion-checkbox>
+      </ion-item>
+    </div>
+    <div *ngIf="advantagesArr">
+      <ion-item-divider class="container-label" margin-top>Lợi thế</ion-item-divider>
+      <ion-item detail-none *ngFor="let item of advantagesArr">
+        <ion-label>{{item?.name}}</ion-label>
+        <ion-checkbox (click)="hasChange($event,KEY_ADV, item)" [checked]="item.selecting" item-right [(ngModel)]="item.selecting"></ion-checkbox>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar class="housy-footer">
+    <a ion-button clear full (click)="doFilter();">Áp dụng</a>
+  </ion-toolbar>
+</ion-footer>

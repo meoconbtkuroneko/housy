@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-navbar>
+        <button-close-modal *ngIf="params?.isModal" (click)="closeModal()"></button-close-modal>
+    </ion-navbar>
+</ion-header>
+<ion-content class="item-modal housy-modal content-background">
+    <div class="title" padding>Nhận xét</div>
+    <div class="line-short" margin-bottom margin-left></div>
+    <error-load *ngIf="showNoInternet || showErrLoad" [errInfo]="currentErrType?.info"></error-load>
+    <loading *ngIf="(loading || !condition) && !showNoInternet && !showErrLoad"></loading>
+    <div *ngIf="!loading && !showNoInternet && !showErrLoad">
+        <div *ngIf="condition" class="host-profile">
+            <div class="count-total" padding-left padding-vertical>Có tất cả {{listComments?.length || 0 }} nhận xét</div>
+            <div margin-horizontal margin-bottom>
+                <part-write-comment *ngIf="currentUser?.id != belongToUser?.id" [commentAbout]="commentAbout" [belongToUser]="belongToUser" [typeName]="type" [parentCommentId]="0"></part-write-comment>
+            </div>
+            <ion-card *ngFor="let item of listComments ; let i = index" class="container-comment" padding-left margin>
+                <comment-item *ngIf="item" [cardData]="item"></comment-item>
+                <div class="container-answer" *ngIf="item?.children?.length>0 || writeAnswer[item?.id]">
+                    <div *ngIf="item?.children?.length>0" padding-left padding-top class="container-comment container-child-comment">
+                        <div *ngFor="let child of item?.children" class="comment">
+                            <comment-item [cardData]="child"></comment-item>
+                        </div>
+                    </div>
+                    <div margin-bottom>
+                        <part-write-comment *ngIf="writeAnswer[item?.id]" [commentAbout]="commentAbout" [belongToUser]="belongToUser" [typeName]="type" [parentCommentId]="item?.id"></part-write-comment>
+                    </div>
+                </div>
+                <button ion-button clear text-capitalize *ngIf="!writeAnswer[item?.id]" (click)='showWriteAnswer(item?.id)' class="title-answer-box">
+                    Trả lời
+                </button>
+            </ion-card>
+        </div>
+    </div>
+    <no-internet *ngIf="!showNoInternet && !showErrLoad"></no-internet>
+</ion-content>

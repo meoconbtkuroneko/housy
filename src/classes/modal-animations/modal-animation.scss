@@ -1,0 +1,122 @@
+.full-container {
+
+  .show-page {
+    transition: all 0.35s,
+  }
+
+  &.extend {
+    .show-page {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &.collapse {
+    .show-page {
+      transform: translate3d(100%, 100%, 0);
+    }
+  }
+}
+
+
+
+
+/*  */
+
+// .full-container {
+//   $easer: cubic-bezier(0.4, 0, 0.2, 1);
+//   .show-page {
+//     transition: all 0.35s,
+//     height 0.2s $easer 0.1s,
+//     width 0.2s $easer 0.15s,
+//     left 0.1s $easer 0.25s,
+//     top 0.1s $easer 0.25s;
+//     -webkit-animation: modal 0.2s ease-in-out;
+//     -moz-animation: modal 0.2s ease-in-out;
+//     -ms-animation: modal 0.2s ease-in-out;
+//     -o-animation: modal 0.2s ease-in-out;
+//     animation: modal 0.2s ease-in-out; // transform: translate3d(100%, 100%, 0);
+//   }
+//   &.extend {
+//     .show-page {
+//       // opacity: 1;
+//       background: green;
+//       width: 100%;
+//       height: 100%; // left: 0;
+//       // top: 0;
+//       transition: all 0.35s,
+//       top 0.05s $easer 0.1s,
+//       left 0.1s $easer 0.15s,
+//       width 0.2s $easer 0.2s,
+//       height 0.2s ease 0.25s; // transform: translate3d(0, 0, 0);
+//     }
+//   }
+//   @keyframes modal {
+//     0% {
+//       transform: translate3d(0, 0, 0);
+//     }
+//     100% {
+//       transform: translate3d(100%, 100%, 0);
+//     }
+//   } 
+
+/*  gdgdf gd*/
+
+// $easer: cubic-bezier(0.4, 0, 0.2, 1);
+// height: $fab-size;
+// width: $fab-size;
+// transition: all 0.1s 0.35s,
+// height 0.2s $easer 0.1s,
+// width 0.2s $easer 0.15s,
+// border-radius 0.1s $easer 0.2s,
+// bottom 0.1s $easer 0.25s,
+// right 0.1s $easer 0.25s;
+// right: $fab-content-margin;
+// bottom: $fab-content-margin;
+// opacity: 1;
+// &.extend {
+//   border: 3px solid red;
+//   right: 0;
+//   bottom: 0;
+//   width: 100%;
+//   padding: 0;
+//   transition: all 0.35s,
+//   bottom 0.05s $easer 0.1s,
+//   right 0.1s $easer 0.15s,
+//   width 0.2s $easer 0.2s,
+//   height 0.2s ease 0.25s;
+// }
+// }
+// .full-container {
+//   $easer: cubic-bezier(0.4, 0, 0.2, 1); // height: $fab-size;
+//   width: $fab-size;
+//   transition: all 0.1s 0.35s,
+//   height 0.2s $easer 0.1s,
+//   width 0.2s $easer 0.15s,
+//   border-radius 0.1s $easer 0.2s,
+//   bottom 0.1s $easer 0.25s,
+//   right 0.1s $easer 0.25s;
+//   border-radius: 50%;
+//   right: $fab-content-margin;
+//   bottom: $fab-content-margin;
+//   opacity: 1; // button {
+//   //   transition: all 0.7s $easer;
+//   // }
+//   &.extend {
+//     right: 0;
+//     bottom: 0;
+//     background-color: $housy-color-housy;
+//     border-radius: 0;
+//     width: 100%;
+//     height: 100%;
+//     max-width: 600px;
+//     padding: 0;
+//     transition: all 0.35s,
+//     bottom 0.05s $easer 0.1s,
+//     right 0.1s $easer 0.15s,
+//     width 0.2s $easer 0.2s,
+//     height 0.2s ease 0.25s; // button {
+//     //   transform: rotate(630deg);
+//     //   transition: all 0.5s $easer;
+//     // }
+//   }
+// }

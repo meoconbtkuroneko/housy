@@ -1,0 +1,78 @@
+<form [formGroup]="newListingForm">
+    <ion-item-divider class="container-label" margin-top>Thông tin nhà</ion-item-divider>
+    <ion-item detail-none *ngIf="rentersArr?.length > 0">
+        <ion-label>Người ở tối đa</ion-label>
+        <ion-select formControlName="max_renters" cancelText="{{stringCancel}}" okText="{{stringOk}}">
+            <ion-option *ngFor="let item of rentersArr" value="{{item.id}}">
+                {{item.description}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item detail-none *ngIf="bedRoomsArr?.length > 0">
+        <ion-label>Phòng ngủ</ion-label>
+        <ion-select formControlName="number_of_bedroom" cancelText="{{stringCancel}}" okText="{{stringOk}}">
+            <ion-option *ngFor="let item of bedRoomsArr" value="{{item.id}}">
+                {{item.description}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item detail-none *ngIf="bathroomsArr?.length > 0">
+        <ion-label>Phòng tắm/WC</ion-label>
+        <ion-select formControlName="number_of_bathroom" cancelText="{{stringCancel}}" okText="{{stringOk}}">
+            <ion-option *ngFor="let item of bathroomsArr" value="{{item.id}}">
+                {{item.description}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item detail-none *ngIf="floorsArr?.length > 0">
+        <ion-label>Số tầng</ion-label>
+        <ion-select formControlName="floor" cancelText="{{stringCancel}}" okText="{{stringOk}}">
+            <ion-option *ngFor="let item of floorsArr" value="{{item.id}}">
+                {{item.description}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item detail-push (click)="showPrompt($event, formValidation.AREA.NAME)">
+        <ion-label>
+            Diện tích (m<sup>2</sup>)
+            <span class="highlight-text">*</span>
+        </ion-label>
+        <ion-input text-right formControlName="area" disabled="true"></ion-input>
+    </ion-item>
+    <!-- <ion-item detail-push (click)="showPrompt($event, formValidation.WIDTH.NAME)">
+        <ion-label>
+            Chiều ngang (m)
+        </ion-label>
+        <ion-input text-right formControlName="width" disabled="true"></ion-input>
+    </ion-item>
+    <ion-item detail-push (click)="showPrompt($event, formValidation.HEIGHT.NAME)">
+        <ion-label>
+            Chiều dài (m)
+        </ion-label>
+        <ion-input text-right formControlName="height" disabled="true"></ion-input>
+    </ion-item> -->
+    <ion-item-divider class="container-label" margin-top>Thông tin giá</ion-item-divider>
+    <ion-item detail-push (click)="showPrompt($event, formValidation.RENTING_FEE.NAME)">
+        <ion-label>
+            Giá cho thuê (triệu)
+            <span class="highlight-text">*</span>
+        </ion-label>
+        <ion-input text-right formControlName="renting_fee" disabled="true"></ion-input>
+    </ion-item>
+    <ion-item detail-none *ngIf="contractTypesArr?.length > 0">
+        <ion-label>Hợp đồng</ion-label>
+        <ion-select formControlName="policy_renting_time_id" cancelText="{{stringCancel}}" okText="{{stringOk}}">
+            <ion-option *ngFor="let item of contractTypesArr" value="{{item.id}}">
+                {{item.description}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item detail-none *ngIf="depositeTypesArr?.length > 0">
+        <ion-label>Đặt cọc</ion-label>
+        <ion-select formControlName="policy_deposit_time_id" cancelText="{{stringCancel}}" okText="{{stringOk}}">
+            <ion-option *ngFor="let item of depositeTypesArr" value="{{item.id}}">
+                {{item.description}}
+            </ion-option>
+        </ion-select>
+    </ion-item>
+</form>

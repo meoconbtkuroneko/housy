@@ -1,0 +1,30 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <ion-buttons left>
+            <button color="light" ion-button icon-only clear (click)="backButtonClicked()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>Bước 1</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content class="new-listing-step">
+    <div class="housy-space"></div>
+    <div class="part-header">
+        <div class="title">
+            <span>Tạo mới nhà bước 1</span>
+        </div>
+        <div class="line"></div>
+    </div>
+    <div padding>
+        <ion-note>(<span class="highlight-text">*</span>) Cần bạn cung cấp thông tin</ion-note>
+    </div>
+    <part-new-listing-step1 (getNewListingForm)="getNewListingStep1Form($event)"></part-new-listing-step1>
+    <ion-fab right bottom>
+        <button ion-fab [disabled]="!canSend" (click)="nextStep($event)">
+            Bước 2
+        </button>
+    </ion-fab>
+    <no-internet *ngIf="!showNoInternet && !showErrLoad"></no-internet>
+    <div class="housy-space"></div>
+</ion-content>

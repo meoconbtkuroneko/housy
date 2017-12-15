@@ -1,0 +1,12 @@
+<ion-item no-padding class="comment" detail-none>
+    <ion-avatar item-left>
+        <image-lazy class="avatar" [type]="'user'" [imgSrc]="cardData?.user?.picture"></image-lazy>
+    </ion-avatar>
+    <ion-note> {{cardData?.user?.name}}</ion-note>
+    <ion-note>&bull;</ion-note>
+    <ion-note> {{cardData?.posted_time | amTimeAgo}}</ion-note>
+    <button *ngIf="defaultOpts.SHOW_DELETE_BUTTON && currentUser?.id === cardData?.user?.id" class="button-delete-comment" color="dark" ion-button clear round (click)="deleteComment()" [disabled]="hasInternet === false">
+        <ion-icon name="close-circle"></ion-icon>
+    </button>
+    <div class="content" text-wrap>{{cardData?.content}}</div>
+</ion-item>

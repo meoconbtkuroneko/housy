@@ -1,0 +1,16 @@
+.filter-tag {
+  border-radius: $housy-filter-tag-border-radius;
+  border: 1px solid $housy-filter-tag-border-color;
+  box-shadow: $housy-filter-tag-box-shadow;
+  padding: $housy-filter-tag-padding-top;
+  ion-chip {
+    border: $housy-filter-tag-border-width solid;
+    border-color: $housy-filter-tag-border-color;
+    background: $housy-color-white;
+    box-shadow: $housy-filter-tag-box-shadow;
+    font-weight: $housy-font-weight-bold;
+    color: $housy-color-very-dark-aqua;
+    margin: $housy-filter-tag-margin-top $housy-filter-tag-margin-left;
+    margin-left: 0;
+  }
+}

@@ -1,0 +1,33 @@
+image-slider {
+  .container-image-slider {
+    position: relative;
+    .price-tag,
+    .page-tag {
+      position: absolute;
+      bottom: 20%;
+    }
+    .page-tag {
+      bottom: 10px;
+      right: 10px;
+    }
+    img {
+      height: $housy-card-height;
+      width: 100%;
+      @media all and (max-width: 320px) {
+        // image-card cac kieu
+        & {
+          height: $housy-card-height-short;
+        }
+      }
+    }
+    .remove-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: $housy-card-z-index;
+      button {
+        font-size: $housy-icon-font-size-normal;
+      }
+    }
+  }
+}

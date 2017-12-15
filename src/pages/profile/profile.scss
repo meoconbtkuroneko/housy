@@ -1,0 +1,58 @@
+profile {
+  input,
+  textarea {
+    &:focus {
+      border-color: $housy-profile-border-color-focus;
+      box-shadow: $housy-profile-box-shadow;
+    }
+    width: 100%;
+    border: 1px solid $housy-color-line;
+    resize: none;
+  }
+  .container-label {
+    font-weight: $housy-font-weight-bold;
+  }
+  .container-top {
+    position: relative;
+    height: 40%;
+    .loading {
+      position: static;
+    }
+    .container-cover {
+      img {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+      }
+      button {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+    }
+    .container-avatar {
+      width: $housy-user-card-avatar-width;
+      position: relative;
+      top: calc(100% - 60px);
+      margin: 0 auto;
+      img {
+        border: $housy-profile-avatar-border-width solid $housy-color-white;
+      }
+      button {
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        transform: translateX(-50%);
+      }
+    }
+  }
+  .space-of-half-avatar {
+    height: $housy-profile-half-avatar;
+  }
+}

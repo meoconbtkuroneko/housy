@@ -1,0 +1,12 @@
+write-comment-user {
+  ion-card {
+    position: relative;
+  }
+  .container-comment {
+    .comment {
+      .content {
+        font-weight: $housy-font-weight;
+      }
+    }
+  }
+}

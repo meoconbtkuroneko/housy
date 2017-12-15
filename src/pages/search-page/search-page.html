@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-toolbar color="primary">
+        <!-- <ion-searchbar [placeholder]="currentSearchPlace?.name || 'Nhập địa điểm, địa danh'"></ion-searchbar> -->
+        <searchbar-address [isDisable]="isProcessing" [inputAddress]="addressObj?.name" (addressChanged)="getAddress($event)"></searchbar-address>
+    </ion-toolbar>
+</ion-header>
+<ion-content class="content-background-white">
+    <!-- <div class="container-searchbar"></div> -->
+    <error-load *ngIf="showNoInternet" [errInfo]="currentErrType?.info"></error-load>
+    <div *ngIf="!showNoInternet">
+        <ion-item-group>
+            <button ion-item detail-none (click)="currentPosition()">
+                <ion-icon name="locate" item-left></ion-icon>
+                Tìm tại vị trí hiện tại
+            </button>
+        </ion-item-group>
+        <ion-item-group>
+            <ion-item-divider color="light">
+                <ion-icon name="ios-keypad" item-left></ion-icon>
+                <ion-row no-padding no-margin align-items-center>
+                    <ion-col col-10 class="title expand-text" no-padding no-margin text-wrap align-self-center>
+                        Tìm theo quận/huyện thuộc TP.Hồ Chí Minh
+                    </ion-col>
+                    <ion-col col-2 text-right no-padding no-margin align-self-center>
+                        <button class="expand-button housy-link" ion-button round clear no-padding no-margin padding-horizontal (click)="toggleDistrict()">
+                            <ion-icon [name]="iconName"></ion-icon>
+                        </button>
+                    </ion-col>
+                </ion-row>
+            </ion-item-divider>
+            <ion-row wrap>
+                <ion-col col-4 text-center class="item-adjust" *ngFor="let item of popularSearchs" no-padding no-margin>
+                    <button clear full ion-button no-padding no-margin text-capitalize (click)="goToSearch(item)">
+                        {{item.name}}
+                    </button>
+                </ion-col>
+            </ion-row>
+        </ion-item-group>
+        <ion-item-group>
+            <ion-item-divider color="light">
+                <ion-icon name="pin" item-left></ion-icon>
+                <ion-label class="title">Địa điểm đã tìm</ion-label>
+            </ion-item-divider>
+            <button *ngFor="let item of listHistories" ion-item detail-none (click)="goToSearch(item)">
+                {{item.name}}
+            </button>
+        </ion-item-group>
+    </div>
+</ion-content>

@@ -1,0 +1,29 @@
+<ion-header>
+    <ion-navbar hideBackButton="true">
+        <ion-buttons left>
+            <button color="light" ion-button icon-only clear (click)="backButtonClicked()">
+                <ion-icon name="arrow-back"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-navbar>
+</ion-header>
+<ion-content class="new-listing-step">
+    <div class="housy-space"></div>
+    <!-- <div class="part-header">
+        <div class="title">
+            <span></span>
+        </div>
+        <div class="line"></div>
+    </div> -->
+    <part-new-listing-image-picker *ngIf="!loading" (getNewListingImage)="getNewListingImagePicker($event)"></part-new-listing-image-picker>
+    <part-new-listing-step1 *ngIf="!loading" (getNewListingForm)="getNewListingStep1Form($event)"></part-new-listing-step1>
+    <part-new-listing-step2 *ngIf="!loading" (getNewListingForm)="getNewListingStep2Form($event)"></part-new-listing-step2>
+    <part-new-listing-title-description *ngIf="!loading" (getNewListingForm)="getNewListingStep3Form($event)"></part-new-listing-title-description>
+    <part-new-listing-adv *ngIf="!loading" (getNewListingForm)="getNewListingAdv($event)"></part-new-listing-adv>
+    <ion-fab right bottom *ngIf="!loading">
+        <button ion-fab [attr.disabled]="!canSend ? '': null" (click)="nextStep($event)">
+            Đăng tin
+        </button>
+    </ion-fab>
+    <div class="housy-space"></div>
+</ion-content>

@@ -1,0 +1,42 @@
+review-card {
+  .review-card {
+    position: relative;
+    background: $housy-color-white;
+    padding: 0 $housy-review-card-margin;
+    margin-bottom: $housy-review-card-margin;
+    .like-review {
+      margin-top: $housy-review-card-margin;
+      border-top: 1px solid $housy-color-border;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: -$housy-review-card-margin;
+      left: 0;
+      height: $housy-review-card-margin;
+      width: 100%;
+      background: $housy-color-mask-lighter;
+    }
+  }
+  .block-reviewner {
+    .reviewner-info {
+      display: inline-block;
+      margin-left: 5px;
+      vertical-align: middle;
+    }
+    ion-avatar {
+      margin-right: 5px !important;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+  .gray-color {
+    color: $housy-color-mask;
+  }
+  .color-title {
+    text-transform: capitalize;
+    color: #42525a;
+    font-weight: 700 !important;
+    ;
+  }
+}

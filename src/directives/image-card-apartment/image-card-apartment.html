@@ -1,0 +1,37 @@
+<ion-card (click)="goToDetail(cardData.id)" *ngIf="cardData">
+    <div class="container-img">
+        <image-lazy [type]="'apartment'" [imgSrc]="cardData.image_default"></image-lazy>
+        <ion-card-content class="container-info">
+            <ion-item detail-none>
+                <div>
+                    {{cardData.name}}
+                </div>
+                <p>{{cardData.address}}</p>
+            </ion-item>
+            <ion-row>
+                <ion-col width-25>
+                    <ion-note>
+                        <ion-icon name="eye"></ion-icon>
+                        {{cardData.countReviews}}
+                    </ion-note>
+                </ion-col>
+                <ion-col width-25>
+                    <ion-note>
+                        <ion-icon name="images"></ion-icon>
+                        {{cardData.imageCount}}
+                    </ion-note>
+                </ion-col>
+                <ion-col>
+                    <ion-note>
+                        <ion-icon name="time"></ion-icon>
+                        3h trước
+                    </ion-note>
+                </ion-col>
+            </ion-row>
+        </ion-card-content>
+        <ion-note class="km-tag" padding *ngIf="km || km === 0">
+            <ion-icon name="md-trending-up"></ion-icon>
+            {{km}}km
+        </ion-note>
+    </div>
+</ion-card>

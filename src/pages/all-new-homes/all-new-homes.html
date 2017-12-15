@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Nhà mới đăng tin</ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content>
+    <div class="part-header">
+        <div class="title">
+            <span>Danh sách nhà mới đăng tin</span>
+        </div>
+        <div class="line"></div>
+    </div>
+    <div class="vertical-list">
+        <div class="container-card" padding-horizontal padding-bottom *ngFor="let item of listData">
+            <image-card *ngIf="item?.data" [cardData]="item?.data"></image-card>
+        </div>
+    </div>
+    <ion-infinite-scroll *ngIf="currentPage < totalPage" (ionInfinite)="doLoadMore($event)">
+        <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    <ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+</ion-content>

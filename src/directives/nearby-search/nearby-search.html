@@ -1,0 +1,22 @@
+<div id="{{containerAllId}}" class="container-nearby-search">
+    <a ion-item no-padding no-margin class="nearby-search" id="{{barId}}" detail-none>
+        <ion-row no-padding no-margin padding-left>
+            <ion-col no-padding no-margin text-uppercase>
+                <span style="height: 100%"></span>
+                <span>Các tiện ích xung quanh</span></ion-col>
+            <ion-col width-10 no-padding no-margin text-right>
+                <ion-icon name="arrow-dropup"></ion-icon>
+            </ion-col>
+        </ion-row>
+    </a>
+    <ion-row wrap>
+        <ion-col width-50 *ngFor="let item of googleTypePlaces" no-padding>
+            <ion-item detail-none>
+                <ion-label>
+                    {{item.name}}
+                </ion-label>
+                <ion-checkbox item-right [(ngModel)]="item.selecting" [disabled]="item.disable" (ionChange)="searchChanged($event, item)"></ion-checkbox>
+            </ion-item>
+        </ion-col>
+    </ion-row>
+</div>

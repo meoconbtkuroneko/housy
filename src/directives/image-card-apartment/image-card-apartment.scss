@@ -1,0 +1,63 @@
+image-card-apartment {
+  .item-md,
+  .item-ios {
+    padding-left: 0;
+  }
+  .item-md.item-block,
+  .item-ios.item-block {
+    .item-inner {
+      padding-right: 0;
+    }
+    ion-label {
+      margin-top: 0;
+      margin-bottom: 0;
+      div {
+        line-height: $housy-line-height-wide;
+        font-size: $housy-font-size-title;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-transform: capitalize;
+      }
+    }
+  }
+  .container-img {
+    position: relative;
+    ion-img {
+      min-height: $housy-card-height;
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .container-info,
+  .km-tag {
+    position: absolute;
+    color: $housy-color-card-icon;
+    width: 100%;
+  }
+  .container-info {
+    bottom: 0;
+    background: linear-gradient(transparent, $housy-color-background);
+    * {
+      color: $housy-color-card-icon;
+      background: transparent;
+    }
+  }
+  ion-note {
+    text-align: right;
+    letter-spacing: $housy-letter-spacing;
+    .icon {
+      color: $housy-icon-color-secondary;
+    }
+  }
+  .km-tag {
+    background: linear-gradient($housy-color-background, transparent);
+    position: absolute;
+    top: 0;
+    right: 0;
+    .icon {
+      color: $housy-icon-color-secondary;
+    }
+  }
+}

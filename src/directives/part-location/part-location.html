@@ -1,0 +1,14 @@
+<div padding class="location">
+    <div class="title">Vị trí</div>
+    <ion-card class="image-only-card" (click)="goToLocation()">
+        <image-lazy [imgSrc]="showData.mapUrl" class="thumbnail'"></image-lazy>
+        <ion-col width-90 class="card-label">
+            {{showData.address}}
+        </ion-col>
+        <ion-fab top right (click)="showDirectionClicked($event)">
+            <button ion-fab mini>
+                <ion-icon name="md-navigate"></ion-icon>
+            </button>
+        </ion-fab>
+    </ion-card>
+</div>

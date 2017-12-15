@@ -1,0 +1,21 @@
+image-slider {
+  .container-image-slider {
+    position: relative;
+    .price-tag,
+    .page-tag {
+      position: absolute;
+      bottom: 20%;
+    }
+    .page-tag {
+      bottom: 10px;
+      right: 10px;
+    }
+    ion-img {
+      min-height: $housy-card-height;
+      width: 100%;
+      img {
+        width: 100%;
+      }
+    }
+  }
+}

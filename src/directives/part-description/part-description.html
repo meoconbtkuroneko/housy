@@ -1,0 +1,4 @@
+<ion-row padding *ngIf="showData.description && showData.description != ''" class="container-description">
+    <read-more [rmText]="showData.description || 'Chưa có mô tả' " [rmLimit]="100" [rmMoreText]="'Xem thêm'" [rmLessText]="'-Thu gọn'" rmLinkClass="'link-more'">
+    </read-more>
+</ion-row>

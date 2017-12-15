@@ -1,0 +1,13 @@
+<ion-content class="container-gallery">
+    <button ion-button clear class="button-close-modal" (click)="closeGallery()">
+        <ion-icon name="md-close"></ion-icon>
+    </button>
+    <ion-slides initialSlide="{{this.params.index}}" (ionSlideWillChange)="ionSlideDidChange()">
+        <ion-slide *ngFor="let item of galleryData">
+            <image-lazy [type]="type" [fullSize]="true" [imgSrc]="item.url"></image-lazy>
+        </ion-slide>
+    </ion-slides>
+    <div class="page-tag">
+        {{currentImageShown}}/{{numImages}}
+    </div>
+</ion-content>

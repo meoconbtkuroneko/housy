@@ -1,0 +1,18 @@
+nearby-search {
+  .container-nearby-search {
+    position: absolute;
+    z-index: $housy-card-z-index;
+  }
+}
+
+.nearby-search {
+  height: $navbar-md-height;
+  box-shadow: $housy-nearby-search-box-shadow;
+  ion-col span {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .label {
+    margin: 0;
+  }
+}

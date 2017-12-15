@@ -1,0 +1,3 @@
+<button ion-button icon-only clear class="md-icon-button animated" (click)="favouriteButtonClicked($event)" [ngClass]="{'tada': favBtnAnimate}">
+    <ion-icon [name]="iconName" [ngClass]="{'favourite-added': cardData?.isFavouriteAdded}"></ion-icon>
+</button>

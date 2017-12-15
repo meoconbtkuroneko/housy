@@ -1,0 +1,35 @@
+.top-users {
+  text-align: center;
+  .avatar {
+    div {
+      width: $housy-user-card-avatar-width;
+      width: $housy-user-card-avatar-width;
+      margin: 0 auto;
+    }
+    img {
+      width: $housy-user-card-avatar-width;
+      height: $housy-user-card-avatar-width;
+      min-width: unset;
+      min-height: unset;
+      border-radius: 50%;
+    }
+  }
+  .name,
+  .role {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .name {
+    font-size: $housy-user-card-font-size;
+    font-weight: $housy-font-weight-bold;
+  }
+  .line {
+    width: 27%;
+    border-top: $housy-user-card-line;
+    margin: auto;
+  }
+  .role {
+    font-size: $housy-user-card-font-size-small;
+    letter-spacing: 1px;
+  }
+}

@@ -1,0 +1,37 @@
+<ion-card (click)="goToDetail(cardData?.renting.id)">
+    <div class="container-img">
+        <image-lazy [type]="'space'" [imgSrc]="cardData?.image_default"></image-lazy>
+        <div class="favourite-tag" *ngIf="defaultOpts.FAVOURITE_SHOWN == true">
+            <favourite-button [cardData]="cardData" (onFavouriteChanged)="onFavouriteChanged($event)"></favourite-button>
+        </div>
+        <div class="verify-tag" *ngIf="defaultOpts.VERIFY_SHOWN == true && cardData?.renting?.is_verified">
+            <div class="verify"><span>Housy</span></div>
+        </div>
+        <div *ngIf="defaultOpts.PRICE_SHOWN == true" class="price-tag">
+            {{cardData?.renting?.renting_fee | currency:'VND':true}}
+            <ion-icon *ngIf="cardData?.renting?.discount && cardData?.renting?.discount != 0" name="ios-flash"></ion-icon>
+        </div>
+    </div>
+    <ion-card-content>
+        <ion-item detail-none>
+            <div>
+                {{cardData?.title}}
+            </div>
+            <ion-avatar item-right>
+                <image-lazy class="avatar" [type]="'user'" [imgSrc]="cardData?.renting?.user?.picture"></image-lazy>
+            </ion-avatar>
+            <p>{{cardData?.address}}</p>
+        </ion-item>
+        <ion-row>
+            <ion-col width-33>
+                <ion-note>{{cardData?.home_type?.name}}</ion-note>
+            </ion-col>
+            <ion-col width-33>
+                <ion-note>{{cardData?.number_of_bedroom}} phòng ngủ</ion-note>
+            </ion-col>
+            <ion-col center text-center *ngIf="km || km === 0">
+                <ion-note>{{km}}km</ion-note>
+            </ion-col>
+        </ion-row>
+    </ion-card-content>
+</ion-card>

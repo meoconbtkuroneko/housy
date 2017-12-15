@@ -1,0 +1,15 @@
+<div class="header" padding>
+    <ion-row class="title main-title">
+        {{showData.title || showData.name}}
+    </ion-row>
+    <ion-row class="statistic">
+        <ion-col width-33 class="detail-review">
+            <ion-icon name="ios-eye"></ion-icon>
+            <span class="">{{showData.viewCount || 0}}</span>
+        </ion-col>
+        <ion-col width-33 class="detail-review">
+            <ion-icon name="heart"></ion-icon>
+            <span class="">{{showData.favoriteCount || 0}}</span>
+        </ion-col>
+    </ion-row>
+</div>
